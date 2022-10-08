@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="http://localhost:4000/~sano/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/~sano/" rel="alternate" type="text/html" /><updated>2022-10-08T19:33:10+09:00</updated><id>http://localhost:4000/~sano/feed.xml</id><title type="html">Jin SANO</title><subtitle>Master's student at Department of Computer Science and Communications Engineering,  Waseda University, Japan.</subtitle><entry><title type="html">A hands-on tutorial about Lambda GT</title><link href="http://localhost:4000/~sano/2022/10/04/lambda-gt-tutorial.html" rel="alternate" type="text/html" title="A hands-on tutorial about Lambda GT" /><published>2022-10-04T00:00:00+09:00</published><updated>2022-10-04T00:00:00+09:00</updated><id>http://localhost:4000/~sano/2022/10/04/lambda-gt-tutorial</id><content type="html" xml:base="http://localhost:4000/~sano/2022/10/04/lambda-gt-tutorial.html">&lt;p&gt;&lt;a href=&quot;https://github.com/sano-jin/lambda-gt-alpha/tree/master/&quot;&gt;&lt;img src=&quot;https://img.shields.io/badge/github-%40lambda%20gt%20alpha-yellow?style=flat-square&quot; alt=&quot;Repository&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;#license&quot;&gt;&lt;img src=&quot;https://img.shields.io/badge/license-MIT-yellow?style=flat-square&quot; alt=&quot;License&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://twitter.com/sano65747676&quot;&gt;&lt;img src=&quot;https://img.shields.io/badge/twitter-%40sano65747676-blue?style=flat-square&quot; alt=&quot;Twitter&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/sano-jin/lambda-gt-alpha/master/docs/graphs-image.svg&quot; alt=&quot;examples of graphs&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Graphs are a generalized concept that encompasses more complex data structures than trees,
+such as difference lists, doubly-linked lists, skip lists, and leaf-linked trees.
+Normally, these structures are handled with destructive assignments to heaps,
+as opposed to a purely functional programming style.&lt;/p&gt;
+
+&lt;p&gt;We propose a new purely functional language, λGT,
+that handles graphs as immutable, first-class data structures with
+a pattern matching mechanism based on Graph Transformation.&lt;/p&gt;
+
+&lt;p&gt;We implemented a reference interpreter, a reference implementation of the language.
+We believe this is usable for further investigation, including in the design of real languages based on λGT.
+The interpreter is written in only 500 lines of OCaml code.&lt;/p&gt;
+
+&lt;p&gt;We also have &lt;a href=&quot;https://sano-jin.github.io/lambda-gt-online/&quot;&gt;a visualizing tool that runs on a browser&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://opam.ocaml.org/&quot;&gt;opam&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;installation&quot;&gt;Installation&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/sano-jin/lambda-gt-alpha.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;lambda-gt-alpha
+opam &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+dune build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./run example/dlist.lgt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;which will result in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{_Y &amp;gt;&amp;lt; _X}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&quot;example&quot;&gt;/example&lt;/a&gt; for more examples.&lt;/p&gt;
+
+&lt;h2 id=&quot;syntax&quot;&gt;Syntax&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Expression     e ::= { T }                                  // graph
+                  |  e1 e2                                  // application
+                  |  case e1 of e2 -&amp;gt; e3 | otherwise -&amp;gt; e4  // case expression
+
+Graph Template T ::= v (_X1, ..., _Xn)                      // atom
+                  |  _X &amp;gt;&amp;lt; _Y                               // fusion
+                  |  x [_X1, ..., _Xn]                      // graph context
+                  |  (T, T)                                 // molecule
+                  |  nu _X. T                               // link creation
+
+Atom Name      v ::= Constr                                 // constructor name
+                  |  &amp;lt;\ x [_X1, ..., _Xn]. e&amp;gt;               // lambda abstraction
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For the syntax and semantics, please see
+&lt;a href=&quot;http://jssst.or.jp/files/user/taikai/2022/papers/20-L.pdf&quot;&gt;the paper[1]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;We have enabled logging.&lt;/p&gt;
+
+    &lt;div class=&quot;language-ocaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;evaluates &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exp&lt;/code&gt;, prints the value, and results in the value.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;development&quot;&gt;Development&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/sano-jin/lambda-gt-alpha/master/docs/dependency.svg&quot; alt=&quot;dependency graph&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Please give me issues or pull requests if you find any bugs or solutions for them.&lt;/p&gt;
+
+&lt;p&gt;We aim to build the simplest implementation.
+Thus, we may not accept a request for an enhancement.
+However, we appreciate it because it will be helpful in the design and implementation
+of the &lt;em&gt;real&lt;/em&gt; language based on this POC.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;File&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;LOC&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;parser/parser.mly&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;67&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;parser/lexer.mll&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;51&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;eval/eval.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;47&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;eval/syntax.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;42&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;eval/match_ctxs.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;37&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;eval/match_atoms.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;eval/preprocess.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;33&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;eval/pushout.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;33&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;eval/postprocess.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;parser/syntax.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;parser/parse.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;eval/match.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;bin/main.ml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;SUM:&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;408&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;bin&quot;&gt;&lt;a href=&quot;bin&quot;&gt;/bin&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Entry point&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;File&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;bin/main.ml&quot;&gt;main.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Read a file and execute the program.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;eval&quot;&gt;&lt;a href=&quot;eval&quot;&gt;/eval&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Evaluator&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;File&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;eval/syntax.ml&quot;&gt;syntax.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Syntax of atoms as an list.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;eval/preprocess.ml&quot;&gt;preprocess.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Transform an AST graph to a list of atoms. Alpha convert link names.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;eval/eval.ml&quot;&gt;eval.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;The evaluator.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;eval/match.ml&quot;&gt;match.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Matches atoms and graph contexts and returns the obtained graph substitutions.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;eval/match_atoms.ml&quot;&gt;match_atoms.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Matches atoms and returns the link mappings and the rest graph.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;eval/postprocess.ml&quot;&gt;postprocess.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Transform the link names in the rest graphs and supply fusions according to the link mappings.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;eval/match.ml&quot;&gt;match_ctxs.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Matches graph contexts and returns the obtained graph substitutions.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;eval/pushout.ml&quot;&gt;pushout.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Substitute graph contexts with the given graph substitution (rewriting after matching).&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;parser&quot;&gt;&lt;a href=&quot;parser&quot;&gt;/parser&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Lexical/Syntax analyzer&lt;/em&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;File&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;parser/syntax.ml&quot;&gt;syntax.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;AST definition&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;parser/lexer.mll&quot;&gt;lexer.mll&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Defines a token for lexing&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;parser/parser.mly&quot;&gt;parser.mly&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Defines a grammar for parsing&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;parser/parse.ml&quot;&gt;parse.ml&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Parser&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;citation&quot;&gt;Citation&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;(&lt;a href=&quot;http://jssst.or.jp/files/user/taikai/2022/papers/20-L.pdf&quot;&gt;pdf&lt;/a&gt;,
+&lt;a href=&quot;https://www.ueda.info.waseda.ac.jp/~sano/materials/jssst2022.pdf&quot;&gt;slide&lt;/a&gt;)
+A functional language with graphs as first-class data,
+In Proc. The 39th JSSST Annual Conference, 2022
+(15pp. unreferred).
+    &lt;details&gt;&lt;summary&gt;Abstract&lt;/summary&gt;&lt;div&gt;
+  Graphs are a generalized concept that encompasses more complex data structures than trees,
+  such as difference lists, doubly-linked lists, skip lists, and leaf-linked trees. Normally, these structures are handled
+  with destructive assignments to heaps, as opposed to a purely functional programming style. We proposed
+  a new purely functional language, λGT, that handles graphs as immutable, first-class data structures with
+  a pattern matching mechanism based on Graph Transformation. Since graphs can be more complex than
+  trees and require non-trivial formalism, the implementation of the language is also more complicated than
+  ordinary functional languages. λGT is even more advanced than the ordinary graph transformation systems.
+  We implemented a reference interpreter, a reference implementation of the language. We believe this
+  is usable for further investigation, including in the design of real languages based on λGT. The interpreter
+  is written in only 500 lines of OCaml code.
+&lt;/div&gt;&lt;/details&gt;
+  &lt;/li&gt;
+  &lt;li&gt;(&lt;a href=&quot;https://arxiv.org/abs/2209.05149&quot;&gt;arXiv&lt;/a&gt;,
+&lt;a href=&quot;https://www.ueda.info.waseda.ac.jp/~sano/materials/pro2022.pdf&quot;&gt;slide&lt;/a&gt;)
+Type checking data structures more complex than tree,
+to be appeared in Journal of Information Processing, 2022 (19pp. refferred).
+    &lt;details&gt;&lt;summary&gt;Abstract&lt;/summary&gt;&lt;div&gt;
+  Graphs are a generalized concept that encompasses more complex data structures than trees,
+  such as difference lists, doubly-linked lists, skip lists, and leaf-linked trees.
+  Normally, these structures are handled with destructive assignments to heaps,
+  which is opposed to a purely functional programming style and makes verification difficult.
+  We propose a new
+  purely functional language, \\(\lambda_{GT}\\), that handles graphs as immutable,
+  first-class data structures with a pattern matching mechanism
+  based on Graph Transformation and developed a new type system, \\(F_{GT}\\), for the language.
+  Our approach is in contrast with the analysis of pointer manipulation programs
+  using separation logic, shape analysis, etc. in that
+  (i) we do not consider destructive operations
+  but pattern matchings over graphs provided by the new higher-level language that
+  abstract pointers and heaps away and that
+  (ii) we pursue what properties can be established automatically using a rather simple typing framework.
+&lt;/div&gt;&lt;/details&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;contact&quot;&gt;Contact&lt;/h2&gt;
+
+&lt;p&gt;Please feel free to contact me (ask me any questions about this).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/sano65747676&quot;&gt;twitter@sano65747676&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ueda.info.waseda.ac.jp/~sano/&quot;&gt;homepage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;MIT&lt;/p&gt;</content><author><name>sano</name></author><summary type="html"></summary></entry><entry><title type="html">Generating and Maintaining Homepage</title><link href="http://localhost:4000/~sano/2022/03/11/homepage-dev-ops.html" rel="alternate" type="text/html" title="Generating and Maintaining Homepage" /><published>2022-03-11T00:00:00+09:00</published><updated>2022-03-11T00:00:00+09:00</updated><id>http://localhost:4000/~sano/2022/03/11/homepage-dev-ops</id><content type="html" xml:base="http://localhost:4000/~sano/2022/03/11/homepage-dev-ops.html">&lt;h1 id=&quot;generating-and-maintaining-homepage&quot;&gt;Generating and Maintaining Homepage&lt;/h1&gt;
+
+&lt;p&gt;ホームページの整備を現代風に行う&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;HTML を直書きするのではなく，markdown で楽に書きたい&lt;/li&gt;
+  &lt;li&gt;サーバ上で行う作業は最小化したい&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;jekyll-の紹介&quot;&gt;Jekyll の紹介&lt;/h2&gt;
+
+&lt;p&gt;2020 年以降にもなって，html を直書きするのはちょっと．．．&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;別に悪くはないのだけど，単純に面倒くさい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; は&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;markdown から html を生成することができるアプリケーション
+    &lt;ul&gt;
+      &lt;li&gt;html を置いておいても問題ない（markdown 以外のものとも共存可能）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;全てのページに共通な部品を用意することもできる
+    &lt;ul&gt;
+      &lt;li&gt;ページのヘッダの部分とか&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ソースコードの &lt;strong&gt;syntax-highliting もできる&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllthemes.io/&quot;&gt;色々なテーマが提供されている&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;自分で作ることもできる（と思われるけどやったことはない）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Ruby 製（Gem という ruby の package-manager を用いる）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;jekyll-の-quickstart&quot;&gt;Jekyll の Quickstart&lt;/h2&gt;
+
+&lt;p&gt;詳しくは， &lt;a href=&quot;https://jekyllrb.com/docs/&quot;&gt;https://jekyllrb.com/docs/&lt;/a&gt; を参照されたし．&lt;/p&gt;
+
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby version 2.5.0 or higher&lt;/li&gt;
+  &lt;li&gt;RubyGems&lt;/li&gt;
+  &lt;li&gt;GCC and Make&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;instructions&quot;&gt;Instructions&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Install all prerequisites&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install the jekyll and bundler using gems&lt;/p&gt;
+
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jekyll bundler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create a new Jekyll site at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./homepage&lt;/code&gt;（もちろん違う名前のディレクトリでも良い）.&lt;/p&gt;
+
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new homepage
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Change into your new directory.&lt;/p&gt;
+
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;homepage
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;（上記ページの注意書きにもあるのだが）webrick を依存関係に付与する必要がある．
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; の末尾（どこでも良いけど）に，&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &quot;webrick&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;を付加する&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Build the site and make it available on a local server.&lt;/p&gt;
+
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve &lt;span class=&quot;nt&quot;&gt;--livereload&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Browse to &lt;a href=&quot;http://localhost:4000&quot;&gt;http://localhost:4000&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;これで，ローカルのブラウザ上で見れるようになる．&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;ページのビルド&quot;&gt;ページのビルド&lt;/h2&gt;
+
+&lt;p&gt;U 研では，自分のページは &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public_html&lt;/code&gt;
+ディレクトリに置き， &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;U研のurl&amp;gt;/~ユーザ名&lt;/code&gt; でアクセスできる．&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; の &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;baseurl&lt;/code&gt; を設定．
+これをすることで，deploy したときに，
+リンクや css のロードが正しく動くようになる（jekyll serve の時には影響してこないことに注意）．&lt;/p&gt;
+
+    &lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;baseurl&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/~sano&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;markdown を html へ変換する．&lt;/p&gt;
+
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;これで，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; ディレクトリに html ファイルが生成される&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;ただし，url はローカルでは正しく設定されていないはずなので，
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;open _site**/index.html&lt;/code&gt; などではうまく表示できない（css の styling が適用されていない）はず&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;deploy&quot;&gt;Deploy&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; 以下のファイルをすべて &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dXXXXX&lt;/code&gt; の自分のディレクトリの &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public_html&lt;/code&gt; 内に配置する．&lt;/p&gt;</content><author><name>sano</name></author><category term="webdev" /><category term="showdev" /><category term="webdesign" /><summary type="html">Generating and Maintaining Homepage</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.csrhymes.com/img/landing-page.jpg" /><media:content medium="image" url="https://www.csrhymes.com/img/landing-page.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
