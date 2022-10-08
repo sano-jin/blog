@@ -1,7 +1,11 @@
 ---
-title: Jin SANO
+title: Jin SANO ほげ
 subtitle: Web Portfolio
 layout: home
+---
+
+ブログっぽいことをする．
+
 ---
 
 I am a student in Waseda University (Japan) majoring Computer Science
