@@ -27,8 +27,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: sano65747676
 github_username: sano-jin
-destination: public_html
-include: [.htaccess]
+# destination: public_html
+# include: [.htaccess]
 
 # Build settings
 # theme: bulma-clean-theme
