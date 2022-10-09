@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About the cite
-permalink: /about/
 ---
 
 I am a student in Waseda University (Japan) majoring Computer Science especially design and implementation of programming languages.
@@ -15,7 +14,7 @@ Currently, I am creating a new language named \\(\lambda\_{GT}\\).
 
 ### \\(\lambda\_{GT}\\): A purely functional language that can handle graphs as first-class data
 
-![graphs](../materials/graphs-image.svg)
+![graphs](materials/graphs-image.svg)
 
 Graphs are a generalized concept that encompasses more complex data structures than trees,
 such as difference lists, doubly-linked lists, skip lists, and leaf-linked trees.
