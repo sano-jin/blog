@@ -1,12 +1,10 @@
 ---
-title: Home
+title: About the author
 subtitle: Web Portfolio
-layout: home
+layout: page
 ---
 
-ブログっぽいことをするつもり．
-
-工事中です．
+ブログっぽいことをする．
 
 ---
 

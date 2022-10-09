@@ -1,0 +1,16 @@
+toc:
+  - name: About
+    dropdown:
+      - name: About this cite
+        url: /about
+      - name: About the author
+        url: /about_author
+
+  - name: Research
+    url: /research
+
+  - name: Blog
+    url: /blog
+
+  - name: Software
+    url: /software

@@ -1,12 +1,10 @@
 ---
-title: Home
+title: Jin SANO ほげ
 subtitle: Web Portfolio
 layout: home
 ---
 
-ブログっぽいことをするつもり．
-
-工事中です．
+ブログっぽいことをする．
 
 ---
 
