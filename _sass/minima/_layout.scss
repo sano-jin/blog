@@ -466,11 +466,15 @@
 
 .social-media-list {
     display: table;
-    margin: 0 auto;
+
+    // margin: 0 auto;
 
     li {
-        float: left;
+        // float: left;
         margin: 5px 10px 5px 0;
+        display: inline-block;
+
+        // height: 100px;
 
         &:last-of-type {
             margin-right: 0;
