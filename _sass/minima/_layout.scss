@@ -125,7 +125,9 @@
     a {
         color: $text-color;
         display: block;
-        padding: 5px 10px;
+        padding: 0px 10px;
+
+        // padding: 5px 10px;
 
         // Gaps between nav items, but not on the last one
         &:not(:last-child) {
@@ -195,7 +197,8 @@
             font-size: 16px;
             color: $text-color;
             text-align: center;
-            padding: 5px 16px;
+
+            // padding: 3px 16px;
             text-decoration: none;
         }
 
@@ -217,7 +220,7 @@
 
             // color: white;
             color: $text-color;
-            padding: 5px 16px;
+            padding: 0px 16px;
             background-color: inherit;
             font-family: inherit;
 
@@ -258,7 +261,7 @@
         .dropdown-content a {
             float: none;
             color: black;
-            padding: 12px 16px;
+            padding: 0px 16px;
             text-decoration: none;
             display: block;
             text-align: left;
