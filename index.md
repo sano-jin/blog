@@ -16,6 +16,10 @@ layout: home
 - 自分の環境の紹介（bashrc, vimrc, tmux）
 - 論文を読んで感想を書く．
 
+TODO:
+
+- スマホで表示するときは，Menu bar を，全て展開して display: block にする．
+
 ---
 
 I am a student in Waseda University (Japan) majoring Computer Science
