@@ -31,12 +31,12 @@
           </div>
           <div class="dropdown-content">
             {% for entry in item.dropdown %}
-            <a href="{{ entry.url  }}">{{ entry.name }}</a>
+            <a href="{{ entry.url | relative_url }}">{{ entry.name }}</a>
             {% endfor %}
           </div>
         </div>
         {% else %}
-        <a href="{{ item.url  }}">{{ item.name }}</a>
+        <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
         {% endif %} {% endfor %}
       </div>
 
