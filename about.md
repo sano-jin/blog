@@ -3,6 +3,11 @@ layout: page
 title: About the cite
 ---
 
+TODO:
+サイトについて説明する．
+
+---
+
 I am a student in Waseda University (Japan) majoring Computer Science especially design and implementation of programming languages.
 
 - For a list of publications and my job, please refer [home](/~sano/).

@@ -3,6 +3,7 @@
 // Define defaults for each variable.
 
 $base-font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
 $base-font-size: 16px !default;
 $base-font-weight: 400 !default;
 $small-font-size: $base-font-size * 0.875 !default;
@@ -19,9 +20,9 @@ $grey-color: #999 !default;
 
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark: darken($grey-color, 25%) !default;
-$border-color-03: darken($grey-color, 25%) !default;
-$border-color-01: darken($grey-color, 25%) !default;
-$border-color-02: darken($grey-color, 25%) !default;
+$border-color-01: darken($grey-color-light, 25%) !default;
+$border-color-02: darken($border-color-01, 25%) !default;
+$border-color-03: darken($border-color-02, 25%) !default;
 
 $link-color: #2a7ae2 !default;
 
@@ -31,12 +32,15 @@ $table-text-align: left !default;
 
 // Width of the content area
 $content-width: 800px !default;
+$sideview-width: 300px !default;
 
 $on-palm: 600px !default;
 $on-laptop: 800px !default;
 
 $on-medium: $on-palm !default;
-$on-large: $on-laptop !default;
+
+// $on-large: $on-laptop !default;
+$on-large: 1000px !default;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -58,6 +62,7 @@ $on-large: $on-laptop !default;
 // source code
 
 $code-font-family: "JetBrains Mono", Menlo, Monaco, Consolas, "DejaVu Sans Mono", "Liberation Mono", "Courier New", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
+
 $code-font-size: 15px;
 
 // Import partials.

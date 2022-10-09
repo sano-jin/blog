@@ -1,5 +1,6 @@
 ---
 layout: default
+commentable: true
 ---
 
 <article class="post">
@@ -7,15 +8,5 @@ layout: default
     <h1 class="post-title">{{ page.title | escape }}</h1>
   </header>
 
-  <div class="post-content">{{ content }}</div>
-
-  <script
-    src="https://utteranc.es/client.js"
-    repo="sano-jin/blog"
-    issue-term="pathname"
-    label="comment"
-    theme="github-light"
-    crossorigin="anonymous"
-    async
-  ></script>
+  {{ content }}
 </article>

@@ -1,20 +1,53 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
   {%- include head.html -%}
 
   <body>
-
     {%- include header.html -%}
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
+    <div class="flex-container">
+      <main class="content" aria-label="Content">
+        <div class="wrapper">{{ content }}</div>
+
+        {%- if layout.commentable -%}
+        <div class="wrapper comments">
+          <script
+            src="https://utteranc.es/client.js"
+            repo="sano-jin/blog"
+            issue-term="pathname"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async
+          ></script>
+        </div>
+        {%- endif -%}
+      </main>
+
+      {%- unless layout.hidesideview -%}
+      <div class="posts wrapper">
+        <h2 class="post-list-heading">
+          {{ page.list_title | default: "Posts" }}
+        </h2>
+        <ul class="post-list">
+          {%- for post in site.posts -%}
+          <li>
+            {%- assign date_format = site.minima.date_format | default: "%b %-d,
+            %Y" -%}
+            <span class="post-meta">{{ post.date | date: date_format }}</span>
+            <h3>
+              <a class="post-link" href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+              </a>
+            </h3>
+            {%- if site.show_excerpts -%} {{ post.excerpt }} {%- endif -%}
+          </li>
+          {%- endfor -%}
+        </ul>
       </div>
-    </main>
+      {%- endunless -%}
+    </div>
 
     {%- include footer.html -%}
-
   </body>
-
 </html>

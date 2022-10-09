@@ -4,10 +4,6 @@ subtitle: Web Portfolio
 layout: page
 ---
 
-ブログっぽいことをする．
-
----
-
 I am a student in Waseda University (Japan) majoring Computer Science
 especially design and implementation of programming languages.
 

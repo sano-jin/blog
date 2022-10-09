@@ -28,99 +28,11 @@
 //     margin: $spacing_unit auto ($spacing_unit * 3);
 // }
 
-/** 
-* Drop down menu bar
-*/
-
-/* Navbar container */
-.navbar {
-    overflow: hidden;
-
-    // background-color: #333;
-    font-family: Arial;
-}
-
-/* Links inside the navbar */
-.navbar a {
-    float: left;
-    font-size: 16px;
-    color: $text-color;
-    text-align: center;
-    padding: 5px 16px;
-    text-decoration: none;
-}
-
-/* The dropdown container */
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-
-/* Dropdown button */
-.dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-
-    // color: white;
-    color: $text-color;
-    padding: 5px 16px;
-    background-color: inherit;
-    font-family: inherit;
-
-    /* Important for vertical align on mobile phones */
-    margin: 0;
-}
-
-/* Add a red background color to navbar links on hover */
-.navbar > a:hover, .dropdown:hover .dropbtn {
-    background-color: $brand-color;
-    color: white;
-}
-
-.navbar a:hover {
-    background-color: $brand-color;
-}
-
-.dropbtn {
-    cursor: pointer;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
 /**
  * Site header
  */
 .site-header {
-    border-top: 5px solid $border-color-03;
+    border-top: 3px solid $brand-color;
     border-bottom: 1px solid $border-color-01;
     min-height: $spacing-unit * 1.865;
     line-height: $base-line-height * $base-font-size * 2.25;
@@ -193,6 +105,34 @@
         padding-bottom: 5px;
     }
 
+    // .navbar a {
+    //     display: block;
+    //     text-align: left;
+    //     overflow: hidden;
+    //     margin: 50px;
+    // }
+    div {
+        color: $text-color;
+        display: block;
+        padding: 0px 10px;
+
+        // Gaps between nav items, but not on the last one
+        &:not(:last-child) {
+            margin-right: 0;
+        }
+    }
+
+    a {
+        color: $text-color;
+        display: block;
+        padding: 5px 10px;
+
+        // Gaps between nav items, but not on the last one
+        &:not(:last-child) {
+            margin-right: 0;
+        }
+    }
+
     .page-link {
         color: $text-color;
         line-height: $base-line-height;
@@ -234,6 +174,104 @@
             }
 
             margin-left: auto;
+        }
+
+        /** 
+        * Drop down menu bar
+        */
+
+        /* Navbar container */
+        .navbar {
+            overflow: hidden;
+
+            // background-color: #333;
+            // font-family: Arial;
+       
+        }
+
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: $text-color;
+            text-align: center;
+            padding: 5px 16px;
+            text-decoration: none;
+        }
+
+        .navbar div {
+            padding: 0px;
+        }
+
+        /* The dropdown container */
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        /* Dropdown button */
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+
+            // color: white;
+            color: $text-color;
+            padding: 5px 16px;
+            background-color: inherit;
+            font-family: inherit;
+
+            /* Important for vertical align on mobile phones */
+            margin: 0;
+        }
+
+        .dropdown-content {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Add a red background color to navbar links on hover */
+        .navbar > a:hover, .dropdown:hover .dropbtn {
+            background-color: $brand-color;
+            color: white;
+        }
+
+        .navbar a:hover {
+            background-color: $brand-color;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        /* Add a grey background color to dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
     }
 }
@@ -293,6 +331,24 @@
 
     .footer-col-3 {
         width: calc(45% - (#{$spacing-unit} / 2));
+    }
+
+    // sideview
+
+    .flex-container {
+        display: flex;
+        margin: 0 auto;
+    }
+
+    .content {
+        flex: 1;
+        border-right: 1px solid $border-color-01;
+        width: $content-width;
+    }
+
+    .posts {
+        margin-right: 20px;
+        width: $sideview-width;
     }
 }
 
@@ -468,3 +524,38 @@
         width: calc(50% - (#{$spacing-unit} / 2));
     }
 }
+
+.comments {
+    border-top: 1px solid $border-color-01;
+    margin-top: 60px;
+}
+
+// Right side view: posts
+
+// .posts {
+//     display: block;
+//     float: right;
+//     max-width: $sideview-width;
+// }
+// 
+// .content {
+//     display: block;
+//     float: left;
+//     max-width: $content-width;
+// }
+
+// .flex-container {
+//     display: flex;
+//     margin: 0 auto;
+// }
+// 
+// .content {
+//     flex: 1;
+//     border: 2px solid yellow;
+//     width: $content-width;
+// }
+// 
+// .posts {
+//     margin-right: 20px;
+//     width: $sideview-width;
+// }
