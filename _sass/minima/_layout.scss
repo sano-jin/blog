@@ -320,6 +320,14 @@
     width: calc(100% - (#{$spacing-unit} / 2));
 }
 
+/**
+* Sideview
+*/
+
+.site-sideview {
+    display: none;
+}
+
 @media screen and (min-width: $on-large) {
     .footer-col-1 {
         width: calc(35% - (#{$spacing-unit} / 2));
@@ -348,7 +356,48 @@
 
     .posts {
         margin-right: 20px;
+        margin-top: 40px;
         width: $sideview-width;
+    }
+
+    .site-sideview {
+        display: block;
+
+        .sideview-col {
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .social-media-list {
+            a {
+                border: none;
+                display: block;
+                padding: 8px;
+
+                // padding: 0 20px;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                margin: 0 10px;
+            }
+
+            a:hover {
+                .svg-icon {
+                    fill: $brand-color;
+                }
+            }
+
+            .username {
+                display: none;
+            }
+
+            .svg-icon {
+                margin-right: 0px;
+                margin-left: 8px;
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+        }
     }
 }
 
@@ -557,9 +606,4 @@
 //     flex: 1;
 //     border: 2px solid yellow;
 //     width: $content-width;
-// }
-// 
-// .posts {
-//     margin-right: 20px;
-//     width: $sideview-width;
 // }
