@@ -4,8 +4,19 @@ title: Jekyll でソースコードに copy ボタンをつける
 author: sano
 ---
 
-copy するのに，どのみち javascript を使う．
-なので，copy 用のボタンも javascript で生成してしまうことにした．
+このサイト (html) は，
+生成するのに，
+[jekyll](https://jekyllrb.com/) を使っている．
+
+jekyll を使うとソースコードの syntax highlighting とかもしてくれる．
+
+だが少なくともデフォルトでは，
+このソースコードに copy ボタンとかはついていない．
+
+というわけで，copy ボタンが欲しいなら，自分で実装しないといけない．
+
+ここで，clipboard に copy するのには，どのみち javascript を使う．
+なので，copy 用のボタンも（jekyll で静的にではなく）javascript で動的に生成してしまうことにした．
 
 Jekyll の default がどうなっているのかはあまり自信がないのだが，
 少なくとも，このテーマでは，
@@ -61,12 +72,12 @@ window.onload = () => {
 copyCodeButton.classList.add("fa-check");
 ```
 
-とかで，
-copy ボタンを押して 2 秒（2000ms）以内は
-`fa-check` というクラスがつくようになっている．
+で，
+copy ボタンを押して 2 秒（2000ms）以内は，
+`fa-check` というクラスタグがつくようになっている．
 
+そこで，
 こういう css (sass) を書いた．
-色はちょっと違う（面倒なので，black とかにしちゃった）．
 
 ```css
 .highlight {
@@ -100,6 +111,8 @@ copy ボタンを押して 2 秒（2000ms）以内は
 }
 ```
 
+色はちょっと違う（面倒なので，black とかにしちゃった）．
+
 # 参考にしたもの
 
 <https://www.aleksandrhovhannisyan.com/blog/how-to-add-a-copy-to-clipboard-button-to-your-jekyll-blog/>
@@ -109,4 +122,3 @@ copy ボタンを押して 2 秒（2000ms）以内は
 # TODO:
 
 - directory 構成とかもうちょっと補足する．
-- なんか色々参考にしたはずなので，きちんと引用しておく．
