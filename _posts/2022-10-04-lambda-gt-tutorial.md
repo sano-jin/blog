@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "A hands-on tutorial about Lambda GT"
+excerpt: A functional language with graphs as first class data.
 author: sano
 ---
 

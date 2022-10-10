@@ -10,8 +10,6 @@ author: sano
 tags: webdev showdev webdesign
 ---
 
-# Generating and Maintaining Homepage
-
 ホームページの整備を現代風に行う
 
 1. HTML を直書きするのではなく，markdown で楽に書きたい
