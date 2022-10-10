@@ -617,3 +617,40 @@
 //     border: 2px solid yellow;
 //     width: $content-width;
 // }
+
+// .code-header {
+//     display: flex;
+//     justify-content: flex-end;
+// }
+
+.highlight {
+    position: relative;
+}
+
+.copy-code-button {
+    // display: grid;
+    // grid-auto-flow: column;
+    // align-items: center;
+    // grid-column-gap: 4px;
+    background: $background-color;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px 8px;
+    font-weight: 900;
+    color: $text-color;
+    top: 20px !important;
+    right: 20px !important;
+    position: absolute;
+    border: none;
+    display: none;
+}
+
+.highlight:hover .copy-code-button {
+    display: block;
+}
+
+.copy-code-button.fa-check {
+    display: block;
+    background: $brand-color;
+    color: white;
+}

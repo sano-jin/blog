@@ -3,13 +3,19 @@ subtitle: Web Portfolio
 layout: home
 ---
 
+**工事中です**．
+
 ブログっぽいことをするつもり．
 
 何か気になる点があったり，
 間違ったことを言っていたりしたら，
 気軽に教えてください．
 
-**工事中です**．
+[〉About this cite](about)
+
+[〉About the author](about_author)
+
+---
 
 考えてること：
 
