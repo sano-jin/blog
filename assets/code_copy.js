@@ -2,7 +2,7 @@ window.onload = () => {
   const codeBlocks = document.querySelectorAll("div.highlight");
   console.log(codeBlocks);
 
-  codeBlocks.forEach((codeBlock, index) => {
+  codeBlocks.forEach((codeBlock) => {
     const copyCodeButton = document.createElement("div");
     const note = document.createTextNode("Copy");
     copyCodeButton.appendChild(note);

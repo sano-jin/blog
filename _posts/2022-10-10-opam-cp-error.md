@@ -50,7 +50,7 @@ author: sano
 （教えてもらった）．
 
 ```bash
-chmod -fR u+w ${HOME}/.opam　
+chmod -fR u+w ${HOME}/.opam
 ```
 
 根本的な解決にはなっていない

@@ -3,10 +3,6 @@ title: Research
 layout: page
 ---
 
-TODO: 書き直す．
-
----
-
 I am interested in the design and implementation of programming languages.
 Currently, I am creating a new language named \\(\lambda\_{GT}\\).
 
