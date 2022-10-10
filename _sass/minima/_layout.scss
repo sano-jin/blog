@@ -319,6 +319,13 @@
     width: calc(50% - (#{$spacing-unit} / 2));
 }
 
+@media screen and (max-width: $on-medium) {
+    .footer-col-1,
+    .footer-col-2 {
+        width: calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
 .footer-col-3 {
     width: calc(100% - (#{$spacing-unit} / 2));
 }
