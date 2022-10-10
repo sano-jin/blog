@@ -9,7 +9,7 @@ especially design and implementation of programming languages.
 
 - Feel free to contact me at [twitter@sano65747676](https://twitter.com/sano65747676).
 
-## Education
+# Education
 
 April 2021 -- current: Master’s program
 
@@ -25,7 +25,7 @@ April 2017 -- March 2021: Bachelor of Engineering
   Waseda University,
   Supervisor: Professor Kazunori Ueda
 
-## Research Interests
+# Research Interests
 
 I am interested in the design and implementation of programming languages.
 Here is a list of topics that I am into.
@@ -35,7 +35,7 @@ Here is a list of topics that I am into.
 - Software verification
 - Graph transformation
 
-## Publications
+# Publications
 
 - 2022
 
@@ -120,3 +120,20 @@ Here is a list of topics that I am into.
   1. ([slide](./materials/pro2022.pdf))
      Type checking data structures more complex than tree,
      presented at IPSJ Special Interest Group on Programming, SWoPP2022.
+
+# Music
+
+I am currently into creating music.
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1323459022&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space:
+nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/sano2" title="sano" target="_blank" style="color: #cccccc; text-decoration: none;">sano</a> · <a href="https://soundcloud.com/sano2/celeste" title="Celeste" target="_blank" style="color: #cccccc; text-decoration: none;">Celeste</a></div>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1318510963&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space:
+nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/sano2" title="sano" target="_blank" style="color: #cccccc; text-decoration: none;">sano</a> · <a href="https://soundcloud.com/sano2/random10" title="random10" target="_blank" style="color: #cccccc; text-decoration: none;">random10</a></div>
+
+# Software
+
+[GitHub](https://github.com/sano-jin)
+
+Here are a list of programming languages that I often use.
+
+- Ocaml, Haskell, TypeScript (React), Elm, C++, Python, Rust, a little bit of bash script, Java (though I do not prefer much)
