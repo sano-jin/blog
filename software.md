@@ -3,8 +3,6 @@ layout: page
 title: Softwares
 ---
 
-TODO: 書き直す．
-
 <!--
 **sano-jin/sano-jin** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
@@ -20,7 +18,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-[GitHub](https://github.com/sano-jin)
+[〉GitHub](https://github.com/sano-jin)
 
 Here are a list of programming languages that I often use.
 

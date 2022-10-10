@@ -1,41 +1,8 @@
 <div class="posts wrapper">
-  <div class="site-sideview h-card">
-    <data class="u-url" href="{{ '/' | relative_url }}"></data>
+  <div>{%- include profile.html -%}</div>
 
-    <div class="wrapper">
-      <div class="sideview-col-wrapper">
-        <img src="{{ '/assets/logo.jpg' | relative_url }}" />
-
-        <h2>
-          {%- if site.author -%} {{ site.author | escape }} {%- else -%} {{
-          site.title | escape }} {%- endif -%}
-        </h2>
-
-        <div class="sideview-col sideview-col-2">
-          {%- include social.html -%}
-        </div>
-        <div class="sideview-col sideview-col-3">
-          <p>{{- site.description | escape -}}</p>
-        </div>
-      </div>
-    </div>
+  <div>
+    {%- unless layout.hide_posts_list -%} {%- include posts-list.html -%} {%-
+    endunless -%}
   </div>
-
-  <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-  <ul class="post-list">
-    {%- for post in site.posts -%}
-    <li>
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y"
-      -%}
-      <span class="post-meta">{{ post.date | date: date_format }}</span>
-      <h3>
-        <a class="post-link" href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
-        </a>
-      </h3>
-
-      {%- if site.show_excerpts -%} {{ post.excerpt }} {%- endif -%}
-    </li>
-    {%- endfor -%}
-  </ul>
 </div>
