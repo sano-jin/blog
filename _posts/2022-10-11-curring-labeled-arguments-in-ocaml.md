@@ -1,10 +1,9 @@
 ---
 layout: post
-title: Curring labeled arguments in ocaml
+title: Curring labeled arguments in OCaml
 author: sano
 ---
 
-表題の通りで，
 OCaml では，labeled argument を持つ関数に対しても，
 部分適用できる（curring されている）
 ということに気がつきました．
