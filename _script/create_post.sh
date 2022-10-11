@@ -10,7 +10,8 @@ if [ $# -eq 0 ]; then
 fi
 
 d=$(date +%Y-%m-%d)
-title="${1// /-}"
+title=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+title="${title// /-}"
 name="$d-$title.md" # 12-30-2017
 
 echo "$name"

@@ -6,8 +6,13 @@
       <img src="{{ '/assets/logo.jpg' | relative_url }}" />
 
       <h2>
-        {%- if site.author -%} {{ site.author | escape }} {%- else -%} {{
-        site.title | escape }} {%- endif -%}
+        {%- if site.about_author -%}
+        <a href="{{ site.about_author | relative_url }}">
+          {%- if site.author -%} {{ site.author | escape }} {%- else -%} {{
+          site.title | escape }} {%- endif -%}
+        </a>
+        {%- else -%} {%- if site.author -%} {{ site.author | escape }} {%- else
+        -%} {{ site.title | escape }} {%- endif -%} {%- endif -%}
       </h2>
 
       <div class="sideview-col sideview-col-2">{%- include social.html -%}</div>
