@@ -41,13 +41,13 @@ val g : left:int -> int = <fun>
 もっとテストしてみると，
 
 ```ocaml
-left:int -> right:int -> int = <fun>
+left:int -> right:int -> int
 ```
 
 という型と，
 
 ```ocaml
-right:int -> left:int -> int = <fun>
+right:int -> left:int -> int
 ```
 
 を区別しているということがわかった．
