@@ -9,7 +9,8 @@ author: sano
 生成するのに，
 [jekyll](https://jekyllrb.com/) を使っている．
 
-jekyll を使うとソースコードの syntax highlighting とかもしてくれる．
+jekyll を使うと，
+ソースコードの syntax highlighting とかもしてくれる．
 
 だが少なくともデフォルトでは，
 このソースコードに copy ボタンとかはついていない．
