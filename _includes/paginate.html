@@ -1,0 +1,30 @@
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+<h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
+<p class="author">
+  <span class="date">{{ post.date | date: date_format }}</span>
+</p>
+<div>{%- if site.show_excerpts -%} {{ post.excerpt }} {%- endif -%}</div>
+<!--
+  <div class="paginate-content">{{ post.content }}</div>
+-->
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">
+    ◀︎
+  </a>
+  {% else %}
+  <span class="previous"> ◀︎ </span>
+  {% endif %}
+  <span class="page_number">
+    {{ paginator.page }} / {{ paginator.total_pages }}
+  </span>
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}" class="next"> ▶︎ </a>
+  {% else %}
+  <span class="next"> ▶︎ </span>
+  {% endif %}
+</div>
