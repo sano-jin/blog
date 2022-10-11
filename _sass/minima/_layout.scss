@@ -374,8 +374,9 @@
         display: block;
 
         .sideview-col {
-            margin: 0 auto;
-            width: fit-content;
+            // margin: 0 auto;
+            // width: fit-content;
+       
         }
 
         .social-media-list {
@@ -388,7 +389,9 @@
                 width: 32px;
                 height: 32px;
                 border-radius: 50%;
-                margin: 0 10px;
+
+                // margin: 0 10px;
+                margin-right: 10px;
             }
 
             a:hover {
