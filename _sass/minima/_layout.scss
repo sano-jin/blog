@@ -656,3 +656,29 @@
     background: $brand-color;
     color: white;
 }
+
+/**
+* Pagination
+*/
+.pagination {
+    margin: 50px 0  20px;
+
+    .previous,
+    .next {
+        color: $grey-color-light;
+    }
+
+    .previous.available,
+    .next.available {
+        // color: $brand-color-light;
+        font-size: 200%;
+
+        // vertical-align: middle;
+   
+    }
+
+    .previous.available:hover,
+    .next.available:hover {
+        color: $brand-color;
+    }
+}

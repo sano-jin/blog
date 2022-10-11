@@ -13,12 +13,12 @@ $spacing-unit: 30px !default;
 $text-color: #333 !default;
 $background-color: #ffffff !default;
 $brand-color: #2a7a92 !default;
+$brand-color-light: lighten($brand-color, 25%) !default;
 
 $heading-color: #5a9a9e !default;
 
 $grey-color: #999 !default;
-
-$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-light: lighten($grey-color, 25%) !default;
 $grey-color-dark: darken($grey-color, 25%) !default;
 $border-color-01: darken($grey-color-light, 25%) !default;
 $border-color-02: darken($border-color-01, 25%) !default;
