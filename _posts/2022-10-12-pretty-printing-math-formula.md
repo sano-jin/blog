@@ -7,25 +7,30 @@ author: sano
 pretty print に関して，実は全く調べたことがない（完全に自己流である）ので，
 これを機に調べてみるのも良いのかもしれない．
 
+- operator precedence: 演算子の優先度
+- associativity: 結合性
+
 # 自分のやり方
 
-term と親の term の中置演算子の precedence(priority) を引数に渡して，
+term と親の term の中置演算子の precedence (priority) を引数に渡して，
 term が中置演算子だった場合は自分の precedence が親のよりも低かったら括弧をつける．
 
 左結合の場合は，右の子の term のみ，
 pretty printer に渡す自分の precedence を，1 増やして渡す．
 none の場合は両方増やして，右結合の場合は左の子のみ増やす．
 
-我らが愛しの OCaml の operator precedence (and associativity)
-は
+我らが愛しの OCaml の operator precedence and associativity は，
 <https://v2.ocaml.org/manual/expr.html#ss:precedence-and-associativity>
 にある．
 
 この表の一番下から数えて何番目かを，
 precedence ということにする．
 
-引き算とか，割り算とかは結合性がないので，
-そいつらで実装してみる．
+足し算とか掛け算だと結合的なので，
+associativity を気にする必要が（あんまり）ない．
+
+引き算とか，割り算とかは結合的じゃないので，
+この辺が超クリティカル．
 
 ```ocaml
 type exp =
