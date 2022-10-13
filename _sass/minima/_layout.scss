@@ -720,3 +720,12 @@
 strong {
     font-size: 110%;
 }
+
+hr {
+    background-color: $border-color-01;
+    border: none;
+    border-top: 1px solid $brand-color-light;
+    width: 30%;
+    margin-left: 0%;
+    margin: ($spacing_unit * 2) 0;
+}
