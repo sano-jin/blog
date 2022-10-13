@@ -16,8 +16,61 @@ term が中置演算子だった場合は自分の precedence が親のよりも
 pretty printer に渡す自分の precedence を，1 増やして渡す．
 none の場合は両方増やして，右結合の場合は左の子のみ増やす．
 
-これは，実は，今まであんまりちゃんと考えてこなかった．
+```ocaml
+type exp =
+  | Int of int
+  | Div of exp * exp
+  | Sub of exp * exp
+  | Or of exp * exp
+  | Pair of exp * exp
+
+type assoc = AscLeft | AscRight | AscNone
+
+let rec string_of_exp parent_prec exp =
+  let string_of_binop e1 e2 op prec assoc =
+    let p1, p2 =
+      match assoc with
+      | AscLeft -> (prec, succ prec)
+      | AscNone -> (succ prec, succ prec)
+      | AscRight -> (succ prec, prec)
+    in
+    let str = string_of_exp p1 e1 ^ op ^ string_of_exp p2 e2 in
+    if prec < parent_prec then "(" ^ str ^ ")" else str
+  in
+  match exp with
+  | Int i -> string_of_int i
+  | Div (e1, e2) -> string_of_binop e1 e2 " / " 12 AscLeft
+  | Sub (e1, e2) -> string_of_binop e1 e2 " - " 11 AscLeft
+  | Or (e1, e2) -> string_of_binop e1 e2 " || " 6 AscRight
+  | Pair (e1, e2) -> string_of_binop e1 e2 ", " 5 AscNone
+
+let string_of_exp = string_of_exp 0
+
+(* Some expressions for the tests *)
+let e1 = Sub (Sub (Sub (Int 1, Int 2), Int 3), Int 4)
+let e2 = Sub (Sub (Int 1, Sub (Int 2, Int 3)), Int 4)
+let e3 = Sub (Sub (Int 1, Int 2), Sub (Int 3, Int 4))
+let e4 = Sub (Int 1, Sub (Int 2, Sub (Int 3, Int 4)))
+let e5 = Pair (Int 1, Sub (Int 2, Sub (Int 3, Int 4)))
+let e6 = Pair (Sub (Int 1, Int 2), Sub (Int 3, Int 4))
+let e7 = Sub (Pair (Int 1, Int 2), Sub (Int 3, Int 4))
+let e8 = Sub (Pair (Int 1, Int 2), Or (Int 3, Int 4))
+let e9 = Or (Pair (Int 1, Int 2), Or (Int 3, Int 4))
+let e10 = Or (Pair (Int 1, Int 2), Sub (Int 3, Int 4))
+let e11 = Or (Or (Int 1, Int 2), Or (Int 3, Int 4))
+let e12 = Div (Sub (Int 1, Int 2), Div (Int 3, Int 4))
+
+(* Test *)
+print_string @@ string_of_exp e1;;
+```
+
+**TODO: 各例題の解説を書く**
+
+実は，今まであんまりちゃんと考えてこなかった．
 結合性を全く気にしていなかった気がする（ヤバい）．
 
 ラムダ式の pretty print も書いたはずだけど，
 （application を）どうしていたか（無意識にこれをやっていたのか）は不明．
+
+何というか，体系的にまとめられてたりしないかな（するんだろうな）．
+誰か良い感じの書籍とかウェブサイトとかあれば教えてください．
