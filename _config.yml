@@ -79,7 +79,7 @@ about_author: about_author
 google_analytics: "G-7DP65677HQ"
 
 # Produces a cleaner folder structure when using categories
-permalink: /:year/:month/:title.html
+# permalink: /:year/:month/:title.html
 
 # Pagination Settings
 pagination:
