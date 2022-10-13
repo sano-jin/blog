@@ -126,18 +126,26 @@ a {
  * Blockquotes
  */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    color: $grey-color-dark;
+    background-color: $quoteblock-background-color;
+
+    // color: $grey-color;
+    border-left: 10px solid $grey-color-light;
     padding-left: $spacing-unit / 2;
+    padding: 1px ($spacing-unit / 2);
+    margin-left: 0px;
+
+    // padding-top: 5px;
 
     @include relative-font-size(1.125);
 
     letter-spacing: -1px;
-    font-style: italic;
 
-    > :last-child {
-        margin-bottom: 0;
-    }
+    // font-style: italic;
+
+    // > :last-child {
+    //     margin-bottom: 0;
+    // }
 }
 
 /**

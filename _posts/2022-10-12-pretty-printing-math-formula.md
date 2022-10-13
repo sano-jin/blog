@@ -9,17 +9,20 @@ pagination:
 pretty print に関して，実は全く調べたことがない（完全に自己流である）ので，
 これを機に調べてみるのも良いのかもしれない．
 
+- pretty print: 冗長な括弧とかを省いて綺麗に (pretty に) 出力すること
 - operator precedence: 演算子の優先度
 - associativity: 結合性
 
 # 自分のやり方
 
-term と親の term の中置演算子の precedence (priority) を引数に渡して，
-term が中置演算子だった場合は自分の precedence が親のよりも低かったら括弧をつける．
+概要：
 
-左結合の場合は，右の子の term のみ，
-pretty printer に渡す自分の precedence を，1 増やして渡す．
-none の場合は両方増やして，右結合の場合は左の子のみ増やす．
+> term と親の term の中置演算子の precedence (priority) を引数に渡して，
+> term が中置演算子だった場合は自分の precedence が親のよりも低かったら括弧をつける．
+>
+> 左結合の場合は，右の子の term のみ，
+> pretty printer に渡す自分の precedence を，1 増やして渡す．
+> none の場合は両方増やして，右結合の場合は左の子のみ増やす．
 
 我らが愛しの OCaml の operator precedence and associativity は，
 <https://v2.ocaml.org/manual/expr.html#ss:precedence-and-associativity>
@@ -40,8 +43,19 @@ type exp =
   | Div of exp * exp
   | Sub of exp * exp
   | Or of exp * exp
+```
 
+こんな感じに定義された式を pretty print しよう．
+
+演算子の結合性を定義しておく．
+
+```ocaml
 type assoc = AscLeft | AscRight
+```
+
+pretty printer は次のように実装できる．
+
+```ocaml
 
 let rec string_of_exp parent_prec exp =
   let string_of_binop e1 e2 op prec assoc =
@@ -60,7 +74,11 @@ let rec string_of_exp parent_prec exp =
   | Or (e1, e2) -> string_of_binop e1 e2 " || " 6 AscRight
 
 let string_of_exp = string_of_exp 0
+```
 
+以下のようなデータでテストしてみた．
+
+```ocaml
 (* Some expressions for the tests *)
 let e1 = Sub (Sub (Sub (Int 1, Int 2), Int 3), Int 4)
 let e2 = Sub (Sub (Int 1, Sub (Int 2, Int 3)), Int 4)
@@ -81,7 +99,9 @@ print_string @@ string_of_exp e1;;
 
 **TODO: 各例題の解説を書く**
 
-実は，今まであんまりちゃんと考えてこなかった．
+# 実は，
+
+今まであんまりちゃんと考えてこなかった．
 結合性を全く気にしていなかった気がする（ヤバい）．
 
 ラムダ式の pretty print も書いたはずだけど，

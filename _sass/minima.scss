@@ -19,12 +19,13 @@ $heading-color: #5a9a9e !default;
 
 $grey-color: #999 !default;
 $grey-color-light: lighten($grey-color, 25%) !default;
-$grey-color-dark: darken($grey-color, 25%) !default;
+$grey-color-dark: darken($grey-color, 20%) !default;
 $border-color-01: darken($grey-color-light, 25%) !default;
 $border-color-02: darken($border-color-01, 25%) !default;
 $border-color-03: darken($border-color-02, 25%) !default;
 
 $code-background-color: #f3f3f3 !default;
+$quoteblock-background-color: #f3f3f3 !default;
 
 $link-color: #2a7ae2 !default;
 
