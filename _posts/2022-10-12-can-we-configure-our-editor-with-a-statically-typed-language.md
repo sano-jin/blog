@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Can we configure our editor with a statically typed language ?
+title: Can we configure our editor with a statically typed language?
 excerpt: 設定ファイルが (OCa)ML なエディタってないのかな．
 author: sano
 ---

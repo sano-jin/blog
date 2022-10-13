@@ -685,3 +685,34 @@
         color: $brand-color;
     }
 }
+
+.prev-and-next {
+    margin: 50px 0 0;
+
+    // padding: 20px 0 0;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid $border-color-01;
+    align-items: stretch;
+
+    > div {
+        // margin-right: auto;
+        margin: 0 auto;
+        width: calc(45% - 40px);
+        padding: 20px;
+        padding-top: 20px;
+
+        // background-color: $brand-color-light-02;
+        border-radius: 10px;
+
+        // border: 1px solid $border-color-01;
+
+        // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+   
+    }
+
+    > a:hover {
+        text-decoration: none;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+}
