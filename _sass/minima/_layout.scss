@@ -688,8 +688,7 @@
 
 .prev-and-next {
     margin: 50px 0 0;
-
-    // padding: 20px 0 0;
+    padding: 20px 0 0;
     width: 100%;
     display: flex;
     border-top: 1px solid $border-color-01;
@@ -698,17 +697,28 @@
     > div {
         // margin-right: auto;
         margin: 0 auto;
-        width: calc(45% - 40px);
-        padding: 20px;
-        padding-top: 20px;
+        width: calc(49% - (#{$spacing-unit} * 2));
+        padding: 0 ($spacing-unit / 2);
 
+        // padding: 0px;
+        // padding-top: 20px;
         // background-color: $brand-color-light-02;
         border-radius: 10px;
 
         // border: 1px solid $border-color-01;
 
         // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-   
+
+        @include media-query($on-palm) {
+            width: calc(49% - 20px);
+            padding: 0 0;
+        }
+
+
+        > div > p {
+            padding-top: 0;
+            margin-top: 0;
+        }
     }
 
     > a:hover {
