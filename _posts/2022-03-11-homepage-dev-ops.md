@@ -8,8 +8,6 @@ show_sidebar: false
 menubar_toc: true
 author: sano
 tags: webdev showdev webdesign
-pagination:
-  enabled: true
 ---
 
 ホームページの整備を現代風に行う
