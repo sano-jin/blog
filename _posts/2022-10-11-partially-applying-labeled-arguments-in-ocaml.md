@@ -5,7 +5,7 @@ author: sano
 ---
 
 OCaml では，labeled argument を持つ関数に対しても，
-部分適用できる（curring されている）
+部分適用できる（curring されている？）
 ということに気がつきました．
 
 ```ocaml
