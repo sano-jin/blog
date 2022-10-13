@@ -4,19 +4,21 @@
 
 set -eux
 
-if [ $# -eq 0 ]; then
-    echo "No arguments supplied"
-    exit 1
-fi
-
 d=$(date +%Y-%m-%d)
 title=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 title="${title// /-}"
+
 name="$d-$title.md" # 12-30-2017
+echo "$title"
 
 echo "$name"
 
-echo -e "---\nlayout: post\ntitle: $1\nauthor: sano\n---\n\n" >"_posts/$name"
+body="---\nlayout: post\ntitle: $1\nauthor: sano\n---\n\n"
+echo -e "$body"
+
+echo -e "$body" >"_drafts/$name"
+
+vim "_drafts/$name"
 
 # ---
 # layout: post
