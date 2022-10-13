@@ -162,7 +162,7 @@ console.log(x.ref); // [4, 5]
 ```
 
 この，
-`console.log(x);` では，
+`console.log(x.ref);` では，
 `[4, 5]`
 が出力される．
 
