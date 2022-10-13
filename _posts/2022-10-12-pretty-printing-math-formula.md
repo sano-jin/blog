@@ -56,7 +56,6 @@ type assoc = AscLeft | AscRight
 pretty printer は次のように実装できる．
 
 ```ocaml
-
 let rec string_of_exp parent_prec exp =
   let string_of_binop e1 e2 op prec assoc =
     let p1, p2 =
