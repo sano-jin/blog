@@ -75,4 +75,4 @@ paginate_path: "/blog/page:num"
 #       hero_image: /path/to/hero-image.jpg
 #       show_sidebar: true
 
-google_analytics: G-7DP65677HQ
+google_analytics: "G-7DP65677HQ"
