@@ -152,14 +152,6 @@
         margin-left: 20px;
     }
 
-    .menu-icon {
-        path {
-            fill: red;
-        }
-
-        color: blue;
-    }
-
     @media screen and (min-width: $on-medium) {
         position: static;
         float: right;
