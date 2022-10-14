@@ -33,10 +33,6 @@ associativity を気にする必要が（あんまり）ない．
 引き算とか，割り算とかは結合的じゃないので，
 この辺が超クリティカル．
 
-<!--
- とりあえず，associativity が none なやつ (tuple とか) は考えないことにする．
- -->
-
 ```ocaml
 type exp =
   | Int of int

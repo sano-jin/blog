@@ -10,15 +10,22 @@ $small-font-size: $base-font-size * 0.875 !default;
 $base-line-height: 1.8 !default;
 $spacing-unit: 30px !default;
 
-$text-color: #333 !default;
+// $text-color: #333 !default;
+$text-color: #2E3440 !default;
 
 $background-color: #ffffff !default;
 
 // $background-color: #ECEFF4 !default;
 
-$brand-color: #2a7a92 !default;
+// $brand-color: $text-color !default;
 
 // $brand-color: #4C566A !default;
+// $brand-color: #2a7a92 !default;
+// $brand-color: #4C566A !default;
+$brand-color: #5a7a92 !default;
+
+// $brand-color: #4C566A !default;
+// $brand-color: lighten($brand-color-old, 10%) !default;
 $brand-color-light: lighten($brand-color, 25%) !default;
 
 // $brand-color-old: #2a7a92 !default;
@@ -51,7 +58,11 @@ $quoteblock-code-background-color-02: darken($quoteblock-code-background-color, 
 $quoteblock-background-color-03: darken($quoteblock-background-color-02, 5%) !default;
 $quoteblock-code-background-color-03: darken($quoteblock-code-background-color-02, 5%) !default;
 
-$link-color: #2a7ae2 !default;
+// $link-color: #2a7ae2 !default;
+// $link-color: #5E81AC !default;
+
+// $link-color: #81A1C1 !default;
+$link-color: #1a9ad2 !default;
 
 $site-title-color: darken($grey-color, 25%) !default;
 
