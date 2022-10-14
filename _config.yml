@@ -150,3 +150,6 @@ pagination:
 #   # Without file extension
 #   indexpage: "index"
 # ############################################################
+#
+kramdown:
+  header_offset: 1
