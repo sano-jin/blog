@@ -2,8 +2,6 @@
 layout: post
 title: Pretty printing math formula
 author: sano
-pagination:
-  enabled: true
 ---
 
 pretty print に関して，実は全く調べたことがない（完全に自己流である）ので，
