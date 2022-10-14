@@ -18,7 +18,6 @@ $brand-color-light: lighten($brand-color, 25%) !default;
 $brand-color-light-02: lighten($brand-color-light, 25%) !default;
 
 $heading-color: $brand-color !default;
-$site-title-color: darken($grey-color, 25%) !default;
 
 $grey-color: #999 !default;
 $grey-color-light: lighten($grey-color, 25%) !default;
@@ -40,6 +39,7 @@ $quoteblock-code-background-color-02: darken($quoteblock-code-background-color, 
 $quoteblock-code-background-color-03: darken($quoteblock-code-background-color-02, 5%) !default;
 
 $link-color: #1a9ad2 !default;
+$site-title-color: darken($grey-color, 25%) !default;
 
 $table-text-align: left !default;
 
