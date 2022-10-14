@@ -33,7 +33,9 @@ associativity を気にする必要が（あんまり）ない．
 引き算とか，割り算とかは結合的じゃないので，
 この辺が超クリティカル．
 
-とりあえず，associativity が none なやつ (tuple とか) は考えないことにする．
+<!--
+ とりあえず，associativity が none なやつ (tuple とか) は考えないことにする．
+ -->
 
 ```ocaml
 type exp =
@@ -41,6 +43,7 @@ type exp =
   | Div of exp * exp
   | Sub of exp * exp
   | Or of exp * exp
+  | Pair of exp * exp
 ```
 
 こんな感じに定義された式を pretty print しよう．
@@ -48,7 +51,7 @@ type exp =
 演算子の結合性を定義しておく．
 
 ```ocaml
-type assoc = AscLeft | AscRight
+type assoc = AscLeft | AscNone | AscRight
 ```
 
 pretty printer は次のように実装できる．
@@ -59,6 +62,7 @@ let rec string_of_exp parent_prec exp =
     let p1, p2 =
       match assoc with
       | AscLeft -> (prec, succ prec)
+      | AscNone -> (succ prec, succ prec)
       | AscRight -> (succ prec, prec)
     in
     let str = string_of_exp p1 e1 ^ op ^ string_of_exp p2 e2 in
@@ -69,6 +73,7 @@ let rec string_of_exp parent_prec exp =
   | Div (e1, e2) -> string_of_binop e1 e2 " / " 12 AscLeft
   | Sub (e1, e2) -> string_of_binop e1 e2 " - " 11 AscLeft
   | Or (e1, e2) -> string_of_binop e1 e2 " || " 6 AscRight
+  | Pair (e1, e2) -> string_of_binop e1 e2 ", " 5 AscNone
 
 let string_of_exp = string_of_exp 0
 ```
@@ -81,12 +86,12 @@ let e1 = Sub (Sub (Sub (Int 1, Int 2), Int 3), Int 4)
 let e2 = Sub (Sub (Int 1, Sub (Int 2, Int 3)), Int 4)
 let e3 = Sub (Sub (Int 1, Int 2), Sub (Int 3, Int 4))
 let e4 = Sub (Int 1, Sub (Int 2, Sub (Int 3, Int 4)))
-let e5 = Or (Int 1, Sub (Int 2, Sub (Int 3, Int 4)))
-let e6 = Or (Sub (Int 1, Int 2), Sub (Int 3, Int 4))
-let e7 = Sub (Or (Int 1, Int 2), Sub (Int 3, Int 4))
-let e8 = Sub (Or (Int 1, Int 2), Or (Int 3, Int 4))
-let e9 = Or (Or (Int 1, Int 2), Or (Int 3, Int 4))
-let e10 = Or (Or (Int 1, Int 2), Sub (Int 3, Int 4))
+let e5 = Pair (Int 1, Sub (Int 2, Sub (Int 3, Int 4)))
+let e6 = Pair (Sub (Int 1, Int 2), Sub (Int 3, Int 4))
+let e7 = Sub (Pair (Int 1, Int 2), Sub (Int 3, Int 4))
+let e8 = Sub (Pair (Int 1, Int 2), Or (Int 3, Int 4))
+let e9 = Or (Pair (Int 1, Int 2), Or (Int 3, Int 4))
+let e10 = Or (Pair (Int 1, Int 2), Sub (Int 3, Int 4))
 let e11 = Or (Or (Int 1, Int 2), Or (Int 3, Int 4))
 let e12 = Div (Sub (Int 1, Int 2), Div (Int 3, Int 4))
 
