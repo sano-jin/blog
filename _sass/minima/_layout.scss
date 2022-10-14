@@ -36,8 +36,11 @@
     margin: 0;
 
     // border-bottom: 1px solid $border-color-01;
-    min-height: $spacing-unit * 1.865;
-    line-height: $base-line-height * $base-font-size * 2.25;
+    // min-height: $spacing-unit * 1.865;
+    min-height: $spacing-unit * 2;
+
+    // line-height: $base-line-height * $base-font-size * 2.25;
+    line-height: $base-line-height * $base-font-size * 2.5;
     color: $brand-color;
     background-color: $brand-color-light-02;
 
@@ -294,7 +297,7 @@
 .site-footer {
     // border-top: 1px solid $border-color-01;
     padding: $spacing-unit 0;
-    background-color: $grey-color-light-02;
+    background-color: $brand-color-light-02;
 }
 
 .footer-heading {
@@ -753,4 +756,8 @@ hr {
     width: 30%;
     margin-left: 0%;
     margin: ($spacing_unit * 2) 0;
+}
+
+.paginate {
+    margin-top: $spacing-unit;
 }
