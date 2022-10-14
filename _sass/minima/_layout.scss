@@ -1,33 +1,3 @@
-// /**
-// * Background image of a page
-//
-// .page-content {
-//     background-image: url("../materials/background.jpg");
-//     background-repeat: no-repeat;
-//     background-attachment: fixed;
-// 
-//     // height: 100vh;
-//     width: 100%;
-//     background-size: cover;
-//     background-position: center;
-//     position: relative;
-// }
-// 
-// .page-content::after {
-//     content: 'Photo by <a href="https://unsplash.com/@rodlong?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rod Long</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>\a       ';
-//     content: "Photo by Rod Long on Unsplash";
-//     color: rgba(255, 255, 255, 0.9);
-//     position: absolute;
-//     bottom: 10px;
-//     right: 10px;
-// }
-// 
-// .page-content > .wrapper {
-//     background-color: rgba(255, 255, 255, 0.9);
-//     padding: ($spacing_unit / 2) ($spacing_unit * 2) ($spacing_unit * 3);
-//     margin: $spacing_unit auto ($spacing_unit * 3);
-// }
-
 /**
  * Site header
  */
@@ -548,11 +518,9 @@
 .social-media-list {
     display: table;
 
-    // margin: 0 auto;
-
     li {
         // float: left;
-        margin: 5px 10px 5px 0;
+        margin: 5px 25px 5px 0;
         display: inline-block;
 
         // height: 100px;
@@ -564,7 +532,8 @@
         a {
             display: block;
             padding: 10px 12px;
-            border: 1px solid $border-color-01;
+
+            // border: 1px solid $border-color-01;
 
             &:hover {
                 border-color: $border-color-02;
@@ -614,36 +583,6 @@
     border-top: 1px solid $border-color-01;
     margin-top: 60px;
 }
-
-// Right side view: posts
-
-// .posts {
-//     display: block;
-//     float: right;
-//     max-width: $sideview-width;
-// }
-// 
-// .content {
-//     display: block;
-//     float: left;
-//     max-width: $content-width;
-// }
-
-// .flex-container {
-//     display: flex;
-//     margin: 0 auto;
-// }
-// 
-// .content {
-//     flex: 1;
-//     border: 2px solid yellow;
-//     width: $content-width;
-// }
-
-// .code-header {
-//     display: flex;
-//     justify-content: flex-end;
-// }
 
 /**
 * Source code copying button
@@ -713,19 +652,9 @@
     align-items: stretch;
 
     > div {
-        // margin-right: auto;
         margin: 0 auto;
         width: calc(49% - (#{$spacing-unit} * 2));
         padding: 0 ($spacing-unit / 2);
-
-        // padding: 0px;
-        // padding-top: 20px;
-        // background-color: $brand-color-light-02;
-        border-radius: 10px;
-
-        // border: 1px solid $border-color-01;
-
-        // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
 
         @include media-query($on-palm) {
             width: calc(49% - 20px);
