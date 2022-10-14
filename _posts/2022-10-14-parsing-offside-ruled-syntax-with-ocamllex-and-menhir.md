@@ -5,7 +5,7 @@ excerpt: Python とかの構文解析をする．
 author: sano
 ---
 
-これの続き〈
+[これ](/blog/2022/10/13/parsing-offside-ruled-syntax.html) の続き〈
 
 # Off-side rule と言うのは，
 
