@@ -168,7 +168,7 @@ def hello(): # [0]
 ```
 
 ちょっとわかりづらいが，
-この 4 行目の indent level は 0 なので，
+この 4 行目の indent level は 1 なので，
 stack の top の indent level (= 2) とは異なる．
 
 従って，
@@ -196,9 +196,17 @@ OCamlLex で，今まで述べたアルゴリズムを実装してみる．
 を
 `TOKENS ([DEDENT, ..., DEDENT])`
 のように返せるように，
-構文の型定義を拡張する．
+`.mly` の token の型定義を拡張する．
 
-普通は，`Lexing.token` を用いてこんな感じで構文解析をする．
+```ocaml
+%token <token list> TOKENS (* Zero or more TOKENs *)
+```
+
+リストにまとめた tokens を，
+parser にひとつづつ渡して構文解析できるようにしたい．
+
+Menhir (OCamlYacc) を用いた構文解析は，
+普通は，`Lexing.token` を用いてこんな感じでやる．
 
 ```ocaml
 (** parse : string -> stmt *)
