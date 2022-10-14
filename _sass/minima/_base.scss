@@ -130,7 +130,7 @@ blockquote {
     background-color: $quoteblock-background-color;
 
     // color: $grey-color;
-    border-left: 6px solid $brand-color-light;
+    border-left: 4px solid $brand-color-light;
     padding: 1px $spacing-unit;
     margin-left: 0px;
     margin-right: 0px;
@@ -209,7 +209,7 @@ pre {
     padding: 16px 24px;
     overflow-x: auto;
     border-left: 6px solid $brand-color-light;
-    border-left: 6px solid #EBCB8B;
+    border-left: 4px solid #EBCB8B;
 
     > code {
         border: 0;
