@@ -10,31 +10,15 @@ $small-font-size: $base-font-size * 0.875 !default;
 $base-line-height: 1.8 !default;
 $spacing-unit: 30px !default;
 
-// $text-color: #333 !default;
-// $text-color: #2E3440 !default;
+$background-color: #ffffff !default;
 $text-color: #333 !default;
 
-$background-color: #ffffff !default;
-
-// $background-color: #ECEFF4 !default;
-
-// $brand-color: $text-color !default;
-
-// $brand-color: #4C566A !default;
-// $brand-color: #2a7a92 !default;
-// $brand-color: #4C566A !default;
 $brand-color: #5a7a92 !default;
-
-// $brand-color: #4C566A !default;
-// $brand-color: lighten($brand-color-old, 10%) !default;
-$brand-color-light: lighten($brand-color, 25%) !default;
-
-// $brand-color-old: #2a7a92 !default;
 $brand-color-light: lighten($brand-color, 25%) !default;
 $brand-color-light-02: lighten($brand-color-light, 25%) !default;
 
-// $heading-color: #5a9a9e !default;
 $heading-color: $brand-color !default;
+$site-title-color: darken($grey-color, 25%) !default;
 
 $grey-color: #999 !default;
 $grey-color-light: lighten($grey-color, 25%) !default;
@@ -43,29 +27,19 @@ $border-color-01: lighten($grey-color, 25%) !default;
 $border-color-02: lighten($border-color-01, 5%) !default;
 $border-color-03: lighten($border-color-02, 5%) !default;
 
-// $code-background-color: #f5f5f5 !default;
-// $code-background-color: #D8DEE9 !default;
-$code-background-color: #f5f5f5 !default;
 $code-background-color: #f9f9f9 !default;
 $code-color: #777 !default;
 $pre-code-color: #444 !default;
+$code-border-color: #EBCB8B !default;
 
-// $quoteblock-background-color: #f9f9f9 !default;
-// $quoteblock-background-color: #E5E9F0 !default;
 $quoteblock-background-color: #f9f9f9 !default;
-$quoteblock-code-background-color: darken($quoteblock-background-color, 5%) !default;
 $quoteblock-background-color-02: darken($quoteblock-background-color, 5%) !default;
-$quoteblock-code-background-color-02: darken($quoteblock-code-background-color, 5%) !default;
 $quoteblock-background-color-03: darken($quoteblock-background-color-02, 5%) !default;
+$quoteblock-code-background-color: darken($quoteblock-background-color, 5%) !default;
+$quoteblock-code-background-color-02: darken($quoteblock-code-background-color, 5%) !default;
 $quoteblock-code-background-color-03: darken($quoteblock-code-background-color-02, 5%) !default;
 
-// $link-color: #2a7ae2 !default;
-// $link-color: #5E81AC !default;
-
-// $link-color: #81A1C1 !default;
 $link-color: #1a9ad2 !default;
-
-$site-title-color: darken($grey-color, 25%) !default;
 
 $table-text-align: left !default;
 

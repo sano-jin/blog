@@ -206,8 +206,7 @@ pre {
     // padding: 8px 12px;
     padding: 16px 24px;
     overflow-x: auto;
-    border-left: 6px solid $brand-color-light;
-    border-left: 4px solid #EBCB8B;
+    border-left: 4px solid $code-border-color;
 
     > code {
         border: 0;

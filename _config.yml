@@ -18,7 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 誰かが解決してくれるのを祈る
+# title: 誰かが解決してくれるのを祈る
+title: 小さいふわふわの動物
 
 # email: sano@ueda.info.waseda.ac.jp
 
