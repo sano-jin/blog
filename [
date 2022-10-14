@@ -38,18 +38,20 @@
 }
 
 .site-nav {
+    position: absolute;
+    top: 9px;
+
+    // right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $border-color-01;
+    border-radius: 5px;
+    text-align: right;
+
     .nav-trigger {
         display: none;
     }
 
     .menu-icon {
-        // background-color: $background-color;
-        border-radius: 5px;
-
-        // border: 1px solid $border-color-01;
-        position: absolute;
-        top: $spacing-unit * 0.6;
-        right: $spacing-unit / 2;
         float: right;
         width: 36px;
         height: 26px;
@@ -81,19 +83,14 @@
     input:checked ~ .trigger {
         display: block;
         padding-bottom: 5px;
-        padding: 5px;
-
-        // background-color: $brand-color-light;
-        // text-align: right;
-
-        // @media screen and (max-width: $on-medium) {
-        //     background-color: $brand-color-light;
-        //     width: 100%;
-        //     display: block;
-        // }
-   
     }
 
+    // .navbar a {
+    //     display: block;
+    //     text-align: left;
+    //     overflow: hidden;
+    //     margin: 50px;
+    // }
     div {
         color: $text-color;
 
