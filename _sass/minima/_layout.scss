@@ -320,6 +320,27 @@
     width: calc(100% - (#{$spacing-unit} / 2));
 }
 
+@media screen and (min-width: $on-medium) {
+    .footer-col-wrapper {
+        display: flex;
+    }
+
+    .footer-col {
+        width: calc(100% - (#{$spacing-unit} / 2));
+        padding: 0 ($spacing-unit / 2);
+
+        &:first-child {
+            padding-right: $spacing-unit / 2;
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+            padding-left: $spacing-unit / 2;
+        }
+    }
+}
+
 /**
 * Sideview
 */
@@ -409,23 +430,8 @@
 }
 
 @media screen and (min-width: $on-medium) {
-    .footer-col-wrapper {
-        display: flex;
-    }
-
-    .footer-col {
-        width: calc(100% - (#{$spacing-unit} / 2));
-        padding: 0 ($spacing-unit / 2);
-
-        &:first-child {
-            padding-right: $spacing-unit / 2;
-            padding-left: 0;
-        }
-
-        &:last-child {
-            padding-right: 0;
-            padding-left: $spacing-unit / 2;
-        }
+    .flex-container {
+        flex: 1 0 auto;
     }
 }
 
