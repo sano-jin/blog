@@ -15,9 +15,10 @@ $text-color: #333 !default;
 
 $brand-color: #5a7a92 !default;
 $brand-color-light: lighten($brand-color, 25%) !default;
+$brand-color-dark: darken($brand-color, 25%) !default;
 $brand-color-light-02: lighten($brand-color-light, 25%) !default;
 
-$heading-color: $brand-color !default;
+// $heading-color: $brand-color !default;
 
 $grey-color: #999 !default;
 $grey-color-light: lighten($grey-color, 25%) !default;
@@ -43,6 +44,9 @@ $link-color: #1a9ad2 !default;
 
 $site-title-color: darken($grey-color, 25%) !default;
 $nav-color: $text-color !default;
+
+// $heading-color: $brand-color-dark !default;
+$heading-color: $text-color !default;
 
 // $site-title-color: $text-color !default;
 
