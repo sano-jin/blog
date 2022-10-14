@@ -87,7 +87,7 @@ let emit_indent indent_level =
           (DELIMITER :: List.concat (ListExtra.repeat n [ DEDENT; DELIMITER ]))
 ```
 
-`ListExtra.repeat` は自作の関数で，
+`ListExtra.repeat` は `Util` の中の自作の関数で，
 `ListExtra.repeat n x` で
 n 個の `x` からなるリストを返す．
 
@@ -95,6 +95,16 @@ n 個の `x` からなるリストを返す．
 の実装はこんな感じ．
 
 ```ocaml
+(* Lexer *)
+
+{
+  open Parser
+  open Lexing_aux
+}
+
+let space = [' ' '\t']
+let newline = '\r' | '\n' | "\r\n"
+
 rule token = parse
   ...
     (* new line. call the [indent] tokenizer *)
@@ -120,6 +130,10 @@ and indent = parse
       emit_indent indent_level
     }
 ```
+
+`Lexing_aux` は，
+定義した
+`emit_indent` とかがあるモジュール．
 
 # Parcing with `TOKENS`
 
@@ -212,3 +226,8 @@ let token =
 # まとめ
 
 思ったより自明でなかった．
+
+# TODO
+
+refactor,
+cite references
