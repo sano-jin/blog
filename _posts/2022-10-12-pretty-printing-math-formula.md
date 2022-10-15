@@ -49,7 +49,7 @@ f x @@ g y z
 要するに，わざわざ行末までを括弧で括るのが面倒な時に
 `@@` を使うことができる．
 
-## Associativity（結合性）
+## Operator associativity（演算子の結合性）
 
 `(X op Y) op Z` を
 `X op Y op Z`
@@ -91,7 +91,7 @@ f x @@ g y z
 「right-associative（右結合的）」という．
 OCaml だと，`||` とかが right-associative である．
 
-括弧を略記できない演算子も存在する．
+括弧を略記できない (non-associative) 演算子も存在する．
 例えば OCaml の場合だと，`,` がそう．
 
 `(1, 2), 3` （ネストした 2 引数のタプル）は，
@@ -100,18 +100,29 @@ OCaml だと，`||` とかが right-associative である．
 `1, (2, 3)` を
 `1, 2, 3` と略記することもできない．
 
-### まとめメモ
+### 演算によっては，結合性を気にしなくて良い
+
+実のところ，足し算は
+`(X + Y) + Z` = `X + (Y + Z)` だったりする．
+こういう演算を，associative（結合的）であるという．
+
+なので，あんまり深く考えずに括弧を外してしまっても良い．
+
+けど，OCaml では足し算も left-associative になっていたりとかするし，
+一応気には留めておいても良いかも（誤差が出る計算とかだとクリティカルな可能性もある）．
+
+## まとめメモ
 
 - pretty print:
   冗長な括弧とかを省いて綺麗に (pretty に) 出力すること．
 - operator precedence: 演算子の優先度
-- associativity: 結合性
+- operator associativity: 演算子の結合性
 
 | associativity | 略記の仕方                      |
 | ------------- | ------------------------------- |
 | left          | `(X op Y) op Z` = `X op Y op Z` |
 | right         | `X op (Y op Z)` = `X op Y op Z` |
-| none          | 略記できない                    |
+| non           | 略記できない                    |
 
 # 自分のやり方
 
@@ -149,7 +160,7 @@ type exp =
 演算子の結合性を定義しておく．
 
 ```ocaml
-type assoc = AscLeft | AscNone | AscRight
+type assoc = AscLeft | AscNon | AscRight
 ```
 
 pretty printer は次のように実装できる．
@@ -160,7 +171,7 @@ let rec string_of_exp parent_prec exp =
     let p1, p2 =
       match assoc with
       | AscLeft -> (prec, succ prec)
-      | AscNone -> (succ prec, succ prec)
+      | AscNon -> (succ prec, succ prec)
       | AscRight -> (succ prec, prec)
     in
     let str = string_of_exp p1 e1 ^ op ^ string_of_exp p2 e2 in
