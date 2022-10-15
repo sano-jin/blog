@@ -203,6 +203,13 @@ let p1, p2 =
 in
 ```
 
+一番外側には括弧は要らないので，
+最初は precedence は 0 にしている．
+
+```ocaml
+let string_of_exp = string_of_exp 0
+```
+
 簡単だね！
 
 ### テスト
