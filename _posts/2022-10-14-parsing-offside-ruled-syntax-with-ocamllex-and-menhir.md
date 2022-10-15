@@ -41,21 +41,40 @@ OCamlLex で，今まで述べたアルゴリズムを実装してみる．
 
 # Emitting `INDENT` and `DEDENT`
 
-実装．
+## `lexing_aux.ml`
+
+indent level に応じて，
+`indent`
+や
+`dedent`
+などのトークンを返す関数を定義していく．
+
+まず，`Parser` module を open しておく．
 
 ```ocaml
 (** Lexer のための補助関数などを定義する．
 *)
 
 open Parser
-open Util
+```
 
+indent level の stack を用意しておく．
+最初に 0 を push しておく．
+
+```ocaml
 (** インデントレベルのスタック *)
 let indent_level_stack =
   let stack = Stack.create () in
   Stack.push 0 stack;
   stack
+```
 
+現在の indent level を引数にとって，
+出力すべき
+`DEDENT`
+の数を計算する関数は以下のようになる．
+
+```ocaml
 (** インデントレベルが上がった場合に，何段階上がったかを取得する．
     マッチするインデントレベルが存在していなかった場合は，エラーを吐く．
   *)
@@ -66,7 +85,17 @@ let rec emit_dedents indent_level =
   else (
     ignore @@ Stack.pop indent_level_stack;
     succ @@ emit_dedents indent_level)
+```
 
+最後に
+`INDENT`
+や
+`DEDENT`
+などのトークンを返す関数は次のように定義できる．
+今回は，C 言語などの `;` に対応するトークン，`DELIMITER`，
+も挿入している．
+
+```ocaml
 (** インデントされていた場合は [INDENT] を返す．
      - 前の行と同じオフセットの場合は，
        最初の行なら無視してそのまま tokenizing を続け，
@@ -84,34 +113,59 @@ let emit_indent indent_level =
     | 0 -> DELIMITER
     | n ->
         TOKENS
-          (DELIMITER :: List.concat (ListExtra.repeat n [ DEDENT; DELIMITER ]))
+          (DELIMITER :: List.concat (Util.repeat n [ DEDENT; DELIMITER ]))
 ```
 
-`ListExtra.repeat` は `Util` の中の自作の関数で，
-`ListExtra.repeat n x` で
+`Util.repeat` は `Util` の中の自作の関数で，
+`Util.repeat n x` で
 n 個の `x` からなるリストを返す．
+
+## `lexer.mll`
 
 `lexer.mll`
 の実装はこんな感じ．
 
+いつものように，
+`Parser` module を open しておく．
+off-side rule を採用していない構文では，
+`space`
+に改行も含めると思うが，
+今回は改行が来たら `INDENT` や `DEDENT` token を挟まなくてはいけないので，
+改行は改行で `newline` を別途用意しておく．
+
 ```ocaml
 (* Lexer *)
-
 {
   open Parser
-  open Lexing_aux
 }
 
 let space = [' ' '\t']
 let newline = '\r' | '\n' | "\r\n"
+```
 
+`Lexing.token` も，ほとんどいつものように定義していく．
+
+ただし，`newline`
+が来たら，
+`indent` を呼ぶ．
+
+```ocaml
 rule token = parse
   ...
     (* new line. call the [indent] tokenizer *)
   | newline  { Lexing.new_line lexbuf; indent lexbuf }
   ...
 
+```
 
+`indent` は次のように定義する．
+単なる空行やコメントのみからなる行だった場合は，
+読み飛ばす．
+そうではなかった場合は，
+`Lexing_aux.emit_indent` を使って，
+`INDENT` や `DEDENT` を返す．
+
+```ocaml
 (* 改行があった場合に直後に呼ばれる Lexer *)
 and indent = parse
   (* blank line *)
@@ -127,13 +181,11 @@ and indent = parse
         (* the number of characters from the beginning of the line*)
         pos.pos_cnum - pos.pos_bol
       in
-      emit_indent indent_level
+      Lexing_aux.emit_indent indent_level
     }
 ```
 
-`Lexing_aux` は，
-定義した
-`emit_indent` とかがあるモジュール．
+**TODO:** String.length で refactor
 
 # Parsing with `TOKENS`
 
