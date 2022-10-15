@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Parsing offside-ruled syntax
+title: Parsing off-side ruled syntax
 excerpt: Python とかの構文解析をする．
 author: sano
 ---

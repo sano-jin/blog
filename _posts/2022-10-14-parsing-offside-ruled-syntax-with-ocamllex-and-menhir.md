@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Parsing offside-ruled syntax with OCamlLex and Menhir
+title: Parsing off-side ruled syntax with OCamlLex and Menhir
 excerpt: Python とかの構文解析をする．
 author: sano
 ---
 
-[これ](/blog/2022/10/13/parsing-offside-ruled-syntax.html) の続き〈
+[前回〈](/blog/2022/10/13/parsing-offside-ruled-syntax.html)
 
 # Off-side rule と言うのは，
 
@@ -135,7 +135,7 @@ and indent = parse
 定義した
 `emit_indent` とかがあるモジュール．
 
-# Parcing with `TOKENS`
+# Parsing with `TOKENS`
 
 リストにまとめた tokens を，
 parser にひとつづつ渡して構文解析できるようにしたい．
@@ -226,6 +226,8 @@ let token =
 # まとめ
 
 思ったより自明でなかった．
+
+[自作 Python interpreter の実装（全体像を知りたい人向け）](https://github.com/sano-jin/python-in-ocaml)
 
 # TODO
 
