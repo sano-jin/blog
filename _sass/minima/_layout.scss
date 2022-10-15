@@ -44,16 +44,7 @@
     }
 
     .menu-icon {
-        // background-color: $background-color;
-        border-radius: 5px;
-
-        // border: 1px solid $border-color-01;
-        position: absolute;
-        top: $spacing-unit * 0.6;
-        right: $spacing-unit / 2;
-        float: right;
-        width: 36px;
-        height: 26px;
+        display: block;
         line-height: 0;
         padding-top: 10px;
         text-align: center;
@@ -66,6 +57,16 @@
     }
 
     label[for="nav-trigger"] {
+        // background-color: $background-color;
+        border-radius: 5px;
+
+        // border: 1px solid $border-color-01;
+        position: absolute;
+        top: $spacing-unit * 0.6;
+        right: $spacing-unit / 2;
+        float: right;
+        width: 36px;
+        height: 26px;
         display: block;
         float: right;
         width: 36px;
@@ -97,6 +98,7 @@
 
     div {
         color: $text-color;
+        padding: 0px 10px;
 
         // display: block;
         // padding: 0px 10px;
