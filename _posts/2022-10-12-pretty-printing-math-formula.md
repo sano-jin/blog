@@ -89,17 +89,29 @@ f x @@ g y z
 `X op Y op Z`
 のように略記できるのを，
 「right-associative（右結合的）」という．
+OCaml だと，`||` とかが right-associative である．
+
+括弧を略記できない演算子も存在する．
+例えば OCaml の場合だと，`,` がそう．
+
+`(1, 2), 3` （ネストした 2 引数のタプル）は，
+`1, 2, 3` （3 引数のタプル）と略記できない．
+逆に，
+`1, (2, 3)` を
+`1, 2, 3` と略記することもできない．
 
 ### まとめメモ
+
+- pretty print:
+  冗長な括弧とかを省いて綺麗に (pretty に) 出力すること．
+- operator precedence: 演算子の優先度
+- associativity: 結合性
 
 | associativity | 略記の仕方                      |
 | ------------- | ------------------------------- |
 | left          | `(X op Y) op Z` = `X op Y op Z` |
 | right         | `X op (Y op Z)` = `X op Y op Z` |
 | none          | 略記できない                    |
-
-- operator precedence: 演算子の優先度
-- associativity: 結合性
 
 # 自分のやり方
 
