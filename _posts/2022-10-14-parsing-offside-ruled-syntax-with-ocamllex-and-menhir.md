@@ -5,15 +5,16 @@ excerpt: Python とかの構文解析をする．
 author: sano
 ---
 
-[前回〈](/blog/2022/10/13/parsing-offside-ruled-syntax.html)
+# Off-side rule の構文解析をしよう
 
-# Off-side rule と言うのは，
-
+Off-side rule というのは，
 `{` とか `}`
 とかを使わずに，
 インデント（空白）のレベルでどこまでがブロックかを決めるやつ．
-
 Python とか Haskell とかが採用している．
+
+**[前回](/blog/2022/10/13/parsing-offside-ruled-syntax.html)** は，
+どういうアルゴリズムでこの parsing ができるか（より正確には，必要な前処理ができるか）を議論した．
 
 # で，実際に OCaml でどうやって実装するか．
 
@@ -72,7 +73,8 @@ let indent_level_stack =
 現在の indent level を引数にとって，
 出力すべき
 `DEDENT`
-の数を計算する関数は以下のようになる．
+の数を計算する関数は，
+以下のようになる．
 
 ```ocaml
 (** インデントレベルが上がった場合に，何段階上がったかを取得する．
@@ -86,6 +88,14 @@ let rec emit_dedents indent_level =
     ignore @@ Stack.pop indent_level_stack;
     succ @@ emit_dedents indent_level)
 ```
+
+この関数は，
+再帰を回しながら stack を pop して，
+indent level が揃うのを待つ．
+indent level が揃ったら 0 を返す．
+この 0 に，
+再帰を回した回数分だけ `succ` (= + 1) を適用するので，
+「何回 stack を pop したか (= `DEDENT` の個数)」を得ることができる．
 
 最後に
 `INDENT`
@@ -129,7 +139,7 @@ n 個の `x` からなるリストを返す．
 `Parser` module を open しておく．
 off-side rule を採用していない構文では，
 `space`
-に改行も含めると思うが，
+に改行も含める（こともある）と思うが，
 今回は改行が来たら `INDENT` や `DEDENT` token を挟まなくてはいけないので，
 改行は改行で `newline` を別途用意しておく．
 
@@ -154,8 +164,6 @@ rule token = parse
   ...
     (* new line. call the [indent] tokenizer *)
   | newline  { Lexing.new_line lexbuf; indent lexbuf }
-  ...
-
 ```
 
 `indent` は次のように定義する．
@@ -169,23 +177,22 @@ rule token = parse
 (* 改行があった場合に直後に呼ばれる Lexer *)
 and indent = parse
   (* blank line *)
-  | space* newline { Lexing.new_line lexbuf; indent lexbuf }
+  | space* newline
+    { Lexing.new_line lexbuf; indent lexbuf }
 
   (* blank line with a comment *)
-  | space* '#' [^ '\n']* newline { Lexing.new_line lexbuf; indent lexbuf }
+  | space* '#' [^ '\n']* newline
+    { Lexing.new_line lexbuf; indent lexbuf }
 
-  (* indent (assuming that the next comming token is not just a space/newline/comment) *)
+  (* indent (assuming that the next comming token is
+      not a space, newline or comment) *)
   | space*
     { let indent_level =
-        let pos = lexbuf.lex_curr_p in
-        (* the number of characters from the beginning of the line*)
-        pos.pos_cnum - pos.pos_bol
+        String.length @@ Lexing.lexeme lexbuf
       in
       Lexing_aux.emit_indent indent_level
     }
 ```
-
-**TODO:** String.length で refactor
 
 # Parsing with `TOKENS`
 

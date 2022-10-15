@@ -7,10 +7,9 @@
   <p>{{ post.excerpt }}</p>
   {%- endif -%}
 </div>
-<!--
-  <div class="paginate-content">{{ post.content }}</div>
--->
-{% endfor %}
+{% comment %}
+<div class="paginate-content">{{ post.content }}</div>
+{% endcomment %} {% endfor %}
 
 <!-- Pagination links -->
 <div class="pagination">
