@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Parsing off-side ruled syntax
-excerpt: Python とかの構文解析をする．
+excerpt: Python とかの構文解析をする（アルゴリズム編）．
 author: sano
 ---
 
@@ -43,7 +43,7 @@ Lexing の段階（文字列をトークンの列に分解する）で，
 `}` に対応するトークン (`DEDENT`)
 を挟む（まぁ何でも良いけど）．
 
-// 今回の実装だと `;` に対応するトークン (`DELIMITER`) も挟んでいる．
+今回の実装だと `;` に対応するトークン (`DELIMITER`) も挟んでいる．
 
 上記の例だと，
 Lexing 後にこんな感じになるようにする．
@@ -59,6 +59,7 @@ VAR("print")
 (
 STRING("Hello world")
 )
+DELIMITER
 DEDENT
 DELIMITER
 VAR("print")

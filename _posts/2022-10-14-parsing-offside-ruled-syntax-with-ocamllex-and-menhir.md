@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Parsing off-side ruled syntax with OCamlLex and Menhir
-excerpt: Python とかの構文解析をする．
+excerpt: Python とかの構文解析をする（実装編）．
 author: sano
 ---
 
@@ -97,11 +97,12 @@ indent level が揃ったら 0 を返す．
 再帰を回した回数分だけ `succ` (= + 1) を適用するので，
 「何回 stack を pop したか (= `DEDENT` の個数)」を得ることができる．
 
-最後に
+最後に，
+上記の補助関数を使って，
 `INDENT`
 や
 `DEDENT`
-などのトークンを返す関数は次のように定義できる．
+などのトークンを返す関数を定義する．
 今回は，C 言語などの `;` に対応するトークン，`DELIMITER`，
 も挿入している．
 
