@@ -197,6 +197,7 @@ let string_of_exp = string_of_exp 0
 その演算の引数の pretty print をするのに必要な precedence を計算している．
 
 ```ocaml
+(* 上記コードの 3--8 行 *)
 let p1, p2 =
   match assoc with
   | AscLeft -> (prec, succ prec)
@@ -206,10 +207,11 @@ in
 ```
 
 一番外側には括弧は要らないので，
-最初に渡すは precedence は 0 にして，
+最初に渡す precedence は 0 にして，
 `string_of_exp` を再定義 (shaddowing) している．
 
 ```ocaml
+(* 上記コードの最終行 *)
 let string_of_exp = string_of_exp 0
 ```
 
