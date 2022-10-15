@@ -181,10 +181,31 @@ let rec string_of_exp parent_prec exp =
   | Div (e1, e2) -> string_of_binop e1 e2 " / " 12 AscLeft
   | Sub (e1, e2) -> string_of_binop e1 e2 " - " 11 AscLeft
   | Or (e1, e2) -> string_of_binop e1 e2 " || " 6 AscRight
-  | Pair (e1, e2) -> string_of_binop e1 e2 ", " 5 AscNone
+  | Pair (e1, e2) -> string_of_binop e1 e2 ", " 5 AscNon
 
 let string_of_exp = string_of_exp 0
 ```
+
+`binop` は binary operator（二項演算子）の略．
+`string_of_binop` という関数を定義して，
+これを使って二項演算を pretty print している．
+
+この 3--8 行目の部分で，
+前述のアルゴリズムで，
+その演算の引数の pretty print をするのに必要な precedence を計算している．
+
+```ocaml
+let p1, p2 =
+  match assoc with
+  | AscLeft -> (prec, succ prec)
+  | AscNon -> (succ prec, succ prec)
+  | AscRight -> (succ prec, prec)
+in
+```
+
+簡単だね！
+
+### テスト
 
 以下のようなデータでテストしてみた．
 
