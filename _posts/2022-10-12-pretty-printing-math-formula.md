@@ -162,6 +162,7 @@ type exp =
 type assoc = AscLeft | AscNon | AscRight
 ```
 
+これを使って，
 pretty printer は次のように実装できる．
 
 ```ocaml
@@ -188,7 +189,8 @@ let string_of_exp = string_of_exp 0
 
 `binop` は binary operator（二項演算子）の略．
 `string_of_binop` という関数を定義して，
-これを使って二項演算を pretty print している．
+これを使って二項演算を pretty print している
+（OCaml だと，関数の中でも関数を定義できる）．
 
 この 3--8 行目の部分で，
 前述のアルゴリズムで，
@@ -204,7 +206,8 @@ in
 ```
 
 一番外側には括弧は要らないので，
-最初は precedence は 0 にしている．
+最初に渡すは precedence は 0 にして，
+`string_of_exp` を再定義 (shaddowing) している．
 
 ```ocaml
 let string_of_exp = string_of_exp 0
