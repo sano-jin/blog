@@ -131,6 +131,8 @@ let emit_indent indent_level =
 `Util.repeat n x` で
 n 個の `x` からなるリストを返す．
 
+> delimiter の扱いに関して，refactor する予定です．
+
 ## `lexer.mll`
 
 `lexer.mll`
@@ -291,5 +293,8 @@ let token =
 
 # TODO
 
-refactor,
-cite references
+- Off-side ruled syntax の parsing の部分だけの実装を refactor 中．
+  - <https://github.com/sano-jin/offside-rule-parsing>
+  - （やる気充電のために，もしも需要があれば star しておいてください）
+- 記事の refactor
+- cite references
