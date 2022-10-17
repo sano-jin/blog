@@ -664,7 +664,8 @@ h1.post-title {
 */
 .pagination {
     margin: 100px 0 20px;
-    color: $brand-color;
+
+    // color: $brand-color;
 
     .previous,
     .next {
@@ -678,7 +679,9 @@ h1.post-title {
     }
 
     .page-number {
-        margin: 10px 40px;
+        width: 200px;
+        display: inline-block;
+        text-align: center;
     }
 
     .previous.available,
@@ -690,6 +693,14 @@ h1.post-title {
     .next.available:hover {
         background-color: $brand-color;
         color: $background-color;
+    }
+
+    @include media-query($on-palm) {
+        width: 100%;
+
+        .page-number {
+            width: calc(100% - 200px);
+        }
     }
 }
 
