@@ -27,7 +27,7 @@ ERROR:
 
 うーん．．．
 
-```sql
+```mysql
 select * from stores where store_name = "...";;
 ```
 
