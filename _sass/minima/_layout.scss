@@ -388,7 +388,9 @@
     .posts {
         margin-right: 20px;
         margin-top: 40px;
-        margin-bottom: $spacing-unit;
+        padding-bottom: $spacing-unit;
+
+        // margin-bottom: $spacing-unit;
         width: $sideview-width;
         padding-left: $spacing-unit * 2;
     }
@@ -443,7 +445,7 @@
 }
 
 .posts {
-    margin-bottom: $spacing-unit;
+    padding-bottom: $spacing-unit;
 }
 
 @media screen and (min-width: $on-medium) {
@@ -513,7 +515,7 @@
 }
 
 .content {
-    margin-bottom: $spacing-unit;
+    padding-bottom: $spacing-unit;
 
     // margin-top: 0;
 
