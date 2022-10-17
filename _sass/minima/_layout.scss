@@ -672,10 +672,13 @@ h1.post-title {
         background-color: $brand-color-light-02;
         padding: 10px 20px;
         border-radius: 10px;
+        display: inline-block;
+        width: 60px;
+        text-align: center;
     }
 
     .page-number {
-        margin: 10px 50px;
+        margin: 10px 40px;
     }
 
     .previous.available,
