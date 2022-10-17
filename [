@@ -511,7 +511,7 @@
 
 .post-content {
     border-top: 4px solid $brand-color-light-03;
-    margin-bottom: $spacing-unit * 2;
+    margin-bottom: $spacing-unit;
 }
 
 .content {
@@ -713,7 +713,7 @@ h1.post-title {
 
 .prev-and-next {
     // margin: 50px 0 0;
-    padding: ($spacing-unit / 2) 0 0;
+    padding: 20px 0 0;
     width: 100%;
     display: flex;
     border-top: 1px solid $border-color-01;
