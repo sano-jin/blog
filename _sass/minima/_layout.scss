@@ -663,25 +663,30 @@ h1.post-title {
 * Pagination
 */
 .pagination {
-    margin: 50px 0 20px;
+    margin: 100px 0 20px;
+    color: $brand-color;
 
     .previous,
     .next {
-        color: $grey-color-light;
+        color: $brand-color-light;
+        background-color: $brand-color-light-02;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+
+    .page-number {
+        margin: 10px 50px;
     }
 
     .previous.available,
     .next.available {
-        // color: $brand-color-light;
-        font-size: 200%;
-
-        // vertical-align: middle;
-   
+        color: $brand-color;
     }
 
     .previous.available:hover,
     .next.available:hover {
-        color: $brand-color;
+        background-color: $brand-color;
+        color: $background-color;
     }
 }
 

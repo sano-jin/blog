@@ -17,23 +17,19 @@
   <a
     href="{{ paginator.previous_page_path | relative_url }}"
     class="previous available"
+    >Prev</a
   >
-    ◀︎
-  </a>
   {% else %}
-  <span class="previous"> ◀︎ </span>
+  <span class="previous">Prev</span>
   {% endif %}
-  <span class="page_number">
+  <span class="page-number">
     {{ paginator.page }} / {{ paginator.total_pages }}
   </span>
   {% if paginator.next_page %}
-  <a
-    href="{{ paginator.next_page_path | relative_url }}"
-    class="next available"
+  <a href="{{ paginator.next_page_path | relative_url }}" class="next available"
+    >Next</a
   >
-    ▶︎
-  </a>
   {% else %}
-  <span class="next"> ▶︎ </span>
+  <span class="next">Next</span>
   {% endif %}
 </div>
