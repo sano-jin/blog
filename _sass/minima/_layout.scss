@@ -388,6 +388,7 @@
     .posts {
         margin-right: 20px;
         margin-top: 40px;
+        margin-bottom: $spacing-unit;
         width: $sideview-width;
         padding-left: $spacing-unit * 2;
     }
@@ -439,6 +440,10 @@
             }
         }
     }
+}
+
+.posts {
+    margin-bottom: $spacing-unit;
 }
 
 @media screen and (min-width: $on-medium) {
@@ -663,9 +668,8 @@ h1.post-title {
 * Pagination
 */
 .pagination {
-    margin: 100px 0 20px;
-
     // color: $brand-color;
+    margin: 100px 0 20px;
 
     .previous,
     .next {
