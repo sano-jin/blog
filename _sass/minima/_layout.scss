@@ -50,8 +50,6 @@
     }
 
     label[for="nav-trigger"] {
-        // background-color: $background-color;
-        // border: 1px solid $border-color-01;
         border-radius: 5px;
         position: absolute;
         top: $spacing-unit * 0.6;
@@ -76,33 +74,10 @@
         display: block;
         padding-bottom: 5px;
         padding: 5px;
-
-        // background-color: $brand-color-light;
-        // text-align: right;
-
-        // @media screen and (max-width: $on-medium) {
-        //     background-color: $brand-color-light;
-        //     width: 100%;
-        //     display: block;
-        // }
-   
     }
 
     .div {
         padding: 0px 10px;
-
-        // color: $text-color;
-
-        // padding: 0px 10px;
-
-        // display: block;
-        // padding: 0px 10px;
-
-        // // Gaps between nav items, but not on the last one
-        // &:not(:last-child) {
-        //     margin-right: 0;
-        // }
-   
     }
 
     @media screen and (max-width: $on-medium) {
@@ -111,8 +86,6 @@
         }
 
         .dropdown > .dropdown-content {
-            // color: $brand-color;
-
             > *::before {
                 background-color: $brand-color-light;
                 content: "";
@@ -128,8 +101,6 @@
         color: $text-color;
         display: block;
         padding: 0px 10px;
-
-        // padding: 5px 10px;
 
         // Gaps between nav items, but not on the last one
         &:not(:last-child) {
@@ -181,8 +152,8 @@
         }
 
         /** 
-            * Drop down menu bar
-            */
+         * Drop down menu bar
+         */
 
         /* Navbar container */
         .navbar {
@@ -213,9 +184,6 @@
             font-size: 16px;
             border: none;
             outline: none;
-
-            // color: white;
-            // color: $text-color;
             color: $nav-color;
             padding: 0px 16px;
             background-color: inherit;
@@ -281,7 +249,6 @@
  * Site footer
  */
 .site-footer {
-    // border-top: 1px solid $border-color-01;
     padding: $spacing-unit 0;
     background-color: $brand-color-light-03;
 }
@@ -351,9 +318,8 @@
 }
 
 /**
-* Sideview
-*/
-
+ * Sideview
+ */
 .site-sideview {
     display: none;
 }
@@ -372,7 +338,6 @@
     }
 
     // sideview
-
     .flex-container {
         display: flex;
         margin: 0 auto;
@@ -389,8 +354,6 @@
         margin-right: 20px;
         margin-top: 40px;
         padding-bottom: $spacing-unit;
-
-        // margin-bottom: $spacing-unit;
         width: $sideview-width;
         padding-left: $spacing-unit * 2;
     }
@@ -401,8 +364,6 @@
         padding-bottom: $spacing-unit;
 
         .sideview-col-wrapper {
-            // margin: 0 auto;
-            // width: fit-content;
             img {
                 margin-bottom: $spacing-unit;
                 display: block;
@@ -414,13 +375,9 @@
                 border: none;
                 display: block;
                 padding: 8px;
-
-                // padding: 0 20px;
                 width: 32px;
                 height: 32px;
                 border-radius: 50%;
-
-                // margin: 0 10px;
                 margin-right: 10px;
             }
 
@@ -571,8 +528,6 @@ h1.post-title {
         margin: 5px 25px 5px 0;
         display: inline-block;
 
-        // height: 100px;
-
         &:last-of-type {
             margin-right: 0;
         }
@@ -634,9 +589,8 @@ h1.post-title {
 }
 
 /**
-* Source code copying button
-*/
-
+ * Source code copying button
+ */
 .highlight {
     position: relative;
 }
@@ -670,7 +624,6 @@ h1.post-title {
 * Pagination
 */
 .pagination {
-    // color: $brand-color;
     margin: 100px 0 20px;
 
     .previous,
@@ -712,7 +665,6 @@ h1.post-title {
 }
 
 .prev-and-next {
-    // margin: 50px 0 0;
     padding: ($spacing-unit / 2) 0 0;
     width: 100%;
     display: flex;
@@ -762,13 +714,3 @@ hr {
 .paginate {
     margin-top: $spacing-unit;
 }
-
-// .paginate-content {
-//     max-height: 300px;
-//     overflow-y: scroll;
-//     padding: $spacing-unit 0;
-//     border-left: 4px solid $brand-color-light;
-//     padding-left: $spacing-unit;
-//     margin-left: $spacing-unit;
-//     background-color: $brand-color-light-02;
-// }
