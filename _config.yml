@@ -153,3 +153,7 @@ pagination:
 #
 kramdown:
   header_offset: 1
+  # highlighter: rouge
+  # syntax_highlighter_opts:
+  #   block:
+  #     line_numbers: true

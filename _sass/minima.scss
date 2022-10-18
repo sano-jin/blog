@@ -14,10 +14,18 @@ $background-color: #ffffff !default;
 $text-color: #333 !default;
 
 $brand-color: #5a7a92 !default;
-$brand-color-light: lighten($brand-color, 25%) !default;
+
+// $brand-color: #4C566A !default;
+
+// $brand-color-light: lighten($brand-color, 25%) !default;
+$brand-color-light: #D8DEE9 !default;
+$brand-color-light-02: #E5E9F0 !default;
+$brand-color-light-03: #ECEFF4 !default;
+
 $brand-color-dark: darken($brand-color, 25%) !default;
-$brand-color-light-02: lighten($brand-color-light, 25%) !default;
-$brand-color-light-03: lighten($brand-color-light, 15%) !default;
+
+// $brand-color-light-02: lighten($brand-color-light, 25%) !default;
+// $brand-color-light-03: lighten($brand-color-light, 15%) !default;
 
 // $heading-color: $brand-color !default;
 
@@ -34,6 +42,8 @@ $code-color: #777 !default;
 $pre-code-color: #444 !default;
 $code-border-color: #EBCB8B !default;
 $inline-code-background-color: #ECEFF4 !default;
+
+$forest-blue: #88C0D0 !default;
 
 $quoteblock-background-color: #f9f9f9 !default;
 $quoteblock-background-color-02: darken($quoteblock-background-color, 5%) !default;
