@@ -34,9 +34,13 @@ $grey-color: #999 !default;
 $grey-color-light: lighten($grey-color, 25%) !default;
 $grey-color-light-02: lighten($grey-color-light, 13%) !default;
 $grey-color-dark: darken($grey-color, 20%) !default;
-$border-color-01: lighten($grey-color, 25%) !default;
-$border-color-02: lighten($border-color-01, 5%) !default;
-$border-color-03: lighten($border-color-02, 5%) !default;
+
+// $border-color-01: lighten($grey-color, 25%) !default;
+// $border-color-02: lighten($border-color-01, 5%) !default;
+// $border-color-03: lighten($border-color-02, 5%) !default;
+$border-color-01: $nord4 !default;
+$border-color-02: $nord4 !default;
+$border-color-03: $nord4 !default;
 
 $code-background-color: #f9f9f9 !default;
 $code-color: #777 !default;
