@@ -25,11 +25,13 @@
     // Error
     .k {
         font-weight: bold;
+        color: $nord10;
     }
 
     // Keyword
     .o {
         font-weight: bold;
+        color: $nord11;
     }
 
     // Operator
@@ -129,6 +131,7 @@
     // Keyword.Constant
     .kd {
         font-weight: bold;
+        color: $nord12;
     }
 
     // Keyword.Declaration

@@ -84,7 +84,7 @@ google_analytics: "G-7DP65677HQ"
 # Pagination Settings
 pagination:
   enabled: true
-  per_page: 5
+  per_page: 8
   # offset: 2
   permalink: "/page/:num/"
   title: ":title - page :num of :max"

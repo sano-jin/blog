@@ -467,8 +467,23 @@
 }
 
 .post-content {
+    padding-top: $spacing-unit;
     border-top: 4px solid $brand-color-light-03;
     margin-bottom: $spacing-unit * 2;
+
+    > p:first-child {
+        margin-top: $spacing-unit / 2;
+    }
+
+    > ul:first-child,
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child,
+    > h4:first-child,
+    > h5:first-child,
+    > h6:first-child {
+        margin-top: $spacing-unit;
+    }
 }
 
 .content {
@@ -629,10 +644,10 @@ h1.post-title {
     .previous,
     .next {
         color: $brand-color-light;
-        background-color: $brand-color-light-02;
         padding: 10px 20px;
         border-radius: 10px;
         display: inline-block;
+        background-color: $brand-color-light-02;
         width: 60px;
         text-align: center;
     }
@@ -699,7 +714,7 @@ h1.post-title {
 }
 
 strong {
-    font-size: 110%;
+    font-size: 120%;
 }
 
 hr {
