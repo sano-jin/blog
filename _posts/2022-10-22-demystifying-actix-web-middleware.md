@@ -19,14 +19,14 @@ author: sano
 
 [Ergo task orchestrator](https://github.com/dimfeld/ergo) のサイドプロジェクトでは，
 バックエンドを全て Rust で書いています．
-他のどんな本物のプロジェクトと同じように，
+他の本物のプロジェクトと同じように，
 **ミドルウェア** をちょっと書く必要があります．
 Actix Web のための簡単なサンプルはたくさんありますが，
 それらをちゃんと理解するためにはもう少し努力が必要でした．
 
 Javascript のミドルウェアは，
 多くの場合，
-一つの関数だけ書けば十分です．
+一つの関数を書けば十分です．
 正確な構文はフレームワークによって異なりますが，
 通常は次のようなものです．
 
@@ -90,8 +90,8 @@ Actix の `Service` は，
 これは，ルートハンドラとミドルウェアを含みます．
 でも，`Service` は HTTP だけにしか対応していないわけではないです．
 
-> This Service トレイト is identical to the Service トレイト s in the hyper and tower crates.
-> I hope that eventually they will all merge together to pull the トレイト from a single crate,
+> This Service trait is identical to the Service trait s in the hyper and tower crates.
+> I hope that eventually they will all merge together to pull the trait from a single crate,
 > which will make it easier to create middleware that supports multiple frameworks.
 
 Service トレイトの中身を見てみよう．
@@ -207,7 +207,7 @@ pub trait Transform<S, Req> {
 我々は，新しいオブジェクトを作れれば良いだけなので，
 `Ready` future 型を使って，
 新しいミドルウェアを future の中に包みます．
-これは Javascript の `Promise.resolve` を使って，
+これは JavaScript の `Promise.resolve` を使って，
 `Promise` の中に値を入れるのと同じようなものです．
 
 # ミドルウェアの実装
