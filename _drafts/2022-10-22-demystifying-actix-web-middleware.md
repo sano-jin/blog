@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Demystifying Actix Web Middleware
+title: Actix Web ミドルウェアの謎解き
+excerpt: Demystifying Actix Web Middleware
 author: sano
 ---
 
@@ -8,9 +9,9 @@ author: sano
 
 これを超適当に日本語訳する．
 
-- 自分に分かれば良いやと言う感じ．かなり意訳しています．
+> 自分に分かれば良いやと言う感じ．かなり意訳しています．
 
-# Actix Web ミドルウェアの謎解き
+---
 
 2021-06-07 に書いたよ．
 
@@ -115,4 +116,73 @@ pub trait Service<Req> {
 
 actix-web のミドルウェアでは，
 `Response` は常に必ず `actix_web::dev::ServiceResponcse` で，
-`Error` は必ず `actix_web::Error` になっている．
+`Error` は必ず `actix_web::Error` になっています．
+
+Axctix は，service が呼び出されても大丈夫になるかをチェックするのに，
+`poll_ready` を呼びます．
+これは，例えば，その service が同時に呼び出される回数を制限する必要がある時とかに，
+役に立つかも．
+大抵は，この関数を自前で実装する必要はないです．
+`actix-wervice` version 2 は，
+wrap[^1] された service にこの関数を渡すための
+`forward_ready!` マクロを用意してくれています．
+
+**本当の** 機能は，`call` 関数が提供してくれています．
+これは，JavaScript の例題とそんなに変わりません．
+必要に応じてリクエストオブジェクトとレスポンスオブジェクトをチェックしたり，
+更新したり，
+必要に応じてラップされたサービスを呼び出したりすることができます．
+JavaScript のスタイルと異なる点は主に 3 つあります．
+
+1. JavaScript のほとんどのフレームワークでは，
+   レスポンスオブジェクトはすでに存在していて，ミドルウェアに渡されます．
+   対して，ここでは，レスポンスオブジェクトは，
+   ラップされた service によって作られます．
+2. Error はフツーの Rust 風に扱われます：
+   ラップされた service を呼び出すための `next` 関数をオーバーロードするのではなくて，
+   `Result::Err` を返します．
+3. Rust は強い静的型付けなので，
+   余計なデータをリクエストに勝手にくっつけることはできません．
+   その代わりに，Actix は **extension** （拡張）と言うものがあって，
+   これを使って追加のデータを，後で取り出せるように，リクエストにくっつけられます．
+   この例を後で見せます．
+
+[^1]: 何に？
+
+# The Transform Trait
+
+さて，
+`Service` の仕組みがある程度わかったところで，
+`Transform` の出番はどこでしょうか？
+抽象的には，
+サービスを別のサービスで包んで「変換」するのですが，
+私たちの場合は factory と考えた方が分かりやすいでしょう．
+`Transform` の実装の唯一の仕事は，
+他のサービスをラップする新しいミドルウェアのインスタンスを作成することです．
+
+Transform にはいくつかの関連する型がありますが，
+これらはほとんどが作成されたミドルウェア Service の型と同じものを記述しています．
+唯一新しい型は InitError で，
+ミドルウェアのインスタンスを作成する際に発生する可能性のあるエラーがあればそれを示しています．
+
+```rust
+pub trait Transform<S, Req> {
+    /// Responses produced by the service.
+    type Response;
+
+    /// Errors produced by the service.
+    type Error;
+
+    /// The `TransformService` value created by this factory
+    type Transform: Service<Req, Response = Self::Response, Error = Self::Error>;
+
+    /// Errors produced while building a transform service.
+    type InitError;
+
+    /// The future response value.
+    type Future: Future<Output = Result<Self::Transform, Self::InitError>>;
+
+    /// Creates and returns a new Transform component, asynchronously
+    fn new_transform(&self, service: S) -> Self::Future;
+}
+```
