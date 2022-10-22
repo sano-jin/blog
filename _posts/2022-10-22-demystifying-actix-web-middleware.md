@@ -52,7 +52,7 @@ Rust の他の多くのものと同様に，
 Actix Web のミドルウェアはかなり複雑です．
 `Transform` や `Service` の実装が必要だし，
 上記の JavaScript の例での `user` オブジェクトのように，
-後で追加のデータを取り出したいときには，
+後で追加のデータ（注：ユーザの認証情報とか）を取り出したいときには，
 `FromRequest` を実装するエクストラクタも必要かも．
 
 Actix は，お助けマン `wrap_fn` を提供しています．
@@ -94,9 +94,9 @@ Actix の `Service` は，
 > I hope that eventually they will all merge together to pull the trait from a single crate,
 > which will make it easier to create middleware that supports multiple frameworks.
 
-Service トレイトの中身を見てみよう．
+Service トレイトの中身を見てみましょう．
 本物のコードはたくさんコメントが書いてあるけど，
-見やすくするために消しといたよ．
+見やすくするために消しておきました．
 
 ```rust
 pubトレイトService<Req> {
@@ -121,17 +121,17 @@ actix-web のミドルウェアでは，
 `Response` は常に必ず `actix_web::dev::ServiceResponcse` で，
 `Error` は必ず `actix_web::Error` になっています．
 
-Axctix は，service が呼び出されても大丈夫かをチェックするのに，
+Axctix は，「service が呼び出されても大丈夫か」をチェックするのに，
 `poll_ready` を呼びます．
 これは，例えば，その service が同時に呼び出される回数を制限する必要がある時とかに，
 役に立つかも．
-大抵は，この関数を自前で実装する必要はないです．
+でも大抵は，この関数を自前で実装する必要はないです．
 `actix-wervice` version 2 は，
 wrap された service にこの関数を渡すための
 `forward_ready!` マクロを用意してくれています．
 
 **本当の** 機能は，`call` 関数が提供してくれています．
-これは，JavaScript の例題とそんなに変わりません．
+これは，JavaScript の例とそんなに変わりません．
 必要に応じてリクエストオブジェクトとレスポンスオブジェクトをチェックしたり，
 更新したり，
 必要に応じてラップされたサービスを呼び出したりすることができます．
@@ -152,7 +152,7 @@ JavaScript のスタイルと異なる点は主に 3 つあります．
 
 [^1]: 何に？
 
-# The Transform トレイト
+# `Transform` トレイト
 
 さて，
 `Service` の仕組みがある程度わかったところで，
