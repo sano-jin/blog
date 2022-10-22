@@ -90,16 +90,26 @@ Actix の `Service` は，
 これは，ルートハンドラとミドルウェアを含みます．
 でも，`Service` は HTTP だけにしか対応していないわけではないです．
 
-> This Service trait is identical to the Service trait s in the hyper and tower crates.
-> I hope that eventually they will all merge together to pull the trait from a single crate,
-> which will make it easier to create middleware that supports multiple frameworks.
+ミドルウェアとは，
+ある作業を行うとともに，
+別の `Service` を呼び出す `Service` の特殊なケースであり，
+ミドルウェアの別のレイヤやエンドポイントハンドラである可能性もあります[^3]．
 
-Service トレイトの中身を見てみましょう．
-本物のコードはたくさんコメントが書いてあるけど，
+[^3]: which 以降がどこにかかっているのか，自信がない．
+
+> この `Service` トレイトは，
+> `hyper` や `tower` のクレートにある `Service` トレイトと同じものです．
+> いずれはそれらが統合され，
+> 一つのクレートからこのトレイトが扱えるようになり，
+> 複数のフレームワークに対応したミドルウェアが作りやすくなることを期待しています．
+
+`Service` トレイトの中身を見てみましょう．
+[本物のコード](https://github.com/actix/actix-net/blob/983abec77d3d57e13aaa4773e23befd1643bf914/actix-service/src/lib.rs#L93)
+はたくさんコメントが書いてあるけど，
 見やすくするために消しておきました．
 
 ```rust
-pubトレイトService<Req> {
+pub trait Service<Req> {
     /// Responses given by the service.
     type Response;
 
@@ -123,18 +133,20 @@ actix-web のミドルウェアでは，
 
 Axctix は，「service が呼び出されても大丈夫か」をチェックするのに，
 `poll_ready` を呼びます．
-これは，例えば，その service が同時に呼び出される回数を制限する必要がある時とかに，
+これは，例えば，
+「その service が同時に呼び出される回数を制限する必要がある」時とかに，
 役に立つかも．
 でも大抵は，この関数を自前で実装する必要はないです．
 `actix-wervice` version 2 は，
 wrap された service にこの関数を渡すための
 `forward_ready!` マクロを用意してくれています．
 
-**本当の** 機能は，`call` 関数が提供してくれています．
+`call` 関数が，
+`Service` トレイトの全ての **本当の** 機能を実現するところです．
 これは，JavaScript の例とそんなに変わりません．
 必要に応じてリクエストオブジェクトとレスポンスオブジェクトをチェックしたり，
 更新したり，
-必要に応じてラップされたサービスを呼び出したりすることができます．
+必要に応じてラップされたサービス[^1] を呼び出したりすることができます．
 JavaScript のスタイルと異なる点は主に 3 つあります．
 
 1. JavaScript のほとんどのフレームワークでは，
