@@ -67,16 +67,52 @@ Actix は，お助けマン wrap_fn を提供しています．
 > 実務では，これはほとんど違いがありません．
 
 **で，**
-Transform と Service，
-そして Extractor が必要なわけですが，
-これらはどのように組み合わされるのでしょうか？多くのミドルウェアでは，
-複雑な部分のほとんどは定型文であることがわかりますが，
-その定型文が実際に何をしているのかを理解することはまだ役に立ちます．
+`Transform` と `Service`，
+そして `Extractor` が必要なわけですが，
+これらはどのように組み合わされるのでしょうか？
+多くのミドルウェアでは，
+複雑な部分のほとんどは定型文だったりします．
+でも，その定型文が実際に何をしているのかを理解することは役に立ちます．
 まず，
 一歩下がって，
-サービスが何を表しているのか，
+`Service` が何を表しているのか，
 より一般的に理解しましょう．
 
-www.DeepL.com/Translator（無料版）で翻訳しました．
+# `Service` Trait
 
-}}
+Actix の `Service` は，
+リクエストを受け取って，レスポンスを返す，あらゆるものを表しています．
+例えば，HTTP です．
+これは，route handler と ミドルウェア を含みます．
+でも，`Service` は HTTP だけにしか対応していないわけではないです．
+
+> This Service trait is identical to the Service traits in the hyper and tower crates.
+> I hope that eventually they will all merge together to pull the trait from a single crate,
+> which will make it easier to create middleware that supports multiple frameworks.
+
+Service trait の中身を見てみよう．
+本物のコードはたくさんコメントが書いてあるけど，
+見やすくするために消しといたよ．
+
+```rust
+pub trait Service<Req> {
+    /// Responses given by the service.
+    type Response;
+
+    /// Errors produced by the service when polling readiness or executing call.
+    type Error;
+
+    /// The future response value.
+    type Future: Future<Output = Result<Self::Response, Self::Error>>;
+
+    /// Returns `Ready` when the service is able to process requests.
+    fn poll_ready(&self, ctx: &mut task::Context<'_>) -> Poll<Result<(), Self::Error>>;
+
+    /// Process the request and return the response asynchronously.
+    fn call(&self, req: Req) -> Self::Future;
+}
+```
+
+actix-web のミドルウェアでは，
+`Response` は常に必ず `actix_web::dev::ServiceResponcse` で，
+`Error` は必ず `actix_web::Error` になっている．
