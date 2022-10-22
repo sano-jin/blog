@@ -24,7 +24,7 @@ author: sano
 Actix Web のための簡単なサンプルはたくさんありますが，
 それらをちゃんと理解するためにはもう少し努力が必要でした．
 
-Javascript のミドルウェアは，
+JavaScript のミドルウェアは，
 多くの場合，
 関数を一つ書けば十分です．
 正確な構文はフレームワークによって異なりますが，
@@ -50,13 +50,19 @@ app.use(middleware);
 対して，
 Rust の他の多くのものと同様に，
 Actix Web のミドルウェアはかなり複雑です．
-`Transform` や `Service` の実装が必要だし，
+[Transform](https://docs.rs/actix-web/4.0.0-beta.4/actix_web/dev/trait.Transform.html)
+や
+[Service](https://docs.rs/actix-web/4.0.0-beta.4/actix_web/dev/trait.Service.html)
+の実装が必要だし，
 上記の JavaScript の例での `user` オブジェクトのように，
 後で追加のデータ（注：ユーザの認証情報とか）を取り出したいときには，
-`FromRequest` を実装するエクストラクタも必要かも．
+[FromRequest](https://docs.rs/actix-web/4.0.0-beta.4/actix_web/trait.FromRequest.html)
+を実装するエクストラクタも必要かも．
 
-Actix は，お助けマン `wrap_fn` を提供しています．
-これは，JS の例のようなクロージャ（注：自由変数を含まない関数）
+Actix は，お助けマン
+[wrap_fn](https://docs.rs/actix-web/4.0.0-beta.4/actix_web/struct.Scope.html#method.wrap_fn)
+を提供しています．
+これは，JavaScript の例のようなクロージャ（注：自由変数を含まない関数）
 だけのミドルウェアなら作ることができます．
 でも，そうでない場合は仕方がない．．．
 水面下で何が起こっているかを見ていきましょう．
@@ -111,18 +117,23 @@ Actix の `Service` は，
 ```rust
 pub trait Service<Req> {
     /// Responses given by the service.
+    /// Service から返されるレスポンス．
     type Response;
 
     /// Errors produced by the service when polling readiness or executing call.
+    /// service が，読み込みのポーリングや，実行呼び出しの際に発生させるエラー．
     type Error;
 
     /// The future response value.
+    /// 返り値 (future)
     type Future: Future<Output = Result<Self::Response, Self::Error>>;
 
     /// Returns `Ready` when the service is able to process requests.
+    //// Service がリクエストを処理できるなら，`Ready` を返す．
     fn poll_ready(&self, ctx: &mut task::Context<'_>) -> Poll<Result<(), Self::Error>>;
 
     /// Process the request and return the response asynchronously.
+    /// 非同期にリクエストを処理して，レスポンスを返す．
     fn call(&self, req: Req) -> Self::Future;
 }
 ```
@@ -144,16 +155,17 @@ wrap された service にこの関数を渡すための
 `call` 関数が，
 `Service` トレイトの全ての **本当の** 機能を実現するところです．
 これは，JavaScript の例とそんなに変わりません．
-必要に応じてリクエストオブジェクトとレスポンスオブジェクトをチェックしたり，
+Service が呼び出されても大丈夫なら，
+リクエストオブジェクトとレスポンスオブジェクトをチェックしたり，
 更新したり，
-必要に応じてラップされたサービス[^1] を呼び出したりすることができます．
+ラップされた service [^1] を呼び出したりすることができます．
 JavaScript のスタイルと異なる点は主に 3 つあります．
 
 1. JavaScript のほとんどのフレームワークでは，
    レスポンスオブジェクトはすでに存在していて，ミドルウェアに渡されます．
    対して，ここでは，レスポンスオブジェクトは，
    ラップされた service によって作られます．
-2. Error はフツーの Rust 風に扱われます：
+2. Error は通常の Rust の方法で処理されます：
    ラップされた service を呼び出すための `next` 関数をオーバーロードするのではなくて，
    `Result::Err` を返します．
 3. Rust は強い静的型付けなので，
@@ -170,10 +182,12 @@ JavaScript のスタイルと異なる点は主に 3 つあります．
 `Service` の仕組みがある程度わかったところで，
 `Transform` の出番はどこでしょうか？
 抽象的には，
-サービスを別のサービスで包んで「変換」するのですが，
+service を別の service で包んで「変換」するのですが，
 私たちの場合は factory と考えた方が分かりやすいでしょう．
 `Transform` の実装の唯一の仕事は，
-他のサービスをラップする新しいミドルウェアのインスタンスを作成することです．
+他の service をラップする新しいミドルウェアのインスタンスを作成することです．
+
+![img](https://imfeld.dev/images/actix-middleware-transform.svg)
 
 `Transform` にはいくつかの関連型がありますが，
 これらはほとんどが `Service` の型と同じものを記述しています．
@@ -212,7 +226,7 @@ pub trait Transform<S, Req> {
 `new_transform` という関数があります．
 これは．
 ミドルウェア `Service` の新しいインスタンスを生成します．
-作成されたミドルウェアは引数 `service` で渡されたサービスをラップする必要があります．
+作成されたミドルウェアは引数 `service` で渡された service をラップする必要があります．
 
 `new_transform` は `Future` を返すので，
 ミドルウェアの作成中にいくつかの非同期処理を行うことができます．
@@ -224,14 +238,15 @@ pub trait Transform<S, Req> {
 
 # ミドルウェアの実装
 
-Ergo の場合，
+[Ergo](https://github.com/dimfeld/ergo) の場合，
 最初に作ったミドルウェアはユーザーデータを取得する認証器なので，
 ここではそれを例にして説明します．
 
 まず，
-ミドルウェアのサービス構成です．
-ミドルウェアにはラップされるサービスと，
-リクエストごとにユーザーを見つけるロジックを持つ `AuthData` オブジェクトが含まれます．
+ミドルウェアの service 構成です．
+ミドルウェアにはラップされる service と，
+リクエストごとにユーザーを見つけることができるような情報をもつ
+`AuthData` オブジェクトが含まれます．
 
 ```rust
 pub type AuthenticationInfo = Rc<AuthenticationResult>;
@@ -248,7 +263,7 @@ Actix Web では複数のシングルスレッドランタイムを使用して�
 ここでは`Arc`ではなく`Rc`を使用することができます．
 次に，
 ミドルウェアの`Service`の実装です．
-型パラメータ `B` はサービスから返されるボディのタイプを表していて，
+型パラメータ `B` は service から返されるボディのタイプを表していて，
 `ServiceResponse<B>` のタイプシグネチャに渡します．
 今回は特に気にすることはありません．
 
@@ -267,7 +282,7 @@ where
 この最初の部分の実装は，
 ほとんどのミドルウェアでほとんど同じになるでしょう．
 前述の `forward_ready` を使って，
-`Service::poll_ready` をラップされたサービスに渡しています．
+`Service::poll_ready` をラップされた service に渡しています．
 
 他の唯一の注目すべき点は，
 Future 型に `LocalBoxFuture` を使用していることです．
@@ -276,7 +291,9 @@ Future 型に `LocalBoxFuture` を使用していることです．
 `LocalBoxFuture` は `BoxFuture` の非送信 (`Send` しない) 版です．
 `Arc` の代わりに `Rc` を使用できるのと同じ原理です．
 
-[^2]: opaque futre type とは？
+[^2]:
+    opaque futre type とは？
+    <https://rust-lang.github.io/chalk/book/clauses/opaque_types.html>
 
 ```rust
     fn call(&self, req: ServiceRequest) -> Self::Future {
@@ -318,7 +335,7 @@ Actix はここで type パラメータの `TypeId` をキーとして使って�
 
 ここでは，
 未認証のリクエストに対してエラーを投げることはありません．
-ユーザーを必要とするかどうかは，
+認証されたユーザーでなくてはいけないかは，
 後のコードで決定します．
 
 次に，
@@ -362,7 +379,7 @@ where
 `ready` を使って future にラップします．
 
 最後に，
-`wrap` を使ってこれをサーバーに追加することができます．
+`wrap` を使ってこれをサーバに追加することができます．
 
 ```rust
 let authdata = AuthData::new(...);
