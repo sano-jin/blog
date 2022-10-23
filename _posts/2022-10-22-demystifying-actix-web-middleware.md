@@ -296,7 +296,7 @@ Future 型に `LocalBoxFuture` を使用していることです．
 
 [^2]: opaque futre type とは？
 
-    - <https://rust-lang.github.io/chalk/book/clauses/opaque_types.html>
+    - [rust の opaque type](https://rust-lang.github.io/chalk/book/clauses/opaque_types.html)
     - [swift の opaque result type](https://qiita.com/koher/items/338d2f2d0c4731e3508f)
 
 ```rust
