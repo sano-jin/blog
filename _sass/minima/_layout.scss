@@ -860,6 +860,9 @@ a.tag {
             font-size: 600%;
             overflow-x: hidden;
             overflow-y: hidden;
+            width: calc(100% - #{$spacing-unit / 2});
+
+            // width: 100%;
             white-space: nowrap;
 
             // line-height: 4.6rem;
