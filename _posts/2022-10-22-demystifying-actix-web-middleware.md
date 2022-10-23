@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "[WIP] Actix Web ミドルウェアの謎解き"
+title: "Actix Web ミドルウェアの謎解き"
 excerpt: Demystifying Actix Web Middleware
 author: sano
 ---
 
-<https://imfeld.dev/writing/actix-web-middleware>
+[Demystifying Actix Web Middleware (Daniel Imfeld)](https://imfeld.dev/writing/actix-web-middleware)
+の日本語訳です[^5]．
 
-これを超適当に日本語訳する．
-
-> 自分に分かれば良いやと言う感じ．かなり意訳しています．
-
-[swift の opaque result type](https://qiita.com/koher/items/338d2f2d0c4731e3508f)
+[^5]:
+    意訳している部分が多いです．
+    理解が追いついていない部分が（たくさん）あります．
+    （助けてください泣）．
 
 ---
 
-2021-06-07 に書いたよ．
+2021-06-07 に書きました．
 
 [Ergo task orchestrator](https://github.com/dimfeld/ergo) のサイドプロジェクトでは，
 バックエンドを全て Rust で書いています．
@@ -294,9 +294,10 @@ Future 型に `LocalBoxFuture` を使用していることです．
 `LocalBoxFuture` は `BoxFuture` の非送信 (`Send` しない) 版です．
 `Arc` の代わりに `Rc` を使用できるのと同じ原理です．
 
-[^2]:
-    opaque futre type とは？
-    <https://rust-lang.github.io/chalk/book/clauses/opaque_types.html>
+[^2]: opaque futre type とは？
+
+    - <https://rust-lang.github.io/chalk/book/clauses/opaque_types.html>
+    - [swift の opaque result type](https://qiita.com/koher/items/338d2f2d0c4731e3508f)
 
 ```rust
     fn call(&self, req: ServiceRequest) -> Self::Future {

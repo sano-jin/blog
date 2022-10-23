@@ -2,6 +2,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,14 +39,16 @@
   <meta name="theme-color" content="#ffffff" />
 
   <!-- jekyll -->
-  {%- seo -%} <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url
-  }}"> {%- feed_meta -%} 
+  {%- seo -%}
+
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url}}" />
+
+  {%- feed_meta -%}
 
   <!--  google analytics if enabled -->
-  {%- if jekyll.environment == 'production' and
-  site.google_analytics -%} {%- include google-analytics.html -%} {%- endif -%}
-
+  {%- if jekyll.environment == 'production' and site.google_analytics -%} {%-
+  include google-analytics.html -%} {%- endif -%}
 
   <!-- source code copy button -->
-  <script src={{"/assets/code_copy.js" | relative_url}} type="text/javascript"></script>
+  <script src={{"/assets/code_copy.js" | relative_url}}  type="text/javascript"></script>
 </head>
