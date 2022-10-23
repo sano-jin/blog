@@ -1,17 +1,21 @@
 <!-- This loops through the paginated posts -->
 {% for post in paginator.posts %}
 <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+
 <div class="post-meta date">{{ post.date | date: date_format }}</div>
+
 <div class="post-meta tags">
   {% for tag in post.tags %}
   <span class="tag">{{ tag }}</span>
   {% endfor %}
 </div>
+
 <div>
   {%- if site.show_excerpts -%}
   <p>{{ post.excerpt }}</p>
   {%- endif -%}
 </div>
+
 {% comment %}
 <div class="paginate-content">{{ post.content }}</div>
 {% endcomment %} {% endfor %}
