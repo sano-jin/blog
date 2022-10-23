@@ -1,37 +1,45 @@
 <!-- This loops through the paginated posts -->
-{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%} {%
-for post in paginator.posts %}
-<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 
-<div class="post-meta date">{{ post.date | date: date_format }}</div>
+<div class="paginate-list">
+  {% for post in paginator.posts %}
+  <div class="paginate-item">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
 
-<div class="categories">
-  {% for category in post.categories %}
-  <a
-    href="{{ '/categories' | relative_url | append: '#' | append: category }}"
-    class="category"
-    >{{ category }}</a
-  >
+    <div class="post-meta date">{{ post.date | date: date_format }}</div>
+
+    <div class="categories">
+      {% for category in post.categories %}
+      <a
+        href="{{ '/categories' | relative_url | append: '#' | append: category }}"
+        class="category"
+        >{{ category }}</a
+      >
+      {% endfor %}
+    </div>
+
+    <div class="post-meta tags">
+      {% for tag in post.tags %}
+      <a
+        href="{{ '/tags' | relative_url | append: '#' | append: tag }}"
+        class="tag"
+        >{{ tag }}</a
+      >
+      {% endfor %}
+    </div>
+
+    <div>
+      {%- if site.show_excerpts -%}
+      <p>{{ post.excerpt }}</p>
+      {%- endif -%}
+    </div>
+
+    {% comment %}
+    <div class="paginate-content">{{ post.content }}</div>
+    {% endcomment %}
+  </div>
   {% endfor %}
 </div>
-
-<div class="post-meta tags">
-  {% for tag in post.tags %}
-  <a href="{{ '/tags' | relative_url | append: '#' | append: tag }}" class="tag"
-    >{{ tag }}</a
-  >
-  {% endfor %}
-</div>
-
-<div>
-  {%- if site.show_excerpts -%}
-  <p>{{ post.excerpt }}</p>
-  {%- endif -%}
-</div>
-
-{% comment %}
-<div class="paginate-content">{{ post.content }}</div>
-{% endcomment %} {% endfor %}
 
 <!-- Pagination links -->
 <div class="pagination">
