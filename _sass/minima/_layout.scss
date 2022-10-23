@@ -75,7 +75,7 @@
         input ~ .trigger {
             clear: both;
             overflow-y: hidden;
-            transition: all .5s ease-in-out;
+            transition: all 0.5s ease-in-out;
             line-height: 0;
             color: transparent;
         }
@@ -130,8 +130,8 @@
         }
 
         /** 
-         * Drop down menu bar
-         */
+             * Drop down menu bar
+             */
 
         /* Navbar container */
         .navbar {
@@ -670,7 +670,12 @@ h1.post-title {
     border-top: 1px solid $border-color-01;
     align-items: stretch;
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         margin-top: $spacing-unit;
     }
 
@@ -780,4 +785,39 @@ a.tag {
  */
 .toc {
     display: none;
+}
+
+.post-meta.category {
+    display: inline-block;
+    position: relative;
+}
+
+.post-meta.category::before {
+    // border-radius: 4px 0 0 4px;
+    content: "category";
+
+    // background: linear-gradient(90deg, #{$nord15} 0%, #{$nord15} 20%, #{$nord6} 100%);
+    display: inline-block;
+    position: relative;
+    padding: 5px ($spacing-unit / 2);
+    right: -4px;
+    background-color: $nord6;
+    color: $nord9;
+    color: $nord15;
+}
+
+a.category {
+    border-radius: 0 4px 4px 0;
+    border-radius: 0 8px 0 0;
+    padding: 5px ($spacing-unit / 2);
+    margin: 0;
+    display: inline-block;
+    background-color: $nord15;
+    color: $nord6;
+
+    &:hover {
+        // color: $nord10;
+        background-color: $nord10;
+        text-decoration: none;
+    }
 }

@@ -21,6 +21,7 @@ commentable: true
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y"
         -%} {{ page.date | date: date_format }}
       </time>
+
       {%- if page.author -%} •
       <span itemprop="author" itemscope itemtype="http://schema.org/Person"
         ><span class="p-author h-card" itemprop="name"
@@ -29,6 +30,25 @@ commentable: true
       >
       {%- endif -%}
     </p>
+
+    {%- if page.category -%}
+    <div class="post-meta category">
+      <a
+        href="{{ '/categories' | relative_url | append: '#' | append: page.category }}"
+        class="category"
+        >{{ page.category }}</a
+      >
+    </div>
+    {%- endif -%}
+    <div class="post-meta tags">
+      {% for tag in page.tags %}
+      <a
+        href="{{ '/tags' | relative_url | append: '#' | append: tag }}"
+        class="tag"
+        >{{ tag }}</a
+      >
+      {% endfor %}
+    </div>
   </header>
 
   {%- comment -%}
