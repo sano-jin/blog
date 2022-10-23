@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<div class="home page-content">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  <div class="tags-content">{{ content }}</div>
+
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+  <div class="tags-page">
+    {% for tag in site.tags %}
+    <div class="tag-posts">
+      <h2 class="tag-heading" id="{{ tag[0] }}">{{ tag[0] }}</h2>
+
+      {% for post in tag[1] %}
+      <div class="tag-post">
+        {% comment %}
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        {% endcomment %}
+
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+
+        <div class="post-meta date">{{ post.date | date: date_format }}</div>
+
+        <div class="post-meta tags">
+          {% for tag in post.tags %}
+          <a
+            href="{{ '/tags' | relative_url | append: '#' | append: tag }}"
+            class="tag"
+            >{{ tag }}</a
+          >
+          {% endfor %}
+        </div>
+
+        <div>
+          {%- if site.show_excerpts -%}
+          <p>{{ post.excerpt }}</p>
+          {%- endif -%}
+        </div>
+
+        {% comment %}
+        <div class="paginate-content">{{ post.content }}</div>
+        {% endcomment %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>

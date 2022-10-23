@@ -730,11 +730,49 @@ hr {
     }
 }
 
-.tag {
-    color: $nord9;
+a.tag {
     background-color: $nord6;
     padding: 1px 8px;
     border-radius: 8px;
+    color: $nord9;
+
+    &:hover {
+        color: $nord10;
+    }
+}
+
+.tags-page {
+    position: relative;
+}
+
+.content h1.tag-heading,
+.content h2.tag-heading,
+.content h3.tag-heading,
+.content h4.tag-heading,
+.content h5.tag-heading,
+.content h6.tag-heading {
+    top: 0;
+    position: sticky;
+    display: block;
+    padding-top: $spacing-unit * 1.5;
+    border-bottom: 2px solid $nord6;
+    background-color: $background-color;
+
+    // margin-bottom: $spacing-unit * 2;
+}
+
+.tag-post {
+    border-left: 2px solid $nord6;
+
+    // border: 2px solid $nord6;
+    // border-radius: 10px;
+    padding-left: $spacing-unit;
+    padding-bottom: $spacing-unit;
+    margin-bottom: $spacing-unit;
+}
+
+.tag-posts {
+    margin-bottom: $spacing-unit * 2;
 }
 
 /** 

@@ -1,12 +1,15 @@
 <!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%} {%
+for post in paginator.posts %}
 <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
 
 <div class="post-meta date">{{ post.date | date: date_format }}</div>
 
 <div class="post-meta tags">
   {% for tag in post.tags %}
-  <span class="tag">{{ tag }}</span>
+  <a href="{{ '/tags' | relative_url | append: '#' | append: tag }}" class="tag"
+    >{{ tag }}</a
+  >
   {% endfor %}
 </div>
 
