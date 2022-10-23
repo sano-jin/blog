@@ -1,5 +1,67 @@
 <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
 
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+
+<div class="post-list post-card-list paginate-list">
+  {%- for post in site.posts limit:site.pagination.per_page -%}
+  <div class="paginate-item">
+    <div class="paginate-item-header">
+      <!--
+      {{ post.categories[0] | split: ", " | replace: "-", " " | capitalize }}
+        -->
+      {% assign splitted_category = post.categories[0] | split: "-" %}
+
+      <div class="big">{{ splitted_category | join: " " }}</div>
+      <div class="small">
+        {% for word in splitted_category %}
+        <div>{{ word | capitalize }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="paginate-item-body">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+
+      <div class="post-meta date">{{ post.date | date: date_format }}</div>
+
+      <div class="categories">
+        {% for category in post.categories %}
+        <a
+          href="{{ '/categories' | relative_url | append: '#' | append: category }}"
+          class="category"
+          >{{ category }}</a
+        >
+        {% endfor %}
+      </div>
+
+      <div class="post-meta tags">
+        {% for tag in post.tags %}
+        <a
+          href="{{ '/tags' | relative_url | append: '#' | append: tag }}"
+          class="tag"
+          >{{ tag }}</a
+        >
+        {% endfor %}
+      </div>
+
+      <div>
+        {%- if site.show_excerpts -%}
+        <p>{{ post.excerpt }}</p>
+        {%- endif -%}
+      </div>
+
+      {% comment %}
+      <div class="paginate-content">{{ post.content }}</div>
+      {% endcomment %}
+    </div>
+  </div>
+  {% endfor %}
+
+  <h3>
+    <a href="{{ '/blog/page/2' | relative_url }}"> 〉See more </a>
+  </h3>
+</div>
+
+{%- comment -%}
 <ul class="post-list">
   {%- for post in site.posts limit:site.pagination.per_page -%}
   <li>
@@ -42,3 +104,4 @@
     </li>
   </h3>
 </ul>
+{%- endcomment -%}

@@ -850,6 +850,11 @@ a.tag {
             line-height: 2.5rem;
             color: $background-color;
             color: $nord5;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            width: calc(100% - #{$spacing-unit});
+            padding: 0;
+            margin: 0;
         }
 
         > div.big {
@@ -922,5 +927,16 @@ a.category {
         // line-height: $base-line-height * $base-font-size * 1.5;
         margin: 5px;
         display: inline-block;
+    }
+}
+
+.posts {
+    .paginate-list.post-card-list {
+        display: block;
+
+        > .paginate-item {
+            width: 100%;
+            margin: ($spacing-unit * 2) 0;
+        }
     }
 }
