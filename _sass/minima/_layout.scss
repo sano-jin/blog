@@ -65,61 +65,69 @@
         cursor: pointer;
     }
 
-    input ~ .trigger {
-        clear: both;
-        display: none;
-    }
-
-    input:checked ~ .trigger {
-        display: block;
-        padding-bottom: 5px;
-        padding: 5px;
-    }
-
-    .div {
-        padding: 0px 10px;
-    }
+    // .div {
+    //     padding: 0px 10px;
+    // }
 
     @media screen and (max-width: $on-medium) {
-        .dropdown {
-            padding: 0px 10px;
-        }
+        input ~ .trigger {
+            // display: none;
+            // display: block;
+            clear: both;
+            overflow-y: hidden;
+            transition: all .5s ease-in-out;
+            line-height: 0;
 
-        .dropdown > .dropdown-content {
-            > *::before {
-                background-color: $brand-color-light;
-                content: "";
-                width: 10px;
-                height: 10px;
-                display: inline-block;
-                margin-right: 20px;
+            // padding: 0 1em;
+            color: transparent;
+
+            .dropdown {
+                // display: none;
+
+                // height: 0;
+           
             }
         }
-    }
 
-    a {
-        color: $text-color;
-        display: block;
-        padding: 0px 10px;
+        // https://dzone.com/articles/pure-css-slide-down-animation-1
+        input:checked ~ .trigger {
+            line-height: 4;
 
-        // Gaps between nav items, but not on the last one
-        &:not(:last-child) {
-            margin-right: 0;
-        }
-    }
+            // line-height: $base-line-height * $base-font-size * 2.5;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            color: black;
 
-    .page-link {
-        color: $text-color;
-        line-height: $base-line-height;
-        display: block;
-        padding: 5px 10px;
-
-        // Gaps between nav items, but not on the last one
-        &:not(:last-child) {
-            margin-right: 0;
+            .dropdown {
+                display: block;
+            }
         }
 
-        margin-left: 20px;
+        a,
+        .dropdown {
+            // color: $text-color;
+            display: block;
+            padding: 0px 10px;
+
+            // Gaps between nav items, but not on the last one
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+        }
+
+        .page-link {
+            color: $text-color;
+            line-height: $base-line-height;
+            display: block;
+            padding: 5px 10px;
+
+            // Gaps between nav items, but not on the last one
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+
+            margin-left: 20px;
+        }
     }
 
     @media screen and (min-width: $on-medium) {
@@ -162,11 +170,13 @@
 
         /* Links inside the navbar */
         .navbar a {
+            color: $text-color;
             float: left;
             font-size: 16px;
             color: $nav-color;
             text-align: center;
             text-decoration: none;
+            padding: 0px 10px;
         }
 
         .navbar div {
