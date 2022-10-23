@@ -863,15 +863,8 @@ a.tag {
             overflow-y: hidden;
             width: calc(100% - #{$spacing-unit / 2});
             text-transform: capitalize;
-
-            // line-height: 9rem;
-
-            // width: 100%;
+            letter-spacing: -10px;
             white-space: nowrap;
-
-            // line-height: 4.6rem;
-            // top: 50px;
-       
         }
 
         position: relative;
