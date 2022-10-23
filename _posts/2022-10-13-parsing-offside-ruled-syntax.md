@@ -194,4 +194,4 @@ OCamlLex で，今まで述べたアルゴリズムを実装してみる．
 
 なので，工夫する．
 
-[〉続く．．．](/blog/2022/10/14/parsing-offside-ruled-syntax-with-ocamllex-and-menhir.html)
+[〉続く．．．](/blog/programming-language-systems/2022/10/14/parsing-offside-ruled-syntax-with-ocamllex-and-menhir.html)
