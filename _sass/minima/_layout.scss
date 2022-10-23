@@ -754,19 +754,19 @@ a.tag {
     top: 0;
     position: sticky;
     display: block;
-    padding-top: $spacing-unit * 1.5;
-    border-bottom: 2px solid $nord6;
+    padding-top: 5px;
+    border-bottom: 4px solid $nord6;
     background-color: $background-color;
 
+    // background-color: $nord6;
     // margin-bottom: $spacing-unit * 2;
 }
 
 .tag-post {
-    border-left: 2px solid $nord6;
-
+    // border-left: 2px solid $nord6;
     // border: 2px solid $nord6;
     // border-radius: 10px;
-    padding-left: $spacing-unit;
+    // padding-left: $spacing-unit;
     padding-bottom: $spacing-unit;
     margin-bottom: $spacing-unit;
 }
