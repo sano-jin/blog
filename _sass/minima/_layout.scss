@@ -723,8 +723,9 @@ hr {
  * Tags
  */
 .tags {
-    // margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 5px;
+
+    // margin-top: 15px;
 
     // background-color: $nord6;
 
@@ -755,29 +756,56 @@ a.tag {
 .content h3.tag-heading,
 .content h4.tag-heading,
 .content h5.tag-heading,
-.content h6.tag-heading {
+.content h6.tag-heading,
+.content h1.category-heading,
+.content h2.category-heading,
+.content h3.category-heading,
+.content h4.category-heading,
+.content h5.category-heading,
+.content h6.category-heading {
     top: 0;
     position: sticky;
     display: block;
     padding-top: 5px;
-    border-bottom: 4px solid $nord6;
+
+    // border-bottom: 4px solid $nord6;
     background-color: $background-color;
 
     // background-color: $nord6;
     // margin-bottom: $spacing-unit * 2;
 }
 
-.tag-post {
-    // border-left: 2px solid $nord6;
-    // border: 2px solid $nord6;
-    // border-radius: 10px;
-    // padding-left: $spacing-unit;
-    padding-bottom: $spacing-unit;
-    margin-bottom: $spacing-unit;
-}
-
 .tag-posts {
     margin-bottom: $spacing-unit * 2;
+}
+
+.tag-posts-list {
+    margin-bottom: $spacing-unit * 2;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $nord6;
+    border-radius: 6px;
+
+    // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.05);
+}
+
+.tag-post {
+    border-radius: 6px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.05);
+    width: $content-width / 2 - $spacing-unit * 3;
+    margin: $spacing-unit / 2;
+    padding: $spacing-unit / 2;
+    background-color: $background-color;
+
+    > h3:first-child {
+        margin-top: 0;
+    }
+
+    &:hover {
+        box-shadow: 0px 8px 16px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    color: $nord3;
 }
 
 /** 
@@ -787,37 +815,8 @@ a.tag {
     display: none;
 }
 
-.post-meta.category {
-    display: inline-block;
-    position: relative;
-}
-
-.post-meta.category::before {
-    // border-radius: 4px 0 0 4px;
-    content: "category";
-
-    // background: linear-gradient(90deg, #{$nord15} 0%, #{$nord15} 20%, #{$nord6} 100%);
-    display: inline-block;
-    position: relative;
-    padding: 5px ($spacing-unit / 2);
-    right: -4px;
-    background-color: $nord6;
-    color: $nord9;
-    color: $nord15;
-}
-
 a.category {
-    border-radius: 0 4px 4px 0;
-    border-radius: 0 8px 0 0;
-    padding: 5px ($spacing-unit / 2);
-    margin: 0;
+    color: $nord15;
     display: inline-block;
-    background-color: $nord15;
-    color: $nord6;
-
-    &:hover {
-        // color: $nord10;
-        background-color: $nord10;
-        text-decoration: none;
-    }
+    margin-bottom: 10px;
 }

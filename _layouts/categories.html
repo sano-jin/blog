@@ -7,17 +7,17 @@ layout: default
   <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  <div class="tags-content">{{ content }}</div>
+  <div class="categories-content">{{ content }}</div>
 
   {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-  <div class="tags-page">
-    {% for tag in site.tags %}
-    <div class="tag-posts">
-      <h2 class="tag-heading" id="{{ tag[0] }}">{{ tag[0] }}</h2>
+  <div class="categories-page">
+    {% for category in site.categories %}
+    <div class="category-posts">
+      <h2 class="category-heading" id="{{ category[0] }}">{{ category[0] }}</h2>
 
-      <div class="tag-posts-list">
-        {% for post in tag[1] %}
-        <div class="tag-post">
+      <div class="category-posts-list">
+        {% for post in category[1] %}
+        <div class="category-post">
           {% comment %}
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           {% endcomment %}

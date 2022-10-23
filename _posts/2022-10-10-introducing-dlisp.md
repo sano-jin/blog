@@ -4,6 +4,7 @@ title: 差分リストとアトムからなる Lisp (DLisp) の紹介
 excerpt: 修士1年の夏にやろうとしていた研究テーマ
 tags: research programming-language-systems
 author: sano
+category: research
 ---
 
 <https://github.com/sano-jin/dlisp>

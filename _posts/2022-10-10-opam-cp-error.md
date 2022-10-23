@@ -3,6 +3,7 @@ layout: post
 title: opam install で error を吐く
 tags: ocaml opam
 author: sano
+category: ocaml
 ---
 
 表題の通りで，サーバ上に opam をインストールして，

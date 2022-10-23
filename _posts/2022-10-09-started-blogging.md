@@ -3,6 +3,7 @@ layout: post
 title: "ブログ始めました"
 tags: random-note
 author: sano
+category: random-note
 ---
 
 最近人と会話する機会が減っていて，

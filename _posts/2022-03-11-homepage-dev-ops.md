@@ -8,6 +8,7 @@ show_sidebar: false
 menubar_toc: true
 author: sano
 tags: web-development web-design
+category: web-development
 ---
 
 ホームページの整備を現代風に行う

@@ -4,6 +4,7 @@ title: Is JavaScript Call-by-reference?
 excerpt: JavaScript は値呼びです．
 tags: javascript programming-language-systems
 author: sano
+category: programming-language-systems
 ---
 
 JavaScript は値呼びです．

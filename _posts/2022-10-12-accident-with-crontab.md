@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Accident with Crontab
-tags: crontab accidents
+tags: random-note crontab accidents
 author: sano
+category: random-note
 ---
 
 crontab でやらかしました．

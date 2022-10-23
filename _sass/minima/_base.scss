@@ -197,11 +197,10 @@ pre.highlight {
  * Blockquotes
  */
 blockquote {
-    color: $grey-color-dark;
-    background-color: $quoteblock-background-color;
-
     // border-left: 4px solid $brand-color-light;
     border-left: 4px solid $forest-blue;
+    color: $grey-color-dark;
+    background-color: $quoteblock-background-color;
     padding: 1px $spacing-unit;
     margin-left: 0px;
     margin-right: 0px;

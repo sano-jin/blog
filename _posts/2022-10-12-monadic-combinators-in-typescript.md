@@ -3,6 +3,7 @@ layout: post
 title: Monadic combinators in TypeScript
 tags: typescript
 author: sano
+category: typescript
 ---
 
 typescript の Haskell like な関数をまとめたライブラリを発見しました．
