@@ -711,13 +711,14 @@ hr {
 }
 
 .tags {
-    margin-top: $spacing-unit / 2;
+    margin-top: 5px;
 
     // background-color: $nord6;
 
     .tag {
         display: inline-block;
-        margin-right: 5px;
+        margin: 5px;
+        margin-left: 0px;
     }
 }
 
