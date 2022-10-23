@@ -2,6 +2,7 @@
 layout: post
 title: Jekyll でソースコードに copy ボタンをつける
 excerpt: javascript で動的に生成することにした．
+tags: javascript jekyll
 author: sano
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title: "A hands-on tutorial about Lambda GT"
 excerpt: A functional language with graphs as first class data.
+tags: programming-language-systems
 author: sano
 ---
 

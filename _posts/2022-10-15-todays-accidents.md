@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Today's accidents
+tags: random-note mysql
 author: sano
 ---
 

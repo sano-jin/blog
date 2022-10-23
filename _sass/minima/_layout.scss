@@ -709,3 +709,25 @@ hr {
 .paginate {
     margin-top: $spacing-unit;
 }
+
+.tags {
+    margin-top: $spacing-unit / 2;
+
+    // background-color: $nord6;
+
+    .tag {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .tag:first-child {
+        margin-left: 0;
+    }
+}
+
+.tag {
+    color: $nord10;
+    background-color: $nord6;
+    padding: 1px 8px;
+    border-radius: 10px;
+}

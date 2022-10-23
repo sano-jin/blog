@@ -1,6 +1,7 @@
 ---
 layout: post
 title: opam install で error を吐く
+tags: ocaml opam
 author: sano
 ---
 

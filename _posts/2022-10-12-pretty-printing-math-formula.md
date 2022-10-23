@@ -2,6 +2,7 @@
 layout: post
 title: Pretty printing math formula
 excerpt: 数式を冗長な括弧を省いて綺麗に表示する．
+tags: ocaml programming-language-systems
 author: sano
 ---
 

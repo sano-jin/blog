@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Accident with Crontab
+tags: crontab accidents
 author: sano
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Partially applying labeled arguments in OCaml
+tags: ocaml
 author: sano
 ---
 

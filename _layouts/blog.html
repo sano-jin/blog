@@ -6,7 +6,18 @@ hide_posts_list: true
 <div class="home page-content">
   {%- if page.title -%}
   <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%} {{ content }}
+  {%- endif -%} {{ content }} {% comment %}
+  <div>
+    {% for tag in site.tags %}
+    <div><span class="tag">{{ tag[0] }}</span></div>
+    <ul>
+      {% for post in tag[1] %}
+      <li><a href="{{ post.url  }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+  {% endcomment %}
 
   <!--
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>

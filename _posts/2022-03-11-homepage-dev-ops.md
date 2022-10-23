@@ -7,7 +7,7 @@ hide_hero: true
 show_sidebar: false
 menubar_toc: true
 author: sano
-tags: webdev showdev webdesign
+tags: web-development web-design
 ---
 
 ホームページの整備を現代風に行う

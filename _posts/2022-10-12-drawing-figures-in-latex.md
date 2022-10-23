@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Drawing figures in latex
+tags: latex
 author: sano
 ---
 
