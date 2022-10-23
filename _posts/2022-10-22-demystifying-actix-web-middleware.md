@@ -484,7 +484,7 @@ async fn write_task_handler(
     app_data: AppStateData,
     payload: Json<SomeObject>,
     req: HttpRequest,
-    auth: Authenticated, // <- 認証情報
+    auth: Authenticated, // <- 【NEW!】認証情報
 ) -> Result<impl Responder> {
     let org = auth.org_id();
     let user = auth.user_id();
