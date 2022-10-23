@@ -820,25 +820,73 @@ a.tag {
     margin-bottom: $spacing-unit * 2;
     display: flex;
     flex-wrap: wrap;
-    background-color: $nord6;
+
+    // background-color: $nord6;
     border-radius: 6px;
 }
 
 .paginate-item {
     border-radius: 6px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.05);
+
+    // border-top: 100px solid $nord10;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
     margin: $spacing-unit / 2;
-    padding: $spacing-unit / 2;
     background-color: $background-color;
     width: 100%;
 
     @media screen and (min-width: $on-large) {
-        width: $content-width / 2 - $spacing-unit * 3;
+        width: $content-width / 2 - $spacing-unit * 2;
     }
 
-    > h2:first-child,
-    > h3:first-child {
-        margin-top: 0;
+    .paginate-item-header {
+        > div {
+            position: relative;
+            font-family: $code-font-family;
+        }
+
+        > div.small {
+            font-size: 300%;
+            letter-spacing: -5px;
+            line-height: 2.5rem;
+            color: $background-color;
+            color: $nord5;
+        }
+
+        > div.big {
+            color: $nord4;
+            color: $nord9;
+            top: 0;
+            position: absolute;
+            font-size: 600%;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            white-space: nowrap;
+
+            // line-height: 4.6rem;
+            // top: 50px;
+       
+        }
+
+        position: relative;
+        background-color: $nord8;
+        border-radius: 6px 6px 0 0;
+        height: 100px;
+        margin: 0px;
+        padding: $spacing-unit / 2;
+        padding-top: $spacing-unit;
+        overflow-y: hidden;
+
+        // text-align: right;
+   
+    }
+
+    .paginate-item-body {
+        > h2:first-child,
+        > h3:first-child {
+            margin-top: 0;
+        }
+
+        padding: $spacing-unit / 2;
     }
 
     &:hover {

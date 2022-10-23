@@ -4,39 +4,54 @@
 <div class="paginate-list">
   {% for post in paginator.posts %}
   <div class="paginate-item">
-    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <div class="paginate-item-header">
+      <!--
+      {{ post.categories[0] | split: ", " | replace: "-", " " | capitalize }}
+        -->
+      {% assign splitted_category = post.categories[0] | split: "-" %}
 
-    <div class="post-meta date">{{ post.date | date: date_format }}</div>
-
-    <div class="categories">
-      {% for category in post.categories %}
-      <a
-        href="{{ '/categories' | relative_url | append: '#' | append: category }}"
-        class="category"
-        >{{ category }}</a
-      >
-      {% endfor %}
+      <div class="big">{{ splitted_category | join: " " | upcase }}</div>
+      <div class="small">
+        {% for word in splitted_category %}
+        <div>{{ word | capitalize }}</div>
+        {% endfor %}
+      </div>
     </div>
+    <div class="paginate-item-body">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
 
-    <div class="post-meta tags">
-      {% for tag in post.tags %}
-      <a
-        href="{{ '/tags' | relative_url | append: '#' | append: tag }}"
-        class="tag"
-        >{{ tag }}</a
-      >
-      {% endfor %}
+      <div class="post-meta date">{{ post.date | date: date_format }}</div>
+
+      <div class="categories">
+        {% for category in post.categories %}
+        <a
+          href="{{ '/categories' | relative_url | append: '#' | append: category }}"
+          class="category"
+          >{{ category }}</a
+        >
+        {% endfor %}
+      </div>
+
+      <div class="post-meta tags">
+        {% for tag in post.tags %}
+        <a
+          href="{{ '/tags' | relative_url | append: '#' | append: tag }}"
+          class="tag"
+          >{{ tag }}</a
+        >
+        {% endfor %}
+      </div>
+
+      <div>
+        {%- if site.show_excerpts -%}
+        <p>{{ post.excerpt }}</p>
+        {%- endif -%}
+      </div>
+
+      {% comment %}
+      <div class="paginate-content">{{ post.content }}</div>
+      {% endcomment %}
     </div>
-
-    <div>
-      {%- if site.show_excerpts -%}
-      <p>{{ post.excerpt }}</p>
-      {%- endif -%}
-    </div>
-
-    {% comment %}
-    <div class="paginate-content">{{ post.content }}</div>
-    {% endcomment %}
   </div>
   {% endfor %}
 </div>
