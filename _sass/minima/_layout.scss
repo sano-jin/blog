@@ -854,6 +854,7 @@ a.tag {
 
         > div.big {
             color: $nord4;
+            color: $nord10;
             color: $nord9;
             top: 0;
             position: absolute;
@@ -861,6 +862,9 @@ a.tag {
             overflow-x: hidden;
             overflow-y: hidden;
             width: calc(100% - #{$spacing-unit / 2});
+            text-transform: capitalize;
+
+            // line-height: 9rem;
 
             // width: 100%;
             white-space: nowrap;
@@ -872,6 +876,8 @@ a.tag {
 
         position: relative;
         background-color: $nord8;
+        background: linear-gradient(45deg, $nord8, $nord8, $nord9);
+        background: linear-gradient(45deg, $nord7, $nord9);
         border-radius: 6px 6px 0 0;
         height: 100px;
         margin: 0px;
