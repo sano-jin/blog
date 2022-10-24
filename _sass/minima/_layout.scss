@@ -852,7 +852,7 @@ a.tag {
             color: $nord5;
             overflow-x: hidden;
             overflow-y: hidden;
-            width: calc(100% - #{$spacing-unit});
+            width: calc(100% - #{$spacing-unit / 4});
             padding: 0;
             margin: 0;
         }
