@@ -4,7 +4,7 @@ title: "A hands-on tutorial about Lambda GT"
 excerpt: A functional language with graphs as first class data.
 tags: programming-language-systems
 author: sano
-category: web-development
+category: Web Development
 ---
 
 [![Repository](https://img.shields.io/badge/github-%40lambda%20gt%20alpha-yellow?style=flat-square)][repo]

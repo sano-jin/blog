@@ -8,12 +8,12 @@
       <!--
       {{ post.categories[0] | split: ", " | replace: "-", " " | capitalize }}
         -->
-      {% assign splitted_category = post.categories[0] | split: "-" %}
+      {% assign splitted_category = post.categories[0] | split: " " %}
 
       <div class="big">{{ splitted_category | join: " " }}</div>
       <div class="small">
         {% for word in splitted_category %}
-        <div>{{ word | capitalize }}</div>
+        <div>{{ word }}</div>
         {% endfor %}
       </div>
     </div>

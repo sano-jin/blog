@@ -3,7 +3,7 @@ layout: post
 title: Accident with Crontab
 tags: random-note crontab accidents
 author: sano
-category: random-note
+category: Random note
 ---
 
 crontab でやらかしました．

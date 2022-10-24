@@ -4,7 +4,7 @@ title: Pretty printing math formula
 excerpt: 数式を冗長な括弧を省いて綺麗に表示する．
 tags: ocaml programming-language-systems
 author: sano
-category: programming-language-systems
+category: Programming Language Systems
 ---
 
 pretty print に関して，実は全く調べたことがない（完全に自己流である）ので，

@@ -3,7 +3,7 @@ layout: post
 title: Today's accidents
 tags: random-note mysql
 author: sano
-category: random-note
+category: Random note
 ---
 
 本日のやらかし．

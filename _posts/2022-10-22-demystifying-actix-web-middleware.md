@@ -2,9 +2,9 @@
 layout: post
 title: "Actix Web ミドルウェアの謎解き"
 excerpt: Demystifying Actix Web Middleware
-tags: rust actix-web middleware web-development
-category: actix-web
 author: sano
+tags: rust actix-web middleware web-development
+category: Actix-web
 ---
 
 [Demystifying Actix Web Middleware (Daniel Imfeld)](https://imfeld.dev/writing/actix-web-middleware)

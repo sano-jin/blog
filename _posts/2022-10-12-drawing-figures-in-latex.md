@@ -3,7 +3,7 @@ layout: post
 title: Drawing figures in latex
 tags: latex
 author: sano
-category: random-note
+category: Random note
 ---
 
 latex 資料に図を入れようと丸一日もがいていたが，

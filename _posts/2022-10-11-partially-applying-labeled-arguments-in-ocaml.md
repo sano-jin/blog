@@ -3,7 +3,7 @@ layout: post
 title: Partially applying labeled arguments in OCaml
 tags: ocaml
 author: sano
-category: ocaml
+category: OCaml
 ---
 
 OCaml では，labeled argument を持つ関数に対しても，

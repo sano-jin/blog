@@ -4,7 +4,7 @@ title: Jekyll でソースコードに copy ボタンをつける
 excerpt: javascript で動的に生成することにした．
 tags: javascript jekyll
 author: sano
-category: javascript
+category: JavaScript
 ---
 
 このサイト (html) は，

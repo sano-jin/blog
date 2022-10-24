@@ -4,7 +4,7 @@ title: Mini python interpreter
 excerpt: 一週間でちょっと Python を書いた
 tags: ocaml python programming-language-systems
 author: sano
-category: programming-language-systems
+category: Programming Language Systems
 ---
 
 <https://github.com/sano-jin/python-in-ocaml>
