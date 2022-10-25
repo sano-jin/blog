@@ -14,29 +14,17 @@ $spacing-unit: 30px !default;
 $background-color: #ffffff !default;
 $text-color: #333 !default;
 
-// $brand-color: #5a7a92 !default;
 $brand-color: $nord3 !default;
-
-// $brand-color-light: lighten($brand-color, 25%) !default;
 $brand-color-light: $nord4 !default;
 $brand-color-light-02: $nord5 !default;
 $brand-color-light-03: $nord6 !default;
-
 $brand-color-dark: darken($brand-color, 25%) !default;
-
-// $brand-color-light-02: lighten($brand-color-light, 25%) !default;
-// $brand-color-light-03: lighten($brand-color-light, 15%) !default;
-
-// $heading-color: $brand-color !default;
 
 $grey-color: #999 !default;
 $grey-color-light: lighten($grey-color, 25%) !default;
 $grey-color-light-02: lighten($grey-color-light, 13%) !default;
 $grey-color-dark: darken($grey-color, 20%) !default;
 
-// $border-color-01: lighten($grey-color, 25%) !default;
-// $border-color-02: lighten($border-color-01, 5%) !default;
-// $border-color-03: lighten($border-color-02, 5%) !default;
 $border-color-01: $nord4 !default;
 $border-color-02: $nord4 !default;
 $border-color-03: $nord4 !default;
@@ -51,25 +39,17 @@ $forest-blue: #88c0d0 !default;
 
 $quoteblock-background-color: #f9f9f9 !default;
 $quoteblock-background-color-02: darken($quoteblock-background-color, 5%) !default;
-
 $quoteblock-background-color-03: darken($quoteblock-background-color-02, 5%) !default;
-
 $quoteblock-code-background-color: darken($quoteblock-background-color, 5%) !default;
-
 $quoteblock-code-background-color-02: darken($quoteblock-code-background-color, 5%) !default;
-
 $quoteblock-code-background-color-03: darken($quoteblock-code-background-color-02, 5%) !default;
 
-$link-color: #1a9ad2 !default;
+$link-color: $nord9 !default;
 
-$site-title-color: darken($grey-color, 25%) !default;
+$site-title-color: $nord3 !default;
 $nav-color: $text-color !default;
 
 $heading-color: $brand-color !default;
-
-// $heading-color: $text-color !default;
-
-// $site-title-color: $text-color !default;
 
 $table-text-align: left !default;
 
@@ -112,5 +92,9 @@ $code-font-size: 15px;
 // Import partials.
 
 @import "minima/base";
+@import "minima/header";
+@import "minima/footer";
+@import "minima/sideview";
 @import "minima/layout";
+@import "minima/details";
 @import "minima/syntax-highlighting";

@@ -1,0 +1,131 @@
+/**
+ * Sideview
+ */
+.site-sideview {
+    display: none;
+}
+
+@media screen and (min-width: $on-large) {
+    .footer-col-1 {
+        width: calc(35% - (#{$spacing-unit} / 2));
+    }
+
+    .footer-col-2 {
+        width: calc(20% - (#{$spacing-unit} / 2));
+    }
+
+    .footer-col-3 {
+        width: calc(45% - (#{$spacing-unit} / 2));
+    }
+
+    // sideview
+    .flex-container {
+        display: flex;
+        margin: 0 auto;
+    }
+
+    .content {
+        flex: 1;
+        border-right: 1px solid $border-color-01;
+
+        // width: $content-width + $toc-width;
+        width: $content-width;
+        padding-right: $spacing-unit * 2;
+    }
+
+    .posts {
+        margin-right: 20px;
+        margin-top: 40px;
+        padding-bottom: $spacing-unit;
+        width: $sideview-width;
+        padding-left: $spacing-unit * 2;
+    }
+
+    .site-sideview {
+        display: block;
+        padding-left: 0;
+        padding-bottom: $spacing-unit;
+
+        .sideview-col-wrapper {
+            img {
+                margin-bottom: $spacing-unit;
+                display: block;
+            }
+        }
+
+        .social-media-list {
+            a {
+                border: none;
+                display: block;
+                padding: 8px;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            a:hover {
+                .svg-icon {
+                    fill: $brand-color;
+                }
+            }
+
+            .username {
+                display: none;
+            }
+
+            .svg-icon {
+                margin-right: 0px;
+                margin-left: 8px;
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
+
+.posts {
+    padding-bottom: $spacing-unit;
+}
+
+@media screen and (min-width: $on-medium) {
+    .flex-container {
+        flex: 1 0 auto;
+    }
+}
+
+/**
+ * Page content
+ */
+.page-content {
+    // padding: $spacing-unit 0;
+    flex: 1 0 auto;
+}
+
+.page-heading {
+    @include relative-font-size(2);
+}
+
+.post-list-heading {
+    @include relative-font-size(1.75);
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.post-meta {
+    font-size: $small-font-size;
+    color: $brand-color;
+}
+
+.post-link {
+    display: block;
+
+    @include relative-font-size(1.5);
+}
