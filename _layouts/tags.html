@@ -12,7 +12,11 @@ layout: default
   <div class="tags-page">
     {% for tag in site.tags %}
     <div class="tag-posts">
-      <h2 class="sticky-heading" id="{{ tag[0] }}">{{ tag[0] }}</h2>
+      <h2 class="sticky-heading" id="{{ tag[0] }}">
+        <i class="fa-solid fa-tag"></i>
+
+        {{ tag[0] }}
+      </h2>
 
       <div class="tag-posts-list paginate-list">
         {% for post in tag[1] %}
