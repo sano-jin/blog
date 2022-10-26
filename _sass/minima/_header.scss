@@ -8,8 +8,9 @@
     // line-height: $base-line-height * $base-font-size * 2;
     color: $brand-color;
     background-color: $brand-color-light-03;
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.08);
 
-    // background: linear-gradient(45deg, $nord4, $background-color);
+    // background: linear-gradient(45deg, $nord6, $background-color);
 
     // Positioning context for the mobile navigation icon
     position: relative;
@@ -89,8 +90,7 @@
             color: transparent;
         }
 
-        .dropbtn
-        i {
+        .dropbtn i {
             display: none;
         }
 
@@ -168,8 +168,8 @@
         }
 
         /** 
-             * Drop down menu bar
-             */
+                 * Drop down menu bar
+                 */
 
         /* Navbar container */
         .navbar {
