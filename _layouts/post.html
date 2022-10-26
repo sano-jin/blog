@@ -45,7 +45,10 @@ commentable: true
       <a
         href="{{ '/tags' | relative_url | append: '#' | append: tag }}"
         class="tag"
-        >{{ tag }}</a
+      >
+        <i class="fa-solid fa-tag"></i>
+
+        {{ tag }}</a
       >
       {% endfor %}
     </div>
