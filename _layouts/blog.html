@@ -13,7 +13,10 @@ hide_posts_list: true
     <a
       href="{{ '/tags' | relative_url | append: '#' | append: tag[0] }}"
       class="tag"
-      >{{ tag[0] }}</a
+    >
+      <i class="fa-solid fa-tag"></i>
+
+      {{ tag[0] }}</a
     >
     {% endfor %}
   </div>
