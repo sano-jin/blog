@@ -13,12 +13,12 @@ window.onload = () => {
 
     copyCodeButton.addEventListener("click", () => {
       window.navigator.clipboard.writeText(code);
-      copyCodeButton.classList.remove("fa-copy");
-      copyCodeButton.classList.add("fa-check");
+      copyCodeButton.classList.remove("copybtn-copy");
+      copyCodeButton.classList.add("copybtn-check");
 
       setTimeout(() => {
-        copyCodeButton.classList.remove("fa-check");
-        copyCodeButton.classList.add("fa-copy");
+        copyCodeButton.classList.remove("copybtn-check");
+        copyCodeButton.classList.add("copybtn-copy");
       }, 2000);
     });
   });
