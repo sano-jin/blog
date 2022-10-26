@@ -13,7 +13,7 @@ layout: default
   <div class="categories-page">
     {% for category in site.categories %}
     <div class="category-posts">
-      <h2 class="category-heading" id="{{ category[0] }}">{{ category[0] }}</h2>
+      <h2 class="sticky-heading" id="{{ category[0] }}">{{ category[0] }}</h2>
 
       <div class="category-posts-list">
         {% for post in category[1] %}
