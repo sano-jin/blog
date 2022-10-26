@@ -4,7 +4,8 @@
 .site-header {
     margin: 0;
     min-height: $spacing-unit * 2;
-    line-height: $base-line-height * $base-font-size * 2;
+
+    // line-height: $base-line-height * $base-font-size * 2;
     color: $brand-color;
     background-color: $brand-color-light-03;
 
@@ -20,6 +21,8 @@
 
 .site-title {
     @include relative-font-size(1.625);
+
+    line-height: $base-line-height * $base-font-size * 2;
 
     // letter-spacing: -1px;
     font-weight: 300;
@@ -45,22 +48,25 @@
     }
 
     .menu-icon {
+        color: $text-color;
         display: block;
-        line-height: 0;
-        padding-top: 10px;
+
+        // line-height: 0;
+        // padding-top: 10px;
         text-align: center;
 
-        > svg path {
-            fill: $border-color-03;
-            fill: $border-color-01;
-            fill: $text-color;
-        }
+        // > svg path {
+        //     fill: $border-color-03;
+        //     fill: $border-color-01;
+        //     fill: $text-color;
+        // }
+   
     }
 
     label[for="nav-trigger"] {
         border-radius: 5px;
         position: absolute;
-        top: $spacing-unit * 0.4;
+        top: $spacing-unit * 0.5;
         right: $spacing-unit / 2;
         float: right;
         width: 36px;
@@ -82,12 +88,41 @@
             color: transparent;
         }
 
+        .dropbtn
+        i {
+            display: none;
+        }
+
         // https://dzone.com/articles/pure-css-slide-down-animation-1
         input:checked ~ .trigger {
             // line-height: $base-line-height * $base-font-size * 2.5;
             line-height: 4;
             padding-bottom: 1em;
-            color: black;
+            color: $nord1;
+
+            i {
+                display: inline-block;
+            }
+        }
+
+        input ~ label > .menu-icon {
+            .open-menu {
+                display: inline-block;
+            }
+
+            .close-menu {
+                display: none;
+            }
+        }
+
+        input:checked ~ label > .menu-icon {
+            .open-menu {
+                display: none;
+            }
+
+            .close-menu {
+                display: inline-block;
+            }
         }
 
         a,
