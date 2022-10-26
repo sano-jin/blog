@@ -9,6 +9,8 @@ layout: default
 
   <div class="tags-content">{{ content }}</div>
 
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+
   <div class="tags-page">
     {% for tag in site.tags %}
     <div class="tag-posts">
