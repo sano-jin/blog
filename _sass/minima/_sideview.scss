@@ -48,12 +48,20 @@
 
         .sideview-col-wrapper {
             img {
-                margin-bottom: $spacing-unit;
+                margin: $spacing-unit auto;
                 display: block;
+                border-radius: 50%;
+                width: 60%;
+            }
+
+            h2 {
+                text-align: center;
             }
         }
 
         .social-media-list {
+            // margin: 0 auto;
+
             a {
                 border: none;
                 display: block;
