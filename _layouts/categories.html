@@ -27,16 +27,16 @@ layout: default
           <div class="post-meta date">{{ post.date | date: date_format }}</div>
 
           <div class="categories">
+            <i class="fa-solid fa-tags"></i>
+
             {% for category in post.categories %}
             <a
               href="{{ '/categories' | relative_url | append: '#' | append: category }}"
               class="category"
             >
-              <i class="fa-solid fa-tags"></i>
-
               {{ category }}</a
             >
-            {% endfor %}
+            〉 {% endfor %}
           </div>
 
           <div class="post-meta tags">

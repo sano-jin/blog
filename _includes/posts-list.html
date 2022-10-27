@@ -18,6 +18,7 @@
         {% endfor %}
       </div>
     </div>
+
     <div class="paginate-item-body">
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
 
@@ -29,11 +30,9 @@
           href="{{ '/categories' | relative_url | append: '#' | append: category }}"
           class="category"
         >
-          <i class="fa-solid fa-tags"></i>
-
           {{ category }}</a
         >
-        {% endfor %}
+        〉 {% endfor %}
       </div>
 
       <div class="post-meta tags">

@@ -5,10 +5,12 @@
     display: none;
 }
 
-@media screen and (max-width: $on-large) {
-    .content .post-title {
-        margin-top: $spacing-unit;
-    }
+.content .post-header {
+    margin-top: $spacing-unit / 2;
+}
+
+.content .post-title {
+    margin-top: $spacing-unit / 2;
 }
 
 @media screen and (min-width: $on-medium) {
@@ -24,6 +26,14 @@
 }
 
 @media screen and (min-width: $on-large) {
+    .content .post-header {
+        margin-top: $spacing-unit * 1.5;
+    }
+
+    .content .post-title {
+        margin-top: $spacing-unit;
+    }
+
     .footer-col-1 {
         width: calc(35% - (#{$spacing-unit} / 2));
     }

@@ -114,10 +114,21 @@ a.tag {
     display: none;
 }
 
+.categories {
+    color: $nord15;
+
+    i {
+        margin-right: 5px;
+    }
+}
+
 a.category {
     color: $nord15;
     display: inline-block;
     margin-bottom: 10px;
+    margin-right: 5px;
+
+    // padding: 0 10px;
 }
 
 .blogtop-tags-list {

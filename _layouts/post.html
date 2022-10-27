@@ -9,9 +9,24 @@ commentable: true
   itemtype="http://schema.org/BlogPosting"
 >
   <header class="post-header">
+    {%- if page.categories -%}
+    <div class="categories">
+      <i class="fa-solid fa-tags"></i>
+      {% for category in page.categories %}
+      <a
+        href="{{ '/categories' | relative_url | append: '#' | append: category }}"
+        class="category"
+      >
+        {{ category }}</a
+      >
+      〉 {% endfor %}
+    </div>
+    {%- endif -%}
+
     <h1 class="post-title p-name" itemprop="name headline">
       {{ page.title | escape }}
     </h1>
+
     <p class="post-meta">
       <time
         class="dt-published"
@@ -31,18 +46,6 @@ commentable: true
       {%- endif -%}
     </p>
 
-    {%- if page.category -%}
-    <div class="category">
-      <a
-        href="{{ '/categories' | relative_url | append: '#' | append: page.category }}"
-        class="category"
-      >
-        <i class="fa-solid fa-tags"></i>
-
-        {{ page.category }}</a
-      >
-    </div>
-    {%- endif -%}
     <div class="post-meta tags">
       {% for tag in page.tags %}
       <a

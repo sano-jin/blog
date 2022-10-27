@@ -4,7 +4,7 @@ title: Parsing off-side ruled syntax with OCamlLex and Menhir
 excerpt: Python とかの構文解析をする（実装編）．
 tags: ocaml menhir python parsing off-side-rule programming-language-systems
 author: sano
-category: Programming Language Systems
+categories: [Programming Language Systems, Parsing]
 ---
 
 # Off-side rule の構文解析をしよう
