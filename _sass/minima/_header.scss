@@ -2,7 +2,6 @@
  * Site header
  */
 .site-header {
-    font-family: "Klee One", $base-font-family;
     margin: 0;
     min-height: $spacing-unit * 2;
 
@@ -20,6 +19,8 @@
 }
 
 .site-title {
+    font-family: "Klee One", $base-font-family;
+
     @include relative-font-size(1.625);
 
     line-height: $base-line-height * $base-font-size * 2.5;
