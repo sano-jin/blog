@@ -5,6 +5,18 @@
     display: none;
 }
 
+@media screen and (min-width: $on-medium) {
+    .flex-container {
+        flex: 1 0 auto;
+    }
+
+    .content,
+    .posts {
+        max-width: $content-width;
+        margin: 0 auto;
+    }
+}
+
 @media screen and (min-width: $on-large) {
     .footer-col-1 {
         width: calc(35% - (#{$spacing-unit} / 2));
@@ -22,20 +34,20 @@
     .flex-container {
         display: flex;
         margin: 0 auto;
+
+        // width: 100%;
+   
     }
 
     .content {
         flex: 1;
         border-right: 1px solid $border-color-01;
-
-        // width: $content-width + $toc-width;
         width: $content-width;
         padding-right: $spacing-unit * 2;
     }
 
     .posts {
-        margin-right: 20px;
-        margin-top: 40px;
+        margin-top: $spacing-unit;
         padding-bottom: $spacing-unit;
         width: $sideview-width;
         padding-left: $spacing-unit * 2;
@@ -94,10 +106,4 @@
 
 .posts {
     padding-bottom: $spacing-unit;
-}
-
-@media screen and (min-width: $on-medium) {
-    .flex-container {
-        flex: 1 0 auto;
-    }
 }
