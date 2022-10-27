@@ -81,3 +81,44 @@
 
     color: $nord3;
 }
+
+/**
+ * Prev and Next button below of posts.
+ */
+.pagination {
+    .previous,
+    .next {
+        color: $brand-color-light;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: inline-block;
+        background-color: $brand-color-light-02;
+        width: 60px;
+        text-align: center;
+    }
+
+    .page-number {
+        width: calc(100% - 210px);
+        display: inline-block;
+        text-align: center;
+        color: $brand-color;
+    }
+
+    .previous.available,
+    .next.available {
+        color: $brand-color;
+    }
+
+    .previous.available:hover,
+    .next.available:hover {
+        background-color: $brand-color;
+        color: $background-color;
+    }
+
+    width: 100%;
+
+    @media screen and (min-width: $on-large) {
+        width: 450px;
+        margin: $spacing-unit auto;
+    }
+}

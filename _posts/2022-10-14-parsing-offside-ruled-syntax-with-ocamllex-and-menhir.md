@@ -15,7 +15,7 @@ Off-side rule というのは，
 インデント（空白）のレベルでどこまでがブロックかを決めるやつ．
 Python とか Haskell とかが採用している．
 
-**[前回](/blog/programming%20language%20systems/2022/10/13/parsing-offside-ruled-syntax.html)** は，
+**[前回](/blog/2022/10/13/parsing-offside-ruled-syntax.html)** は，
 どういうアルゴリズムでこの parsing ができるか（より正確には，必要な前処理ができるか）を議論した．
 
 # で，実際に OCaml でどうやって実装するか．

@@ -11,7 +11,6 @@ commentable: true
   <header class="post-header">
     {%- if page.categories -%}
     <div class="categories">
-      <i class="fa-solid fa-tags"></i>
       {% for category in page.categories %}
       <a
         href="{{ '/categories' | relative_url | append: '#' | append: category }}"
