@@ -5,6 +5,12 @@
     display: none;
 }
 
+@media screen and (max-width: $on-large) {
+    .content .post-title {
+        margin-top: $spacing-unit;
+    }
+}
+
 @media screen and (min-width: $on-medium) {
     .flex-container {
         flex: 1 0 auto;
