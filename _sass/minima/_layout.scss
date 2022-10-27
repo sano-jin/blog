@@ -11,13 +11,13 @@
     flex: 1 0 auto;
 }
 
-.page-heading {
-    @include relative-font-size(2);
-}
-
-.post-list-heading {
-    @include relative-font-size(1.75);
-}
+// .page-heading {
+//     @include relative-font-size(2);
+// }
+// 
+// .post-list-heading {
+//     @include relative-font-size(1.75);
+// }
 
 .post-list {
     margin-left: 0;
@@ -49,6 +49,8 @@
 .post-title,
 .post-content h1 {
     @include relative-font-size(2.625);
+
+    // margin-top: $spacing-unit / 2;
 
     letter-spacing: -1px;
     line-height: 1.15;
