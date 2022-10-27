@@ -31,7 +31,7 @@
     // Keyword
     .o {
         font-weight: bold;
-        color: $nord11;
+        color: $nord15;
     }
 
     // Operator
@@ -56,6 +56,12 @@
     .cs {
         color: #999;
         font-weight: bold;
+        font-style: italic;
+    }
+
+    // ? Comment.Block?
+    .cd {
+        color: #998;
         font-style: italic;
     }
 
@@ -194,7 +200,8 @@
 
     // Name.Exception
     .nf {
-        color: #900;
+        // color: #900;
+        color: $nord9;
         font-weight: bold;
     }
 
@@ -260,7 +267,8 @@
 
     // Literal.String.Doc
     .s2 {
-        color: #d14;
+        // color: #d14;
+        color: $nord3;
     }
 
     // Literal.String.Double
