@@ -28,7 +28,10 @@
         <a
           href="{{ '/categories' | relative_url | append: '#' | append: category }}"
           class="category"
-          >{{ category }}</a
+        >
+          <i class="fa-solid fa-tags"></i>
+
+          {{ category }}</a
         >
         {% endfor %}
       </div>

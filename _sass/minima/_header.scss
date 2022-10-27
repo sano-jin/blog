@@ -10,8 +10,6 @@
     background-color: $brand-color-light-03;
     box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.08);
 
-    // background: linear-gradient(45deg, $nord6, $background-color);
-
     // Positioning context for the mobile navigation icon
     position: relative;
 
@@ -52,17 +50,7 @@
     .menu-icon {
         color: $text-color;
         display: block;
-
-        // line-height: 0;
-        // padding-top: 10px;
         text-align: center;
-
-        // > svg path {
-        //     fill: $border-color-03;
-        //     fill: $border-color-01;
-        //     fill: $text-color;
-        // }
-   
     }
 
     label[for="nav-trigger"] {
@@ -168,8 +156,8 @@
         }
 
         /** 
-                 * Drop down menu bar
-                 */
+         * Drop down menu bar
+         */
 
         /* Navbar container */
         .navbar {
