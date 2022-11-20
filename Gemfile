@@ -7,7 +7,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3.9"
+gem "jekyll", "~> 4.3.1"
 gem "kramdown-parser-gfm"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
@@ -33,6 +33,8 @@ end
 # # Performance-booster for watching directories on Windows
 # gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
-
 gem "webrick", "~> 1.7"
-
+# gem "eventmachine"
+# gem "http_parser"
+# gem "sassc"
+# gem "ffi"
