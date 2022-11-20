@@ -7,7 +7,8 @@ tags: latex
 category: LaTeX
 ---
 
-帰納法とかを使った場合分けの証明を LaTeX で書くときの方法．
+帰納法とかを使った場合分けの証明を，
+LaTeX で書くときの方法．
 
 # 結論から言うと， **description 環境** を使えば良い．
 
