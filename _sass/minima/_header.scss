@@ -19,7 +19,8 @@
 }
 
 .site-title {
-    font-family: "Klee One", $base-font-family;
+    // font-family: "Klee One", $base-font-family;
+    font-family: $base-font-family;
 
     @include relative-font-size(1.625);
 
