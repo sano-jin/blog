@@ -3,6 +3,8 @@ layout: post
 title: 場合分けの証明を LaTeX で書く
 excerpt: Case splitting proof in LaTeX
 author: sano
+tags: latex
+category: LaTeX
 ---
 
 帰納法とかを使った場合分けの証明を LaTeX で書くときの方法．
@@ -64,9 +66,9 @@ author: sano
   \item[Case {\(E = []\)}]\mbox{}\\
 ```
 
-は，`\item[Case \(E =[]` まで到達して，`]` を発見したので，
+は，`\item[Case \(E = []` まで到達して，`]` を発見したので，
 `\item[...]` の `]` だと認識して，そこまでで無理やり閉じようとする．
-しかし，`\(E =[` は `\(` で始めた数式をきちんと閉じられていないために，
+しかし，`\(E = [` は `\(` で始めた数式をきちんと閉じられていないために，
 「`$` が足りないよー」と言うエラーを吐いてしまう．
 
 # とは言え，ちょっと面倒くさい
