@@ -34,9 +34,9 @@ LaTeX で書くときの方法．
 >   - \\(E[e_1] = e_1\\) and
 >     \\(E[e_2] = e_2\\).
 >     Therefore,
->     \\(\\tau = \\tau'\\) and
->     \\(E[e_2]: \\tau\\).
-> - Case \\(E = \\lambda x: \\tau. E'\\)
+>     \\(\tau = \tau'\\) and
+>     \\(E[e_2]: \tau\\).
+> - Case \\(E = \lambda x: \tau. E'\\)
 >   - foobar
 
 # 補足説明
