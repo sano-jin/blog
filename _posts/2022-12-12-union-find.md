@@ -7,9 +7,8 @@ tags: Mathematics
 category: Mathematics
 ---
 
-# 背景
-
 諸事情により，Disjoint-set の和の数学的な定義が欲しかった．
+
 ここで，
 [Disjoint-set](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)
 と呼んでいるのは，Union-find とかに出てくるデータ構造で，
