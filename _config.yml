@@ -86,7 +86,7 @@ permalink: /:year/:month/:day/:title.html
 # Pagination Settings
 pagination:
   enabled: true
-  per_page: 8
+  per_page: 12
   # offset: 2
   permalink: "/page/:num/"
   title: ":title - page :num of :max"

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Mini python interpreter
-excerpt: 一週間でちょっと Python を書いた
+title: 一週間でちょっと Python を書いた
+excerpt: Mini python interpreter
 tags: ocaml python programming-language-systems
 author: sano
 category: Programming Language Systems
