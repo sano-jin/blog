@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Monadic combinators in TypeScript
+title: TypeScript でモナド風コンビネータ
+excerpt: Monadic combinators in TypeScript
 tags: typescript
 author: sano
 category: TypeScript

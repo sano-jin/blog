@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScript は値呼びです
+title: JavaScript は値呼びなのです！
 excerpt: Is JavaScript Call-by-reference?
 tags: javascript programming-language-systems
 author: sano

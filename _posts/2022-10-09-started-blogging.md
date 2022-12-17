@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ブログ始めました"
+title: ブログ始めました
 tags: random-note
 author: sano
 category: Random note

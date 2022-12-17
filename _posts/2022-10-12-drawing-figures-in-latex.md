@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Drawing figures in latex
+title: LaTeX に図を入れるにはどうすれば良いのか．．．
+excerpt: Drawing figures in latex
 tags: latex
 author: sano
 category: Random note

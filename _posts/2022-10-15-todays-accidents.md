@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Today's accidents
+title: 本日のやらかし (MySQL)
+excerpt: Today's accidents
 tags: random-note mysql
 author: sano
 category: Random note
