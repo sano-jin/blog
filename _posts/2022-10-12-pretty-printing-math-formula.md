@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 数式を冗長な括弧を省いて綺麗に表示する．
+title: 数式を冗長な括弧を省いて綺麗に表示する
 excerpt: Pretty printing math formula
 tags: ocaml programming-language-systems
 author: sano

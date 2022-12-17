@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OCaml では，labeled argument を持つ関数に対しても，
-  部分適用できるということに気がつきました．
+  部分適用できるということに気がつきました
 excerpt: Partially applying labeled arguments in OCaml
 tags: ocaml
 author: sano

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Python とかの構文解析をする（実装編）．
+title: Python とかの構文解析をする（実装編）
 excerpt: Parsing off-side ruled syntax with OCamlLex and Menhir
 tags: ocaml menhir python parsing off-side-rule programming-language-systems
 author: sano
