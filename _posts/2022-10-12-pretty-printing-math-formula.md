@@ -7,8 +7,7 @@ author: sano
 category: Programming Language Systems
 ---
 
-pretty print に関して，実は全く調べたことがない（完全に自己流である）ので，
-これを機に調べてみるのも良いのかもしれない．
+Pretty print のやり方について解説してみた．
 
 # Pretty print とは，
 
@@ -261,6 +260,10 @@ print_string @@ string_of_exp e1;;
 どなたか，良い感じの書籍とかウェブサイトとかあれば教えてください．
 
 ocamlformat の実装を見ろ．とかが短い回答になるのだろうか．．．
+
+pretty print 全般に関して，
+実は全く調べたことがない（完全に自己流である）ので，
+これを機に調べてみるのも良いのかもしれない．
 
 [^2]: Haskell だと `$`．
 [^1]: 元ネタを忘れてしまいましたが，（たぶん）ウソです．

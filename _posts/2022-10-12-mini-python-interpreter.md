@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 一週間でちょっと Python を書いた！
+title: 一週間で Python を作ってみた！
 excerpt: Mini python interpreter
 tags: ocaml python programming-language-systems
 author: sano

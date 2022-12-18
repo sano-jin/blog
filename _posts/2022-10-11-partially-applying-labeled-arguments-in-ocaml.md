@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OCaml の labeled argument は，部分適用できる
+title: OCaml の labeled argument は，部分適用できる！
 excerpt: Partially applying labeled arguments in OCaml
 tags: ocaml
 author: sano
