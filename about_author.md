@@ -4,30 +4,13 @@ subtitle: Web Portfolio
 layout: page
 ---
 
-A software developer interested in design and implementation of programming languages, living in Tokyo, Japan.
+I am a software developer and a researcher
+interested in design and implementation of programming languages,
+living in Tokyo, Japan.
 All posts are my own and should never be taken seriously.
 
 Please feel free to contact me at [twitter@sano_jn](https://twitter.com/sano_jn).
 I might not respond that fast, though 🙂.
-
-
-# Education and Career 
-
-April 2023 -- current: A software developer in Tokyo, Japan.
-
-April 2021 -- March 2023: Master’s program
-
-- Department of Computer Science and Communications Engineering,
-  Graduate School of Fundamental Science and Engineering,
-  Waseda University,
-  Supervisor: Professor Kazunori Ueda.
-
-April 2017 -- March 2021: Bachelor of Engineering
-
-- Department of Computer Science and Engineering,
-  School of Fundamental Science and Engineering,
-  Waseda University,
-  Supervisor: Professor Kazunori Ueda
 
 # Research Interests
 
@@ -41,12 +24,18 @@ Here is a list of topics that I am into.
 
 # Publications
 
+- 2023
+  1. Towards Axiomatizing Port Hypergraph Isomorphism,
+     **Jin Sano** and Kazunori Ueda.
+     In Proc. [PPL2023](https://jssst-ppl.org/workshop/2023/). 2023.
+     Refereed.
 - 2022
-
-  1. ([arXiv](https://arxiv.org/abs/2209.05149),
+  1. ([paper](https://doi.org/10.2197/ipsjjip.31.112),
      [slide](./materials/pro2022.pdf))
-     Type checking data structures more complex than tree,
-     to be appeared in Journal of Information Processing, 2022 (19pp. **referred**).
+     **Jin Sano**, Naoki Yamamoto, and Kazunori Ueda.
+     Type checking data structures more complex than tree.
+     Journal of Information Processing. 2022.
+     Refereed.
      <details><summary>Abstract</summary><div>
        Graphs are a generalized concept that encompasses more complex data structures than trees,
        such as difference lists, doubly-linked lists, skip lists, and leaf-linked trees.
@@ -63,13 +52,13 @@ Here is a list of topics that I am into.
        abstract pointers and heaps away and that
        (ii) we pursue what properties can be established automatically using a rather simple typing framework.
      </div></details>
-
   2. ([pdf](http://jssst.or.jp/files/user/taikai/2022/papers/20-L.pdf),
      [slide](./materials/jssst2022.pdf))
-     A functional language with graphs as first-class data,
-     In Proc. The 39th JSSST Annual Conference, 2022,
+     **Jin Sano** and Kazunori Ueda.
+     A functional language with graphs as first-class data.
+     In Proc. The 39th JSSST Annual Conference. 2022.
      [**Presentation Award**](https://jssst2022.wordpress.com/).
-     (15pp. unreferred).
+     (15pp. unrefereed).
      <details><summary>Abstract</summary><div>
        Graphs are a generalized concept that encompasses more complex data structures than trees,
        such as difference lists, doubly-linked lists, skip lists, and leaf-linked trees. Normally, these structures are handled
@@ -83,15 +72,15 @@ Here is a list of topics that I am into.
        is written in only 500 lines of OCaml code.
      </div></details>
      - [source code (github)](https://github.com/sano-jin/lambda-gt-alpha/)
-
 - 2021
   1. ([pdf](http://jssst.or.jp/files/user/taikai/2021/papers/45-L.pdf),
      [slide](./materials/jssst2021.pdf))
-     Introducing a syntax-driven and compositional syntax and semantics to hypergraph rewriting system,
-     In Proc. The 38th JSSST Annual Conference, 2021,
+     **Jin Sano** and Kazunori Ueda.
+     Introducing a syntax-driven and compositional syntax and semantics to hypergraph rewriting system
+     (ハイパーグラフ書き換え系への構文駆動で compositional な構文・意味論の提案).
+     In Proc. The 38th JSSST Annual Conference. 2021.
      [**Student Encouragement Award**](https://jssst2021.wordpress.com/).
-     (in Japanese, 9pp. unreferred).
-     - ハイパーグラフ書き換え系への構文駆動で compositional な構文・意味論の提案．
+     (in Japanese, 9pp. unrefereed).
      <details><summary>概要</summary><div>
        グラフ書換え系における一般的なハイパーグラフの定義は，頂点集合，辺集合，頂点から辺への対応とラベリング
        関数などからなり，サブグラフへのマッチングや生成はそれらへの射を用いて定義される．ただし，これは λ 計算
@@ -118,12 +107,23 @@ Here is a list of topics that I am into.
        in hypergraph rewriting language, HyperLMNtal.
      </div></details>
 
-## Talks
+# Career
 
-- 2022
-  1. ([slide](./materials/pro2022.pdf))
-     Type checking data structures more complex than tree,
-     presented at IPSJ Special Interest Group on Programming, SWoPP2022.
+April 2023 -- current: A software developer in Tokyo, Japan.
+
+April 2021 -- March 2023: Master’s program
+
+- Department of Computer Science and Communications Engineering,
+  Graduate School of Fundamental Science and Engineering,
+  Waseda University,
+  Supervisor: Professor Kazunori Ueda.
+
+April 2017 -- March 2021: Bachelor of Engineering
+
+- Department of Computer Science and Engineering,
+  School of Fundamental Science and Engineering,
+  Waseda University,
+  Supervisor: Professor Kazunori Ueda
 
 # Music
 
