@@ -25,8 +25,8 @@ Here is a list of topics that I am into.
 # Publications
 
 - 2023
-  1. Towards Axiomatizing Port Hypergraph Isomorphism,
-     **Jin Sano** and Kazunori Ueda.
+  1. **Jin Sano** and Kazunori Ueda.
+     Towards Axiomatizing Port Hypergraph Isomorphism,
      In Proc. [PPL2023](https://jssst-ppl.org/workshop/2023/). 2023.
      Refereed.
 - 2022
