@@ -7,11 +7,13 @@ layout: page
 A software developer interested in design and implementation of programming languages, living in Tokyo, Japan.
 All posts are my own and should never be taken seriously.
 
-- Feel free to contact me at [twitter@sano_jn](https://twitter.com/sano_jn).
+Please feel free to contact me at [twitter@sano_jn](https://twitter.com/sano_jn).
+I might not respond that fast, though 🙂.
 
-# Education
 
-April 2023 -- current: An software developer in Tokyo, Japan.
+# Education and Career 
+
+April 2023 -- current: A software developer in Tokyo, Japan.
 
 April 2021 -- March 2023: Master’s program
 
