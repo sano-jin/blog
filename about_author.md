@@ -4,14 +4,16 @@ subtitle: Web Portfolio
 layout: page
 ---
 
-I am a student in Waseda University (Japan) majoring Computer Science
-especially design and implementation of programming languages.
+A software developer interested in design and implementation of programming languages, living in Tokyo, Japan.
+All posts are my own and should never be taken seriously.
 
-- Feel free to contact me at [twitter@sano65747676](https://twitter.com/sano65747676).
+- Feel free to contact me at [twitter@sano_jn](https://twitter.com/sano_jn).
 
 # Education
 
-April 2021 -- current: Master’s program
+April 2023 -- current: An software developer in Tokyo, Japan.
+
+April 2021 -- March 2023: Master’s program
 
 - Department of Computer Science and Communications Engineering,
   Graduate School of Fundamental Science and Engineering,
