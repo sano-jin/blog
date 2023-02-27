@@ -24,7 +24,7 @@ category: Random note
 [スライドはこれです．](/blog/materials/sano-masters-defence.pdf)
 表紙だけ，twitter のユーザ名を載せるなど，少し変えています．
 
-<object data="/blog/materials/sano-masters-defence.pdf" type="application/pdf" width="100%" height="700px">
+<object data="/blog/materials/sano-masters-defence.pdf" type="application/pdf" width="100%" height="600px">
   <embed src="/blog/materials/sano-masters-defence.pdf" />
   <p>This browser does not support PDFs. Please download the PDF to view it:
     <a href="/blog/materials/sano-masters-defence.pdf">Download PDF</a>
@@ -41,22 +41,34 @@ category: Random note
 緩いな〜．
 
 せっかくの機会なので，英語発表の練習に使いました．
-まだ国際会議とかで発表した経験がないので．
+結局，国際会議とかで発表できなかったので泣．
 
 # 反省点
 
+他の作業で立て込んでいたのもあって，
+英語で発表しようかなと決意したのが前日でした．
+
+英語発表となると，7 分の発表とは言え，
+台本を作らないと流石にマズい．
+
+と言うわけで，前日夜（と当日朝）に頑張って台本を作りました．
+
 台本を覚えられなかったので，
-印刷して持って行った．
+印刷して持って行きました．
 
 マイクを持ちながら発表しなくてはいけなくて，
 かつパソコンの操作に片手が取られるので，
-台本を持ちながらマイクを持つ必要があった．
+台本を持ちながらマイクを持つ必要がありました．
 
-微妙な感じになってしまった．
+> ちょっとでも身動きすると，マイクにガサガサと台本が擦れる音が入ることに．
+
+微妙な感じになってしまいました．
+
+まぁそう言うこともあるよね．
 
 # 質疑
 
-XX 先生：
+AA 先生：
 
 - Application は？
   - A. 汎用的です．
@@ -66,7 +78,7 @@ XX 先生：
     p.3 のリストにあるようなグラフは扱える or 扱えるようにしようとしています．
   - A. 逆に，例えば「任意のグラフ」を定義して型をつけることはできないです．
 
-OO 先生
+BB 先生
 
 - 行列は扱えるか？
   - A. メッシュ構造が扱えるかという問いだと理解しました．
