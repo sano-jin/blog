@@ -21,13 +21,13 @@ category: Random note
 
 - TODO: 出てきたら置き換える．
 
-[スライドはこれです．](/materials/sano-masters-defence.pdf)
+[スライドはこれです．](/blog/materials/sano-masters-defence.pdf)
 表紙だけ，twitter のユーザ名を載せるなど，少し変えています．
 
-<object data="/materials/sano-masters-defence.pdf" type="application/pdf" width="100%" height="700px">
-  <embed src="/materials/sano-masters-defence.pdf" />
+<object data="/blog/materials/sano-masters-defence.pdf" type="application/pdf" width="100%" height="700px">
+  <embed src="/blog/materials/sano-masters-defence.pdf" />
   <p>This browser does not support PDFs. Please download the PDF to view it:
-    <a href="/materials/sano-masters-defence.pdf">Download PDF</a>
+    <a href="/blog/materials/sano-masters-defence.pdf">Download PDF</a>
   </p>
 </object>
 
