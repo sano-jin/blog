@@ -21,6 +21,11 @@
         width: $content-width / 2 - $spacing-unit * 1.5;
     }
 
+    @media screen and (min-width: $on-laptop) and (max-width: $on-large) {
+        // width: $content-width-on-palm / 2 - $spacing-unit * 1.5;
+        width: $content-width / 2 - $spacing-unit * 1.5;
+    }
+
     .paginate-item-header {
         > div {
             position: relative;
