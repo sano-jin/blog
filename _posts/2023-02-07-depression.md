@@ -5,6 +5,7 @@ tags: random-note
 author: sano
 category: Random note
 author: sano
+hide: true
 ---
 
 研究に限らず，ちょっとでも失速すると，その後また取り組むのがすごくつらい．

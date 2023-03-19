@@ -3,7 +3,8 @@
 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 
 <div class="post-list post-card-list paginate-list">
-  {%- for post in site.posts limit:site.pagination.per_page -%}
+  {%- for post in site.posts limit:site.pagination.per_page -%} {% if post.hide
+  != true then %}
   <div class="paginate-item">
     <div class="paginate-item-header">
       {% assign splitted_category = post.categories[0] | split: " " %}
@@ -55,7 +56,7 @@
       {% endcomment %}
     </div>
   </div>
-  {% endfor %}
+  {% endif %} {% endfor %}
 
   <h3>
     <a href="{{ '/blog/page/2' | relative_url }}"> 〉See more </a>
