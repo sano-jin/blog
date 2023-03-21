@@ -51,8 +51,7 @@ Here is a list of topics that I am into.
        abstract pointers and heaps away and that
        (ii) we pursue what properties can be established automatically using a rather simple typing framework.
      </div></details>
-  2. ([pdf](http://jssst.or.jp/files/user/taikai/2022/papers/20-L.pdf),
-     [slide](./materials/jssst2022.pdf))
+  2. ([pdf](http://jssst.or.jp/files/user/taikai/2022/papers/20-L.pdf))
      **Jin Sano** and Kazunori Ueda.
      A functional language with graphs as first-class data.
      In Proc. The 39th JSSST Annual Conference. 2022.
