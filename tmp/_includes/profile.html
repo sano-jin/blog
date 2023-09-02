@@ -1,0 +1,24 @@
+<div class="site-sideview h-card">
+  <data class="u-url" href="{{ '/' | relative_url }}"></data>
+
+  <div class="profile">
+    <div class="sideview-col-wrapper">
+      <img src="{{ '/assets/logo.jpg' | relative_url }}" />
+
+      <h2>
+        {%- if site.about_author -%}
+        <a href="{{ site.about_author | relative_url }}">
+          {%- if site.author -%} {{ site.author | escape }} {%- else -%} {{
+          site.title | escape }} {%- endif -%}
+        </a>
+        {%- else -%} {%- if site.author -%} {{ site.author | escape }} {%- else
+        -%} {{ site.title | escape }} {%- endif -%} {%- endif -%}
+      </h2>
+
+      <div class="sideview-col sideview-col-2">{%- include social.html -%}</div>
+      <div class="sideview-col sideview-col-3">
+        <p>{{- site.description | escape -}}</p>
+      </div>
+    </div>
+  </div>
+</div>

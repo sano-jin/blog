@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<div class="home page-content">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  <div class="categories-content">{{ content }}</div>
+
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+  <div class="categories-page">
+    {% for category in site.categories %}
+    <div class="category-posts">
+      <h2 class="sticky-heading" id="{{ category[0] }}">{{ category[0] }}</h2>
+
+      <div class="category-posts-list">
+        {% for post in category[1] %}
+        <div class="category-post">
+          {% comment %}
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          {% endcomment %}
+
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+
+          <div class="post-meta date">{{ post.date | date: date_format }}</div>
+
+          <div class="categories">
+            <i class="fa-solid fa-tags"></i>
+
+            {% for category in post.categories %}
+            <a
+              href="{{ '/categories' | relative_url | append: '#' | append: category }}"
+              class="category"
+            >
+              {{ category }}</a
+            >
+            〉 {% endfor %}
+          </div>
+
+          <div class="post-meta tags">
+            {% for tag in post.tags %}
+            <a
+              href="{{ '/tags' | relative_url | append: '#' | append: tag }}"
+              class="tag"
+            >
+              <i class="fa-solid fa-tag"></i>
+
+              {{ tag }}</a
+            >
+            {% endfor %}
+          </div>
+
+          <div>
+            {%- if site.show_excerpts -%}
+            <p>{{ post.excerpt }}</p>
+            {%- endif -%}
+          </div>
+
+          {% comment %}
+          <div class="paginate-content">{{ post.content }}</div>
+          {% endcomment %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
