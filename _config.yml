@@ -5,7 +5,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # email: sano@ueda.info.waseda.ac.jp
 
-title: J.Sano
+title: sano
 description: >- # this means to ignore newlines until "baseurl:"
   A software developer interested in design and implementation of programming languages, 
   living in Tokyo, Japan.

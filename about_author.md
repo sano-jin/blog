@@ -1,5 +1,5 @@
 ---
-title: J.Sano
+title: sano
 layout: page
 ---
 
