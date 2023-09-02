@@ -4,7 +4,7 @@ title: Python とかの構文解析をする（アルゴリズム編）
 excerpt: Parsing off-side ruled syntax
 tags: python parsing off-side-rule programming-language-systems
 author: sano
-categories: [Programming Language Systems, Parsing]
+categories: [Programming Language]
 ---
 
 # Off-side rule と言うのは，

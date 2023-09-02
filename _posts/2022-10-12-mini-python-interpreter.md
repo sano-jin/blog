@@ -4,7 +4,7 @@ title: 一週間で Python を作ってみた！
 excerpt: Mini python interpreter
 tags: ocaml python programming-language-systems
 author: sano
-category: Programming Language Systems
+category: [Programming Language]
 ---
 
 <https://github.com/sano-jin/python-in-ocaml>

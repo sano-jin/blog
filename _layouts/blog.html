@@ -11,15 +11,11 @@ hide_posts_list: true
   {%- endif -%} {{ content }}
 
   <div class="blogtop-tags-list">
-    {%- assign sorted_tags = site.tags | sort -%} {% for tag in sorted_tags %}
-    <a
-      href="{{ '/tags' | relative_url | append: '#' | append: tag[0] }}"
-      class="tag"
-    >
+    {%- assign sorted_tags = site.categories | sort -%} {% for tag in sorted_tags %}
+    <a href="{{ '/categories' | relative_url | append: '#' | append: tag[0] }}" class="tag">
       <i class="fa-solid fa-tag"></i>
 
-      {{ tag[0] }}</a
-    >
+      {{ tag[0] }}</a>
     {% endfor %}
   </div>
 

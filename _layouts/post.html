@@ -3,21 +3,13 @@ layout: default
 commentable: true
 ---
 
-<article
-  class="post h-entry"
-  itemscope
-  itemtype="http://schema.org/BlogPosting"
->
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     {%- if page.categories -%}
     <div class="categories">
       {% for category in page.categories %}
-      <a
-        href="{{ '/categories' | relative_url | append: '#' | append: category }}"
-        class="category"
-      >
-        {{ category }}</a
-      >
+      <a href="{{ '/categories' | relative_url | append: '#' | append: category }}" class="category">
+        {{ category }}</a>
       〉 {% endfor %}
     </div>
     {%- endif -%}
@@ -27,36 +19,17 @@ commentable: true
     </h1>
 
     <p class="post-meta">
-      <time
-        class="dt-published"
-        datetime="{{ page.date | date_to_xmlschema }}"
-        itemprop="datePublished"
-      >
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y"
         -%} {{ page.date | date: date_format }}
       </time>
 
       {%- if page.author -%} •
-      <span itemprop="author" itemscope itemtype="http://schema.org/Person"
-        ><span class="p-author h-card" itemprop="name"
-          >{{ page.author }}</span
-        ></span
-      >
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+          itemprop="name">{{ page.author }}</span></span>
       {%- endif -%}
     </p>
 
-    <div class="post-meta tags">
-      {% for tag in page.tags %}
-      <a
-        href="{{ '/tags' | relative_url | append: '#' | append: tag }}"
-        class="tag"
-      >
-        <i class="fa-solid fa-tag"></i>
-
-        {{ tag }}</a
-      >
-      {% endfor %}
-    </div>
   </header>
 
   {%- comment -%}
