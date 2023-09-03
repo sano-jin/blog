@@ -53,6 +53,15 @@ main {
 }
 
 /**
+ * Custom settings
+ */
+.content p {
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
+}
+
+
+/**
  * Images
  */
 img {
@@ -74,8 +83,59 @@ figcaption {
 /**
  * Lists
  */
-ul, ol {
+
+// https://saruwakakun.com/html-css/reference/ul-ol-li-design
+ol {
+  counter-reset:number; /*数字をリセット*/
+  list-style-type: none!important; /*数字を一旦消す*/
+  // padding:0.5em;
+  // background: #f5faff;
+}
+.content ol li {
+  position: relative;
+  line-height: 1.5em;
+  //  padding: 0.5em;
+  padding-left: $spacing-unit * 1.5;
+
+  p {
+      margin-top: $spacing-unit / 2;
+      margin-bottom: $spacing-unit / 2;
+  }
+}
+
+ol li:before{
+  /* 以下数字をつける */
+  position: absolute;
+  counter-increment: number;
+  content: counter(number);
+  /*以下数字のデザイン変える*/
+  display:inline-block;
+  background: #5c9ee7;
+  // background: $nord9;
+  color: white;
+  // font-family: 'Avenir','Arial Black','Arial',sans-serif;
+  // font-weight:bold;
+  font-size: 15px;
+  border-radius: 50%;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  // /*以下 上下中央寄せのため*/
+  // top: 50%;
+  // -webkit-transform: translateY(-50%);
+  // transform: translateY(-50%);
+}
+
+
+ul {
     margin-left: $spacing-unit;
+
+    p {
+        margin-top: $spacing-unit / 2;
+        margin-bottom: $spacing-unit / 2;
+    }
 }
 
 li {
@@ -331,14 +391,6 @@ table {
     td {
         border: 1px solid $grey-color-light;
     }
-}
-
-/**
- * Custom settings
- */
-.content p {
-    margin-top: $spacing-unit;
-    margin-bottom: $spacing-unit;
 }
 
 /**

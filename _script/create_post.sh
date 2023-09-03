@@ -18,7 +18,7 @@ echo -e "$body"
 
 echo -e "$body" >"_drafts/$name"
 
-vim "_drafts/$name"
+vi "_drafts/$name"
 
 # ---
 # layout: post
