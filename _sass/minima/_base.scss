@@ -120,12 +120,12 @@ figcaption {
     // padding:0.5em;
     // background: #f5faff;
   }
-  ol li {
+  ol > li {
     position: relative;
     line-height: 1.5em;
     // padding-bottom: $spacing-unit * 0.25;
     // padding-top: $spacing-unit * 0.25;
-    padding-left: $spacing-unit * 1.5;
+    padding-left: $spacing-unit * 1.75;
 
     p {
       margin-top: $spacing-unit / 2;
@@ -133,16 +133,17 @@ figcaption {
     }
   }
 
-  ol li:before {
+  ol > li:before {
     /* 以下数字をつける */
     position: absolute;
     counter-increment: number;
     content: counter(number);
     /*以下数字のデザイン変える*/
     display: inline-block;
-    background: #5c9ee7;
-    // background: $nord9;
-    color: white;
+    // background: #5c9ee7;
+    background: $nord4;
+    // color: white;
+    color: $nord3;
     // font-family: 'Avenir','Arial Black','Arial',sans-serif;
     // font-weight:bold;
     font-size: 15px;
@@ -159,7 +160,8 @@ figcaption {
   }
 }
 
-ul, ol {
+ul,
+ol {
   margin-left: $spacing-unit;
 
   p {
