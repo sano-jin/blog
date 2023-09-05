@@ -158,6 +158,9 @@ figcaption {
     // -webkit-transform: translateY(-50%);
     // transform: translateY(-50%);
   }
+  ol > li {
+    margin: ($spacing-unit / 1.5) 0;
+  }
 }
 
 ul,
@@ -171,7 +174,7 @@ ol {
 }
 
 li {
-  margin: ($spacing-unit / 1.5) 0;
+  margin: ($spacing-unit / 2) 0;
 
   > ul,
   > ol {
@@ -294,14 +297,25 @@ pre.highlight {
 /**
  * Blockquotes
  */
+blockquote::before {
+  content: "”";
+  color: $forest-blue;
+  font-size: 100px;
+  position: absolute;
+  // left: -20px;
+  left: 10px;
+  top: -70px;
+}
+
 blockquote {
   // border-left: 4px solid $brand-color-light;
-  border-left: 4px solid $forest-blue;
+  // border-left: 8px solid $forest-blue;
   color: $grey-color-dark;
   background-color: $quoteblock-background-color;
   padding: 1px $spacing-unit;
   margin-left: 0px;
   margin-right: 0px;
+  position: relative;
 
   // @include relative-font-size(1.125);
 
