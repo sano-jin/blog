@@ -231,7 +231,9 @@ code {
   font-family: $code-font-family;
 
   // @include relative-font-size(0.9375);
-  font-size: 93.75%;
+  // font-size: 93.75%;
+  // @include relative-font-size(0.95);
+  @include relative-font-size(0.96);
   border-radius: 3px;
   background: $code-background-color;
 }
@@ -248,8 +250,10 @@ pre.highlight {
   padding: 16px 20px;
   overflow-x: auto;
   border-left: 4px solid $code-border-color;
+  line-height: $base-line-height * 0.85;
 
   > code {
+    padding: 0;
     border: 0;
     padding-right: 0;
     padding-left: 0;
