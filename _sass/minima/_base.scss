@@ -246,10 +246,13 @@ code {
 
 pre.highlight {
   // box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.08);
+  // border-radius: 0 8px 8px 0;
+  border-radius: 5px;
 
   padding: 16px 20px;
   overflow-x: auto;
-  border-left: 4px solid $code-border-color;
+  // border-left: 6px solid $code-border-color;
+  border-left: 6px solid $nord4;
   line-height: $base-line-height * 0.85;
 
   > code {
