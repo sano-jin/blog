@@ -233,7 +233,8 @@ code {
   // @include relative-font-size(0.9375);
   // font-size: 93.75%;
   // @include relative-font-size(0.95);
-  @include relative-font-size(0.96);
+  // @include relative-font-size(0.96);
+  font-size: 96%;
   border-radius: 3px;
   background: $code-background-color;
 }

@@ -3,57 +3,58 @@
  */
 
 .social-media-list {
-    display: table;
+  display: table;
 
-    li {
-        margin: 5px 25px 5px 0;
-        display: inline-block;
+  li {
+    margin: 5px 25px 5px 0;
+    display: inline-block;
 
-        &:last-of-type {
-            margin-right: 0;
-        }
-
-        a {
-            display: block;
-            padding: 10px 12px;
-
-            &:hover {
-                border-color: $border-color-02;
-            }
-        }
+    &:last-of-type {
+      margin-right: 0;
     }
+
+    a {
+      display: block;
+      padding: 10px 12px;
+
+      &:hover {
+        border-color: $border-color-02;
+      }
+    }
+  }
 }
 
 /**
  * Source code copying button
  */
 .highlight {
-    position: relative;
+  position: relative;
 }
 
 .copy-code-button {
-    background: $background-color;
-    cursor: pointer;
-    padding: 5px 8px;
-    font-weight: 900;
-    color: $grey-color-dark;
-    top: 10px !important;
-    right: 10px !important;
-    position: absolute;
-    border: none;
-    display: none;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+  background: $background-color;
+  cursor: pointer;
+  padding: 5px 8px;
+  font-weight: 900;
+  color: $grey-color-dark;
+  top: 10px !important;
+  right: 10px !important;
+  position: absolute;
+  border: none;
+  display: none;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 .highlight:hover .copy-code-button {
-    display: block;
+  display: block;
 }
 
 .copy-code-button.copybtn-check {
-    display: block;
-    background: $brand-color;
-    color: white;
+  display: block;
+  // background: $brand-color;
+  background: $nord8;
+  color: white;
 }
 
 // strong {
@@ -61,83 +62,83 @@
 // }
 
 hr {
-    background-color: $border-color-01;
-    border: none;
-    border-top: 1px solid $brand-color-light-02;
-    width: 30%;
-    margin-left: 0%;
-    margin: ($spacing_unit * 2) 0;
+  background-color: $border-color-01;
+  border: none;
+  border-top: 1px solid $brand-color-light-02;
+  width: 30%;
+  margin-left: 0%;
+  margin: ($spacing_unit * 2) 0;
 }
 
 /** 
  * Tags
  */
 .tags {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 
-    .tag {
-        display: inline-block;
-        margin: 5px;
-        margin-left: 0px;
-    }
+  .tag {
+    display: inline-block;
+    margin: 5px;
+    margin-left: 0px;
+  }
 }
 
 a.tag {
-    background-color: $nord6;
-    padding: 1px 8px;
-    border-radius: 8px;
-    color: $nord9;
+  background-color: $nord6;
+  padding: 1px 8px;
+  border-radius: 8px;
+  color: $nord9;
 
-    &:hover {
-        color: $nord10;
-    }
+  &:hover {
+    color: $nord10;
+  }
 }
 
 .tags-page {
-    position: relative;
+  position: relative;
 }
 
 .content .sticky-heading {
-    top: 0;
-    position: sticky;
-    display: block;
-    background-color: $background-color;
-    z-index: 111;
-    padding: 5px 14px;
-    margin: 10px -14px;
+  top: 0;
+  position: sticky;
+  display: block;
+  background-color: $background-color;
+  z-index: 111;
+  padding: 5px 14px;
+  margin: 10px -14px;
 }
 
 /** 
  * Table of contents
  */
 .toc {
-    display: none;
+  display: none;
 }
 
 .categories {
-    color: $nord15;
+  color: $nord15;
 }
 
 a.category {
-    color: $nord15;
-    display: inline-block;
-    margin-bottom: 10px;
-    margin-right: 5px;
+  color: $nord15;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 5px;
 
-    // padding: 0 10px;
+  // padding: 0 10px;
 }
 
 .blogtop-tags-list {
-    // padding: 10px 0;
-    margin: ($spacing-unit / 2) 0;
-    padding: ($spacing-unit / 2) 0;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
+  // padding: 10px 0;
+  margin: ($spacing-unit / 2) 0;
+  padding: ($spacing-unit / 2) 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 
-    > a.tag {
-        // line-height: $base-line-height * $base-font-size * 1.5;
-        margin: 5px;
-        display: inline-block;
-    }
+  > a.tag {
+    // line-height: $base-line-height * $base-font-size * 1.5;
+    margin: 5px;
+    display: inline-block;
+  }
 }
