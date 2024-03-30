@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# ./create_post.sh 'タイトル' 
+# で今日の日付とタイトルのポストを生成して vim で開く．
+
 # https://qiita.com/m-yamashita/items/889c116b92dc0bf4ea7d
 
 set -eux
