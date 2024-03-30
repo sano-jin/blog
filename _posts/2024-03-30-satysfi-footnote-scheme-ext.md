@@ -29,6 +29,7 @@ GitHub repo: [sano-jin/satysfi-footnote-scheme-ext](https://github.com/sano-jin/
 
 確かに論文だと図はページ上部に配置することが多い気がするので実用上問題ないのかも知れないが，
 個人的には特に個人用のメモだと図を引用したページの下部に図が配置されている方が見やすい気がする．
+
 「原理的には可能と思われる」ということなので，自作してみた．
 
 ## footnote-scheme-ext とは？
@@ -129,29 +130,39 @@ document(| ... |)'<
 top/bottom の指定ができるようにする場合はこのようになる．
 
 1. satysfi-base をインストール．
+
    ```bash
    opam install satysfi-base
    satyrographos install
    ```
+
 2. このパッケージ `footnote-scheme-ext` をインストール．
    とりあえずは
    [src/footnote-scheme-ext.satyh]({{ page.githuburl }}src/footnote-scheme-ext.satyh) を手動でコピーしてきて手元に置いてやる必要がある．
+
 3. `stdjareport.sath` で `@require: footnote-scheme` の代わりに `@import: footnote-scheme-ext` する．
+
    ```latex
    @import: footnote-scheme-ext
    ```
+
 4. まず `stdjareport.satyh` において，float box の position の型を定義しておく．
+
    ```ocaml
    type floatpos =
      | FloatPosTop
      | FloatPosBottom
    ```
+
 5. `\figure` コマンドが `floatpos` を引数に取れるように型を変更する．
+
    ```latex
    direct \figure : [string?; floatpos?; inline-text; block-text] inline-cmd
    ```
+
 6. `\figure` コマンド内部において，`floatpos` で `FloatPosBottom` を指定されたときは
    `FootnoteScheme.add-float-bottom` するようにする．
+
    ```latex
    % パラメータ floatpos を新たに追加．
    let-inline ctx \figure ?:labelopt ?:floatpos caption inner =
@@ -167,13 +178,16 @@ top/bottom の指定ができるようにする場合はこのようになる．
            ref-float-boxes <- (pbinfo#page-number, bb-inner) :: !ref-float-boxes
          ))
    ```
+
 7. ユーザに `FloatPosBottom` などのように書かせるのが手間なら，
    [easytable](https://github.com/monaqa/satysfi-easytable) などでやっているように
    alias 用のコマンドを作っておく．
+
    例えば以下のようにすることで，
    ユーザは `open FloatPosAlias in` をすれば，
    `` \figure ?:(`label`) ?:(b) {This is a caption} <...> ``
    のようにして使うことができる．
+
    ```ocaml
    module FloatPosAlias : sig
      val t : floatpos
