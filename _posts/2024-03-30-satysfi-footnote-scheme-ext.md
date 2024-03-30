@@ -417,14 +417,14 @@ FigBox モジュールを使って絶対座標で挿入できないか試した�
 FigBox モジュールを使った絶対座標での挿入はもちろんうまくできるのだが，
 そのままではテキストが背面に来てしまい，重なってしまう．
 
-![trial 1.]({{ site.baseurl }}{{ page.assets }}trial1.png){: height="350" }
+![trial 1.]({{ site.baseurl }}{{ page.assets }}trial1.png){: style="max-height:400px" }
 
 レジスタに図の高さを記録しておき，
 text-height をそれに応じて変えると言う戦略を考えたが，
 うまくいかなかった．
 text-height は footnote も含んだ高さなので，footnote の方が上に来てしまう．
 
-![trial 2.]({{ site.baseurl }}{{ page.assets }}trial2.png){: height="350" }
+![trial 2.]({{ site.baseurl }}{{ page.assets }}trial2.png){: style="max-height:400px" }
 
 ---
 
@@ -432,7 +432,7 @@ text-height は footnote も含んだ高さなので，footnote の方が上に�
 footnote の横線を描画する際にその上に figure の分のスペースを空けておいた上で，
 footnote の一番上の座標に合わせて figure を配置すると言う戦略も考えた．
 
-![trial 3.]({{ site.baseurl }}{{ page.assets }}trial3.png){: height="350" }
+![trial 3.]({{ site.baseurl }}{{ page.assets }}trial3.png){: style="max-height:400px" }
 
 ただし，これもうまくいかなかった．
 
