@@ -1,5 +1,6 @@
-window.onload = () => {
+const addCodeBlocks = () => {
   const codeBlocks = document.querySelectorAll("div.highlight");
+  console.log("adding copy buttons to code blocks.");
   console.log(codeBlocks);
 
   codeBlocks.forEach((codeBlock) => {
@@ -22,4 +23,23 @@ window.onload = () => {
       }, 2000);
     });
   });
+};
+
+const addHeadingLinks = () => {
+  console.log("adding links to headings.");
+  const headings = document.querySelectorAll("h2[id],h3[id]"); // 1
+  const linkContent = "🔗"; // 2
+  for (const heading of headings) {
+    // 3
+    console.log(heading);
+    const linkIcon = document.createElement("a"); // 4
+    linkIcon.setAttribute("href", `#${heading.id}`); // 5
+    linkIcon.innerHTML = linkContent; // 6
+    heading.appendChild(linkIcon); // 7
+  }
+};
+
+window.onload = () => {
+  addCodeBlocks();
+  addHeadingLinks();
 };
