@@ -97,15 +97,27 @@
     }
   }
 
-  h1,
   h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h3 {
     margin-top: $spacing-unit * 2;
     margin-bottom: $spacing-unit / 2;
     border-bottom: 1px solid $border-color-03;
+    position: relative;
+    a {
+      text-decoration: none;
+      opacity: 0;
+      left: -20px;
+      position: absolute;
+    }
+  }
+
+  h2:hover,
+  h2 a:hover,
+  h3:hover,
+  h3 a:hover {
+    a {
+      opacity: 1;
+    }
   }
 
   h2 {

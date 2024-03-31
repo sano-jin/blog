@@ -28,14 +28,18 @@ const addCodeBlocks = () => {
 const addHeadingLinks = () => {
   console.log("adding links to headings.");
   const headings = document.querySelectorAll("h2[id],h3[id]"); // 1
-  const linkContent = "🔗"; // 2
+  const linkContent = "#"; // 2
   for (const heading of headings) {
     // 3
     console.log(heading);
     const linkIcon = document.createElement("a"); // 4
     linkIcon.setAttribute("href", `#${heading.id}`); // 5
-    linkIcon.innerHTML = linkContent; // 6
-    heading.appendChild(linkIcon); // 7
+    linkIcon.innerText = linkContent;
+    // linkIcon.innerHTML = linkContent + heading.innerHTML; // 6
+    // heading.childNodes[0].replaceWith(linkIcon);
+    heading.insertBefore(linkIcon, heading.firstChild);
+
+    // heading.appendChild(linkIcon); // 7
   }
 };
 
