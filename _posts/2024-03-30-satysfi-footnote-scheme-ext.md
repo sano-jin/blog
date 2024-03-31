@@ -273,11 +273,11 @@ footnote-scheme.satyh の後方互換性がある（ことを意図して作っ�
 
 このパッケージの `FootnoteScheme` モジュールが公開している field は
 
-1. val `initialize` : unit → unit
-2. val `start-page` : unit → unit
-3. val `main` : context → (int → inline-boxes) → (int → block-boxes) → inline-boxes
-4. val `main-no-number` : context → (unit → inline-boxes) → (unit → block-boxes) → inline-boxes
-5. **[NEW]** val `add-float-bottom` : block-boxes → inline-boxes
+1. `initialize` : unit → unit
+2. `start-page` : unit → unit
+3. `main` : context → (int → inline-boxes) → (int → block-boxes) → inline-boxes
+4. `main-no-number` : context → (unit → inline-boxes) → (unit → block-boxes) → inline-boxes
+5. **[NEW]** `add-float-bottom` : block-boxes → inline-boxes
 
 であり，`add-float-bottom` が追加で新たに公開している field である．
 これは `block-boxes` 型の値（図など）を受け取って，それをページ下部（脚注の上）に挿入する．
