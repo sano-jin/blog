@@ -40,12 +40,8 @@ GitHub repo: [sano-jin/satysfi-footnote-scheme-ext](https://github.com/sano-jin/
 
 このパッケージは
 [footnote-scheme.satyh](https://github.com/gfngfn/SATySFi/blob/master/lib-satysfi/dist/packages/footnote-scheme.satyh)
-の拡張版であり，
+の拡張版で，
 footnote を活用して図をページ下部に配置することを可能にする．
-footnote-scheme.satyh の後方互換性がある（ことを意図して作った[^1]）ので，
-単に footnote-scheme.satyh の代わりにこのパッケージを用いるようにすれば良い．
-
-[^1]: バグっていて違う挙動になる可能性はある．．．
 
 Footnote を使って無理やりページ下部に図を挿入するというのはなんだか変な感じ（というか変）だけど，
 そもそも SATySFi の今の公式クラスファイルの `\figure` コマンドは header に図も挿入することで図を上部に配置しているので，
@@ -64,9 +60,9 @@ SATySFi の健全な発展を阻害してしまうかも知れないという懸
 `demo` ディレクトリにデモファイルを用意した．
 これを実際にビルドしてみて，中身も見てみるのが実際に使う上では一番手っ取り早いと思う．
 
-まずはビルドしてみる．
-ただし，[satysfi-base](https://github.com/nyuichi/satysfi-base) を利用しているので，
-これを事前にインストールしておく必要がある．
+まずはビルドしてみよう．
+[satysfi-base](https://github.com/nyuichi/satysfi-base) を利用しているので，
+これを事前にインストールしておく必要があることに注意．
 
 ```bash
 git clone https://github.com/sano-jin/satysfi-footnote-scheme-ext.git
@@ -87,6 +83,8 @@ satysfi sample.saty # sample.pdf が生成される．
 ここで，
 [sample.saty]({{ page.githuburl }}demo/sample.saty)
 は以下のようになっている．
+`\figure` コマンドに `b` (bottom) オプションを渡すことで，
+図をページ下部に表示している．
 
 ```latex
 @import: stdjareport
@@ -127,7 +125,7 @@ document(| ... |)'<
 デモファイルのように
 [stdjareport.satyh](https://github.com/gfngfn/SATySFi/tree/master/lib-satysfi/dist/packages/stdjareport.satyh)
 の `\figure` コマンドを改造して，
-top/bottom の指定ができるようにする場合はこのようになる．
+top/bottom の指定ができるようにする場合は以下のようにする．
 
 1. satysfi-base をインストール．
 
@@ -154,7 +152,7 @@ top/bottom の指定ができるようにする場合はこのようになる．
      | FloatPosBottom
    ```
 
-5. `\figure` コマンドが `floatpos` を引数に取れるように型を変更する．
+5. `stdjareport.satyh` の `\figure` コマンドが `floatpos` を引数に取れるように関数の型を変更する．
 
    ```latex
    direct \figure : [string?; floatpos?; inline-text; block-text] inline-cmd
@@ -181,12 +179,11 @@ top/bottom の指定ができるようにする場合はこのようになる．
 
 7. ユーザに `FloatPosBottom` などのように書かせるのが手間なら，
    [easytable](https://github.com/monaqa/satysfi-easytable) などでやっているように
-   alias 用のコマンドを作っておく．
+   alias 用のコマンドを作っておけば良い．
 
    例えば以下のようにすることで，
    ユーザは `open FloatPosAlias in` をすれば，
-   `` \figure ?:(`label`) ?:(b) {This is a caption} <...> ``
-   のようにして使うことができる．
+   `FloatPosBottom` の代わりに `b` と書くだけで配置位置を指定できる．
 
    ```ocaml
    module FloatPosAlias : sig
@@ -198,10 +195,14 @@ top/bottom の指定ができるようにする場合はこのようになる．
    end
    ```
 
+   こうしてやると，
+   `` \figure ?:(`label`) ?:(b) {This is a caption} <...> ``
+   のように `\figure` コマンドを使うことができる．
+
 これらの改造を施した stdjareport.satyh が，
 [demo/stdjareport.satyh]({{page.githuburl}}demo/stdjareport.satyh) である．
 
-`diff` をとった結果を以下に貼っておく．
+この改造版と従来の stdjareport.satyh とで `diff` をとった結果を以下に貼っておく．
 
 ```diff
 10,11c10
@@ -248,12 +249,21 @@ top/bottom の指定ができるようにする場合はこのようになる．
 >       ))
 ```
 
+`demo` ディレクトリでは，その他のファイル，
 [demo/local.satyh]({{page.githuburl}}demo/local.satyh) 及び
 [demo/satysfi-logo.jpg]({{page.githuburl}}demo/satysfi-logo.jpg) は，
 [SATySFi の公式デモのもの](https://github.com/gfngfn/SATySFi/blob/master/demo)
-をそのままコピーしてきて配置している．
+をそのままコピーしてきて配置しているだけとなっている．
 
 # クラスファイル開発者向けメモ
+
+このパッケージは
+[footnote-scheme.satyh](https://github.com/gfngfn/SATySFi/blob/master/lib-satysfi/dist/packages/footnote-scheme.satyh)
+の拡張版．
+footnote-scheme.satyh の後方互換性がある（ことを意図して作った[^1]）ので，
+単に footnote-scheme.satyh の代わりにこのパッケージを用いるようにすれば良い．
+
+[^1]: バグっていて違う挙動になる可能性はある．．．
 
 このパッケージの `FootnoteScheme` モジュールが公開している field は
 
@@ -291,7 +301,7 @@ satyrographos install
 
 ---
 
-Cross Reference を活用しまくるパッケージの開発にあたって，aux ファイルがあると挙動が変わることがある．
+Cross Reference を活用しまくるパッケージの開発にあたって，.aux ファイルがあると挙動が変わることがある．
 Aux ファイルはまずは削除して，コンパイルして望み通りの結果になるか確かめる必要がある．
 
 ```bash
@@ -335,80 +345,106 @@ fi
 本来の footnote は一旦退避させておき，
 そのページの中の最後の図を挿入するタイミングで退避させた footnotes も挿入する．
 
-ここで，以下の草稿及び実装内では，
-Cross Reference のことを「レジスタ」と呼んでいる．[^3]
-
-[^3]:
-    これは単に作者（私）が間違えて覚えてしまい，その方が自分にとって自然になってしまったため．
-    恐らく `register-cross-reference` から連想して間違えて覚えてしまったものと思われる．
-    そのうち修正するかも知れないし，しないかも知れない．．．
-
-今回使用しているレジスタは以下の三つ．
+今回使用している Cross Reference は以下の三つ．
 名前空間分離のために，全てに prefix `__footnote-scheme-ext:` をつけている．
 
-- `__footnote-scheme-ext:fig-map:<figure number>` → `<page number> <footnote-num>`
-- `__footnote-scheme-ext:footnote-map:<footnote number>` → `<page number>`
-- `__footnote-scheme-ext:fig-num` → `<maximum figure number>`
+1. `__footnote-scheme-ext:fig-map:<figure number>`
+2. `__footnote-scheme-ext:footnote-map:<footnote number>`
+3. `__footnote-scheme-ext:fig-num`
+
+それぞれ何のために用いるのかは，これから詳しく解説する．
 
 実装においては figure という名前にしているが，実際には float 環境を意味している．[^2]
 
 ## 実装の詳細
 
 Figure には figure number と footnote number を両方振る．
+Figure number は，ページ下部に挿入する図の通し番号で，
+footnote number はページ下部の図と脚注の両方（ページ下部に挿入するもの全て）の通し番号．
 
-Figure を挿入しようとするときは hook-page-break で，
+Figure を挿入しようとするときは `hook-page-break` (SATySFi のビルトイン関数)で，
 その figure を挿入しようとしたページ番号を取得し，
-その figure の番号と footnote number とともにレジスタに記録する．
+その figure の番号と footnote number とともに
+Cross Reference 1: `__footnote-scheme-ext:fig-map:<figure number>` → `<page number> <footnote-num>`
+に記録する．
 
-- レジスタ: `__footnote-scheme-ext:fig-map:<figure number> → <page number> <footnote-num>`
+また，
+figure number の最大値を Cross Reference 3: `__footnote-scheme-ext:figure-num` に記録しておく．
 
-footnote を挿入しようとしているときも hook-page-break で，
+Footnote を挿入しようとしているときも `hook-page-break` (SATySFi のビルトイン関数)で，
 その footnote を挿入しようとしたページ番号を取得し，
-レジスタに記録する．
+Cross Reference 2: `__footnote-scheme-ext:footnote-map:<footnote number>` → `<page number>`
+に記録する．
 
-- レジスタ: `__footnote-scheme-ext:footnote-map:<footnote number> → <page number>`
+従って，コンパイルの二巡目の前に以下の三つの Cross Reference が生成されていることになる．
 
-冒頭でレジスタから読み出してきて以下の関数を定義する．
+1. `__footnote-scheme-ext:fig-map:<figure number>` → `<page number> <footnote-num>`
 
-- (a) figure num が与えられたときにその figure がそのページで一番最後かを判定する関数．
+   Figure number（ページ下部に挿入する図の通し番号）から，
+   その図が挿入されるページ番号[^5]と，
+   その図の footnote number（図と脚注両方含めたページ下部に挿入する全てのものの通し番号）がわかる．
+
+   [^5]:
+       あとでよく考えると，Cross Reference 2: `__footnote-scheme-ext:footnote-map:<footnote number>` → `<page number>`
+       で図のページ番号も取得できるので，
+       ここでページ番号も記録しておく必要はなかったかも知れない．
+
+2. `__footnote-scheme-ext:footnote-map:<footnote number>` → `<page number>`
+
+   Footnote number（図と脚注両方含めたページ下部に挿入する全てのものの通し番号）から，
+   その図が挿入されるページ番号がわかる．
+
+3. `__footnote-scheme-ext:fig-num` → `<maximum figure number>`
+
+   ページ下部に挿入される図の合計数がわかる．
+
+---
+
+このパッケージは，
+冒頭で Cross Reference からデータを読み出してきて以下の関数を定義する．
+
+- (a) figure number が与えられたときにその figure がそのページで一番最後かを判定する関数．
   `is-last-fig: <figure number> -> bool`
-  - レジスタ: `__footnote-scheme-ext:fig-map:<figure number> → <page number> <footnote-num>` を参照する．
+  - Cross Reference 1: `__footnote-scheme-ext:fig-map:<figure number> → <page number> <footnote-num>` を参照する．
   - 最初は全ての figure が自分が一番最後だと思うような実装にする．
-    未定義の場合，default は常に true を返す．
-- (b) footnote num が与えられたときに，
+    つまり，未定義の figure number が与えられた場合は true を返す．
+- (b) footnote number が与えられたときに，
   「これから挿入しようとしているページに figure がない，または既に全ての figure を挿入した後である」
   かを判定する関数を定義する．
   `is-no-more-fig: <footnote number> -> bool`
-  - レジスタ `__footnote-scheme-ext:footnote-map:<footnote number> → <page number>` を参照する．
+  - Cross Reference 2: `__footnote-scheme-ext:footnote-map:<footnote number> → <page number>` を参照する．
   - 最初は figure がないと思うような実装にする．
-    未定義の場合，default は常に true を返す．
+    つまり，未定義の footnote number が与えられた場合は true を返す．
 
-figure が与えられたとき．
+---
 
-1. figure-num-ref から自分の figure num を取得．
-2. この際，figure num の最大値をレジスタ `__footnote-scheme-ext:figure-num` に記録しておく．
-3. 自分自身は普通に add-footnote していく．
-4. `is-last-fig` を参照して，自分が一番最後なら footenotes-ref を flush する．
-5. hook-page-break を行う（前述参照）
+Figure が与えられたとき．
 
-footnote が与えられたとき．
+1. `figure-num-ref` から自分の figure number を取得し，`figure-num-ref` はインクリメントしておく．
+2. この際，figure number の最大値を Cross Reference 3: `__footnote-scheme-ext:figure-num` に記録しておく．
+3. `footnote-num-ref` もインクリメントしておく．
+4. 自分自身は普通に `add-footnote` (SATySFi のビルトイン関数) していく．
+5. `is-last-fig` を参照して，自分が一番最後なら footenotes-ref を flush する．
+6. `hook-page-break` (SATySFi のビルトイン関数) を用いて，ページ番号などを Cross Reference に記録しておく（前述参照）
 
-1. footnote-num-ref から自分の footnote num を取得．
+Footnote が与えられたとき．
+
+1. `footnote-num-ref` から自分の footnote number を取得し，`footnote-num-ref` はインクリメントしておく．
 2. `is-no-more-fig` を参照して，
-   true なら 普通に add-footnote していく．
-   false なら footnote-ref に退避させる．
-3. hook-page-break を行う（前述参照）
+   true なら 普通に `add-footnote` (SATySFi のビルトイン関数) していく．
+   false なら `footnote-ref` に退避させる．
+3. `hook-page-break` (SATySFi のビルトイン関数) を用いて，ページ番号などを Cross Reference に記録しておく（前述参照）
 
 [^2]: 数値の float 型と紛らわしいと思ったため．
 
 ## ハマったこと
 
-satysfi はレジスタの値が更新されている場合は全てを再評価するのではなく，
-あくまで document のみ再評価するように見える．
+SATySFi は Cross Reference の値が更新されている場合は全てを再評価するのではなく，
+あくまで（クラスファイルの）`document` 関数のみ再評価するように見える．
 
 従って，パッケージ側も再評価して欲しいなら，
-initialize などの関数内で再評価して欲しい関数を呼び出しておいた上で，
-その initialize などの関数をユーザにきちんと呼び出してもらうという運用にする必要がある．
+再評価して欲しい関数を呼び出す `initialize` などの関数を定義しておいた上で，
+その `initialize` などの関数を（クラスファイルの）`document` 関数内で呼び出してもらうという運用にする必要がある．
 
 ## その他の失敗に終わった試みなど
 
@@ -419,7 +455,7 @@ FigBox モジュールを使った絶対座標での挿入はもちろんうま�
 
 ![trial 1.]({{ site.baseurl }}{{ page.assets }}trial-00.png)
 
-レジスタに図の高さを記録しておき，
+Cross Reference に図の高さを記録しておき，
 text-height をそれに応じて変えると言う戦略を考えたが，
 うまくいかなかった．
 text-height は footnote も含んだ高さなので，footnote の方が上に来てしまう．
@@ -428,7 +464,7 @@ text-height は footnote も含んだ高さなので，footnote の方が上に�
 
 ---
 
-レジスタに図の高さを記録しておき，
+Cross Reference に図の高さを記録しておき，
 footnote の横線を描画する際にその上に figure の分のスペースを空けておいた上で，
 footnote の一番上の座標に合わせて figure を配置すると言う戦略も考えた．
 
