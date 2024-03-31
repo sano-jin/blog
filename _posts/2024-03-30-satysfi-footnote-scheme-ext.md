@@ -27,8 +27,9 @@ GitHub repo: [sano-jin/satysfi-footnote-scheme-ext](https://github.com/sano-jin/
 >
 > - bottom は原理的には可能と思われます。探したらあるかもしれません。
 
-確かに論文だと図はページ上部に配置することが多い気がするので実用上問題ないのかも知れないが，
-個人的には特に個人用のメモだと図を引用したページの下部に図が配置されている方が見やすい気がする．
+確かに論文だと図はページ上部に配置することが多い気がするので，実用上問題ないのかも知れない．
+
+ただ．個人的には特に個人用のメモだと，図を引用したページの下部に図が配置されている方が見やすい気がする．
 
 「原理的には可能と思われる」ということなので，自作してみた．
 
@@ -58,7 +59,8 @@ SATySFi の健全な発展を阻害してしまうかも知れないという懸
 # デモの動かし方
 
 `demo` ディレクトリにデモファイルを用意した．
-これを実際にビルドしてみて，中身も見てみるのが実際に使う上では一番手っ取り早いと思う．
+これを実際にビルドしてみて中身も見てみるのが，
+実際に使う上では一番手っ取り早いと思う．
 
 まずはビルドしてみよう．
 [satysfi-base](https://github.com/nyuichi/satysfi-base) を利用しているので，
@@ -125,7 +127,7 @@ document(| ... |)'<
 デモファイルのように
 [stdjareport.satyh](https://github.com/gfngfn/SATySFi/tree/master/lib-satysfi/dist/packages/stdjareport.satyh)
 の `\figure` コマンドを改造して，
-top/bottom の指定ができるようにする場合は以下のようにする．
+top/bottom の指定ができるようにしたい場合は以下のようにする．
 
 1. satysfi-base をインストール．
 
@@ -176,6 +178,10 @@ top/bottom の指定ができるようにする場合は以下のようにする
            ref-float-boxes <- (pbinfo#page-number, bb-inner) :: !ref-float-boxes
          ))
    ```
+
+   こうすることで，
+   `` \figure ?:(`label`) ?:(FloatPosBottom) {This is a caption} <...> ``
+   のようにしてページ下部に図を挿入できるようになる．
 
 7. ユーザに `FloatPosBottom` などのように書かせるのが手間なら，
    [easytable](https://github.com/monaqa/satysfi-easytable) などでやっているように
@@ -249,9 +255,9 @@ top/bottom の指定ができるようにする場合は以下のようにする
 >       ))
 ```
 
-`demo` ディレクトリでは，その他のファイル，
-[demo/local.satyh]({{page.githuburl}}demo/local.satyh) 及び
-[demo/satysfi-logo.jpg]({{page.githuburl}}demo/satysfi-logo.jpg) は，
+`demo` ディレクトリでは，その他のファイル
+（[demo/local.satyh]({{page.githuburl}}demo/local.satyh) 及び [demo/satysfi-logo.jpg]({{page.githuburl}}demo/satysfi-logo.jpg))
+は，
 [SATySFi の公式デモのもの](https://github.com/gfngfn/SATySFi/blob/master/demo)
 をそのままコピーしてきて配置しているだけとなっている．
 
@@ -267,24 +273,28 @@ footnote-scheme.satyh の後方互換性がある（ことを意図して作っ�
 
 このパッケージの `FootnoteScheme` モジュールが公開している field は
 
-- `val initialize : unit -> unit`
-- `val start-page : unit -> unit`
-- `val main : context -> (int -> inline-boxes) -> (int -> block-boxes) -> inline-boxes`
-- `val main-no-number : context -> (unit -> inline-boxes) -> (unit -> block-boxes) -> inline-boxes`
-- (new) `val add-float-bottom : block-boxes -> inline-boxes`
+1. val `initialize` : unit → unit
+2. val `start-page` : unit → unit
+3. val `main` : context → (int → inline-boxes) → (int → block-boxes) → inline-boxes
+4. val `main-no-number` : context → (unit → inline-boxes) → (unit → block-boxes) → inline-boxes
+5. **[NEW]** val `add-float-bottom` : block-boxes → inline-boxes
 
 であり，`add-float-bottom` が追加で新たに公開している field である．
+これは `block-boxes` 型の値（図など）を受け取って，それをページ下部（脚注の上）に挿入する．
 
 他の関数は従来と同じような使い方をすれば良い．
-ただ，図を footnote の最上部に配置するために，
+
+ただ，他の関数も図を footnote の最上部に配置するために，
 本来の footnote は一旦退避させておくなど，
-他の関数も内部的にはかなり色々追加の処理をしている．
+内部的にはかなり色々追加の処理をしている．
 具体的にどういうことをしているのかは，せっかくなのであとで実装の詳細のところで説明する．
 
 # このパッケージの開発者向け（自分用）メモ
 
 折角なので，
 このパッケージの実装方針やハマったことなどをまとめておく．
+
+このパッケージを使うだけなら，以下は読まなくとも良い．
 
 ## コンパイル方法など
 
@@ -338,9 +348,10 @@ else
 fi
 ```
 
-## 実装方針
+## このパッケージの実装方針
 
 本パッケージは，footnote を活用して図をページ下部に配置する．
+
 図を footnote の最上部に配置するために，
 本来の footnote は一旦退避させておき，
 そのページの中の最後の図を挿入するタイミングで退避させた footnotes も挿入する．
@@ -356,7 +367,7 @@ fi
 
 実装においては figure という名前にしているが，実際には float 環境を意味している．[^2]
 
-## 実装の詳細
+## このパッケージの実装の詳細
 
 Figure には figure number と footnote number を両方振る．
 Figure number は，ページ下部に挿入する図の通し番号で，
@@ -440,15 +451,18 @@ Footnote が与えられたとき．
 ## ハマったこと
 
 SATySFi は Cross Reference の値が更新されている場合は全てを再評価するのではなく，
-あくまで（クラスファイルの）`document` 関数のみ再評価するように見える．
+あくまで（クラスファイルの）`document` 関数のみ再評価するようだ．[^6]
+
+[^6]: たぶん．
 
 従って，パッケージ側も再評価して欲しいなら，
 再評価して欲しい関数を呼び出す `initialize` などの関数を定義しておいた上で，
-その `initialize` などの関数を（クラスファイルの）`document` 関数内で呼び出してもらうという運用にする必要がある．
+その `initialize` などの関数を（クラスファイルの）`document` 関数内で呼び出してもらうなどの運用にする必要がある．
 
 ## その他の失敗に終わった試みなど
 
-FigBox モジュールを使って絶対座標で挿入できないか試したが，結論から言うとうまくできなかった．
+当初は FigBox モジュールを使って絶対座標で挿入できないかと考えており，
+色々試したが，結論から言うとうまくできなかった．
 
 FigBox モジュールを使った絶対座標での挿入はもちろんうまくできるのだが，
 そのままではテキストが背面に来てしまい，重なってしまう．
@@ -477,14 +491,15 @@ footnote の一番上の座標に合わせて figure を配置すると言う戦
 footnote の横線（脚注の上端）の座標が分かっている必要があるが，
 それを手に入れられなかった．
 
-hook を使えば良いものかと思ったが，
-どうやら hook で渡される point は恐らくその hook が呼び出された point らしい．
-つまり本文中で引用した箇所の座標しか手に入れることができない．
+`hook-page-break` を使えば良いものかと思ったが，
+どうやら `hook-page-break` で渡される point は恐らくその hook が呼び出された point らしい．
+つまり本文中で引用した箇所の座標しか手に入れることができず，
+脚注の方の座標は分からない．
 
-こうなったら，今度は脚注内で再び hook を呼び出せば脚注の座標がわかるのでは，
-とも考えたが，これはこれでどうにもうまくいかなかった．
+こうなったら，今度は脚注内で再び `hook-page-break` を呼び出せば脚注の座標がわかるのでは，
+とも考えたが，これはこれでどうにもうまくいかず，結局諦めた．
 
 # まとめ
 
-SATySFi で図をページ下部に挿入できるようにするパッケージを作ってみた．
+SATySFi で図をページ下部に挿入できるようにするパッケージを作ってみました．
 是非試してみて下さい．
