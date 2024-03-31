@@ -44,7 +44,44 @@ const addHeadingLinks = () => {
   }
 };
 
+// https://qiita.com/aqlwah/items/df4f41d84778c37f4ac8
+const sidetoc = () => {
+  const contents = document.querySelectorAll(
+    ".post-content h2, .post-content h3"
+  );
+  const toc = document.querySelectorAll(".toc li");
+
+  const wrapper = window; // ラッパー（スクロール領域）
+
+  const contentsPosition = [];
+  contents.forEach((content, i) => {
+    const startPosition = content.getBoundingClientRect().top + window.scrollY;
+    const endPosition = contents.item(i + 1)
+      ? contents.item(i + 1).getBoundingClientRect().top + window.scrollY
+      : wrapper.scrollHeight;
+    contentsPosition.push({ startPosition, endPosition });
+  });
+
+  console.log(contentsPosition);
+
+  // スクロール位置に応じてTOCの現在位置を変更する
+  const calcCurrentPosition = () => {
+    toc.forEach((item, i) => {
+      const { startPosition, endPosition } = contentsPosition[i];
+      item.classList.remove("active");
+      if (window.scrollY + 5 >= startPosition && window.scrollY < endPosition) {
+        item.classList.add("active");
+      }
+    });
+  };
+
+  // スクロールイベントリスナを登録
+  wrapper.addEventListener("scroll", calcCurrentPosition);
+  calcCurrentPosition();
+};
+
 window.onload = () => {
   addCodeBlocks();
   addHeadingLinks();
+  sidetoc();
 };

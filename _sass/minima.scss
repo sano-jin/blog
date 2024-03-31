@@ -75,15 +75,15 @@ $table-text-align: left !default;
 // Width of the content area
 $content-width: 800px !default;
 $sideview-width: 300px !default;
-$toc-width: 200px !default;
+$toc-width: 300px !default;
 
 $on-palm: 600px !default;
 $on-laptop: 800px !default;
 
-$on-medium: $on-palm !default;
+$on-medium: $content-width + $sideview-width + $spacing-unit * 5 !default;
 
 // $on-large: $on-laptop !default;
-$on-large: $content-width + $sideview-width + $spacing-unit * 5 !default;
+$on-large: $content-width + $sideview-width + $toc-width + $spacing-unit * 5 !default;
 
 // Use media queries like this:
 // @include media-query($on-palm) {

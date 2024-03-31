@@ -114,9 +114,131 @@ a.tag {
 /** 
  * Table of contents
  */
-.toc {
-  display: none;
+.post-body {
+  display: flex;
+  flex-direction: row;
+
+  .post-content {
+    width: $content-width;
+  }
+
+  position: relative;
+  .toc {
+    height: 100%;
+    display: block;
+    position: sticky;
+    top: $spacing-unit;
+    width: $toc-width;
+    min-width: $toc-width;
+    background-color: $background-color;
+    border: 1px solid $border-color-01;
+    border-radius: 5px;
+    margin-left: $spacing-unit;
+  }
+  @media screen and (max-width: $on-large) {
+    .toc {
+      display: none;
+    }
+  }
+  div.toc > div.toc-body {
+    padding-left: 20px;
+  }
+  div.toc ul {
+    list-style: none;
+    margin-left: 0;
+  }
+  div.toc ul li {
+    margin: 0;
+    padding: 10px 0;
+    // padding-left: 1rem;
+    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
+    // width: 100px;
+    a {
+      display: inline-block;
+      padding-left: 1rem;
+    }
+  }
+  div.toc > div.toc-title {
+    padding: 10px;
+  }
+  div.toc > div > ul > li {
+    border-left: solid 1px silver;
+  }
+  // .toc li:hover {
+  //   background: whitesmoke;
+  //   color: royalblue;
+  // }
+  // .toc li:hover:not(.active)::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0.5rem;
+  //   left: -3px;
+  //   border-radius: 50%;
+  //   width: 5px;
+  //   height: 5px;
+  //   background: silver;
+  // }
+  .toc li:before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    top: 20px;
+    left: -8px;
+    width: 15px;
+    height: 15px;
+    background: $brand-color-light;
+  }
+  .toc ul li ul li:before {
+    top: 20px;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+  }
+  .toc li.active:before {
+    background: $nord8;
+  }
+  .toc li.active {
+    // background: whitesmoke;
+    a {
+      color: $brand-color;
+    }
+  }
+  // .wrapper {
+  //   width: 400px;
+  //   height: 300px;
+  //   overflow: auto;
+  // }
+  // .content {
+  //   overflow: hidden;
+  // }
+  // .content1 {
+  //   width: 100%;
+  //   height: 500px;
+  //   background: skyblue;
+  // }
+  // .content2 {
+  //   width: 100%;
+  //   height: 500px;
+  //   background: royalblue;
+  // }
+  // .content3 {
+  //   width: 100%;
+  //   height: 500px;
+  //   background: lightblue;
+  // }
+  // .content4 {
+  //   width: 100%;
+  //   height: 500px;
+  //   background: aliceblue;
+  // }
 }
+
+/**
+Categories
+
+*/
 
 .categories {
   color: $nord15;
