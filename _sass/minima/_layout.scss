@@ -97,6 +97,7 @@
     }
   }
 
+  h1,
   h2,
   h3,
   h4,
@@ -104,26 +105,35 @@
   h6 {
     margin-top: $spacing-unit * 2;
     margin-bottom: $spacing-unit / 2;
-    border-bottom: 1px solid $border-color-03;
   }
 
-  h2,
-  h3 {
-    position: relative;
-    a {
-      text-decoration: none;
-      opacity: 0;
-      left: -20px;
-      position: absolute;
+  .post-content {
+    h2,
+    h3 {
+      border-bottom: 1px solid $border-color-03;
+      position: relative;
+      a.heading-link {
+        text-decoration: none;
+        opacity: 0;
+        left: -20px;
+        position: absolute;
+      }
     }
-  }
 
-  h2:hover,
-  h2 a:hover,
-  h3:hover,
-  h3 a:hover {
-    a {
-      opacity: 1;
+    h2:hover,
+    h3:hover {
+      a.heading-link {
+        opacity: 1;
+      }
+    }
+
+    @media screen and (max-width: $on-large) {
+      h2,
+      h3 {
+        a.heading-link {
+          display: none;
+        }
+      }
     }
   }
 

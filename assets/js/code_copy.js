@@ -34,6 +34,7 @@ const addHeadingLinks = () => {
     console.log(heading);
     const linkIcon = document.createElement("a"); // 4
     linkIcon.setAttribute("href", `#${heading.id}`); // 5
+    linkIcon.setAttribute("class", "heading-link"); // 5
     linkIcon.innerText = linkContent;
     // linkIcon.innerHTML = linkContent + heading.innerHTML; // 6
     // heading.childNodes[0].replaceWith(linkIcon);
