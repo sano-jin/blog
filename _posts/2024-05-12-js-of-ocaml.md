@@ -106,7 +106,7 @@ dune の公式ドキュメントでは
  (depends
    ocaml
    dune
-   js_of_ocaml-compiler
+   js_of_ocaml-compiler ;; newly added
    )
 ```
 
@@ -121,7 +121,7 @@ dom_jsoo.opam ファイルにおいて依存関係は以下のようになって
 
 dom_jsoo.opam
 
-```opam
+```
 depends: [
   "ocaml"
   "dune" {>= "3.15"}
