@@ -7,7 +7,7 @@ tags: ocaml
 category: OCaml
 excerpt: Trying out HTML DOM manipulation with js_of_ocaml/ocaml.
 assets: /assets/2024-05-12-js-of-ocaml/
-image: /assets/2024-05-12-js-of-ocaml/dynamic-buttons.gif
+image: assets/2024-05-12-js-of-ocaml/dynamic-buttons.gif
 ---
 
 ![Demo image.]({{ site.baseurl }}{{ page.assets }}dynamic-buttons.gif)
