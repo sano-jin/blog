@@ -7,7 +7,10 @@ tags: ocaml
 category: OCaml
 excerpt: Trying out HTML DOM manipulation with js_of_ocaml/ocaml.
 assets: /assets/2024-05-12-js-of-ocaml/
+image: /assets/2024-05-12-js-of-ocaml/dynamic-buttons.gif
 ---
+
+![Demo image.]({{ site.baseurl }}{{ page.assets }}dynamic-buttons.gif)
 
 JavaScript で型システムがあれば起こり得ないようなバグを大量発生させて四苦八苦していないだろうか？
 
@@ -615,6 +618,8 @@ open docs/index.html
 
 最後に「押すと「押すと自分自身を削除するボタン」を追加するボタン」を実装してみよう．
 
+![Demo image.]({{ site.baseurl }}{{ page.assets }}dynamic-buttons.gif)
+
 先にコードを全部見せてしまおう．
 
 foo/bar.ml
@@ -698,8 +703,6 @@ open docs/index.html
 
 "add a button" と書かれたボタンをクリックするとボタンがどんどん動的に追加されていくはずである．
 動的に追加されたボタンをクリックすると，そのボタンは削除されるはずである．
-
-![Demo image.]({{ site.baseurl }}{{ page.assets }}dynamic-buttons.gif)
 
 この実装結果は
 [github](https://github.com/sano-jin/learn-jsoo/tree/master/dom_jsoo)
