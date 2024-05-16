@@ -8,6 +8,7 @@ author: sano
 githuburl: https://github.com/sano-jin/satysfi-footnote-scheme-ext/blob/main/
 assets: /assets/2024-03-30-satysfi-footnote-scheme-ext/
 extra-classname: frame-image
+image: assets/2024-03-30-satysfi-footnote-scheme-ext/demo.png
 ---
 
 [SATySFi](https://github.com/gfngfn/SATySFi) で図をページ下部に配置できるようにするパッケージを作ったので，
