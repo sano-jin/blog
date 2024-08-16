@@ -115,7 +115,19 @@ a.tag {
  * Table of contents
  */
 .toc {
-  display: none;
+  // display: none;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 1px solid lightblue;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.twitter-tweet {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .categories {

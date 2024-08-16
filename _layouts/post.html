@@ -31,9 +31,12 @@ commentable: true
     </p>
   </header>
 
-  {%- comment -%}
-  <div class="toc">{% include toc.html html=content %}</div>
-  {%- endcomment -%}
+  {%- if page.toc -%}
+  <details class="toc" open>
+    <summary>Table of Contents</summary>
+    {% include toc.html html=content %}
+  </details>
+  {%- endif -%}
 
   <div class="post-body">
     <div class="post-content e-content {{ page.extra-classname }}" itemprop="articleBody">
