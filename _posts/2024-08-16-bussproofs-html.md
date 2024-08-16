@@ -2,8 +2,8 @@
 layout: post
 title: HTML 上で bussproofs スタイルの証明木をレンダリングできるツールを作った
 excerpt: I created a bussproofs style proof tree renderer for HTML.
-tags: satysfi
-category: SATySFi
+tags: math
+category: Math
 author: sano
 githuburl: https://github.com/sano-jin/satysfi-footnote-scheme-ext/blob/main/
 assets: /assets/2024-08-16-bussproofs-html/
