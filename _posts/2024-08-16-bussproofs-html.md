@@ -13,7 +13,21 @@ image: assets/2024-08-16-bussproofs-html/demo.png
 
 HTML で bussproofs スタイルの証明木を描画する JavaScript エンジンを作りました．
 
-[![Demo image.]({{ site.baseurl }}{{ page.assets }}demo.png)](https://github.com/sano-jin/bussproofs-html)
+<script type="module">
+  import { renderProofTreesOnLoad } from "https://sano-jin.github.io/bussproofs-html/assets/prooftree.js";
+  renderProofTreesOnLoad();
+</script>
+
+\begin{prooftree}
+\AXC{$1 + 2$}
+\AXC{$1 + 2 + 3$}
+\BIC{$1 + 2$}
+\AXC{$1 + 2 + 3$}
+\RightLabel{Label}
+\BIC{$1 + 2 + 3 + 4$}
+\end{prooftree}
+
+<!-- [![Demo image.]({{ site.baseurl }}{{ page.assets }}demo.png)](https://github.com/sano-jin/bussproofs-html) -->
 
 - **✓ 数式**：KaTeX と一緒に使用できる！
 - **✓ 簡単**：スクリプトタグを追加するだけで，証明がレンダリングされます．
@@ -71,7 +85,7 @@ HTML に以下の script タグを追加するだけでできます．
 
 ## Neovim でマークダウンを編集している場合
 
-あなたは neovim を使っていますか？
+あなたは [Neovim](https://neovim.io/) を使っていますか？
 Neovim はマークダウンを編集するのに最適なツール．
 [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 を使えば，マークダウンをプレビューしながら編集できます．
@@ -176,7 +190,8 @@ Marp を使って出力したスライド (PDF) はこちらです:
 証明木のレンダリングの際に，もっとあなたの美的感覚を活かすこともできます．
 例えば推論の横線が横に飛び出る長さをゼロにしたいとか．
 
-`configP`オプションを`renderProofTreesOnLoad`および`renderProofTrees`に渡すことができます．
+以下のように定義された `configP` 型を持つオプションを，
+`renderProofTreesOnLoad`および`renderProofTrees`に渡すことができます．
 
 ```ts
 interface configP {
@@ -194,7 +209,11 @@ interface configP {
 }
 ```
 
-例えば，次のように設定すると，前提条件間の余白が 100px，公理と結論の左右のパディングが 0px，ラベルの左余白が 0px になり，スタイルは 100 ミリ秒後に適用されます．
+例えば，次のように設定すると，
+前提条件間の余白が 100px，
+公理と結論の左右のパディングが 0px，
+ラベルの左余白が 0px になり，
+スタイルは 100 ミリ秒後に適用されます．
 
 ```ts
 renderProofTreesOnLoad({
@@ -243,8 +262,11 @@ cp proof-tree/dist/index.js docs/assets/prooftree.js
 1. `\LeftLabel`を有効化する．
 2. VSCode との統合を追加する．
 3. スタイリングプロセスを強化する．
-   - 証明木をスタイルするために，最初の HTML 描画後に証明木のノードの幅を取得します．
-   - 現在，スタイリングのタイミングには 2 つのオプションがあります：
+   - このツールでは証明木を美しくスタイルするために二回に分けて描画を行っています．
+     まずは証明木の DOM を作り，特にその各ノードの位置などの調整は行わずにレンダリングします．
+     次に，証明木の各ノードの幅を取得し，各ノードの位置や推論の横線の長さなどを計算して，
+     スタイルを反映させます．
+   - 現在，スタイリング（二回目のレンダリング）のタイミングには 2 つのオプションがあります：
      - A: `load`イベント後にスタイルを適用する．
      - B: 証明木の DOM 要素の挿入後，指定されたミリ秒後にスタイルを適用する．
    - (B) DOM 要素の挿入後，指定されたミリ秒後にスタイルを適用するのは，正確なレンダリング時間を予測できないため，堅牢な方法ではありません．レンダリング完了前にスタイルを適用しようとすると，期待通りの結果が得られません．

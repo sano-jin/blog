@@ -27,6 +27,9 @@ plugins:
 show_excerpts: true
 about_author: about_author
 
+kramdown:
+  math_engine: katex
+
 exclude:
   - .sass-cache/
   - .jekyll-cache/
