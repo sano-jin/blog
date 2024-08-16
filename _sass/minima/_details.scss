@@ -125,9 +125,11 @@ a.tag {
 
 // proof tree
 p div.bussproofs-html__proof-tree {
-  width: calc(100% - 40px);
+  max-width: calc(100% - 40px);
   overflow-x: scroll;
   padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .twitter-tweet {
