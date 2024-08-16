@@ -8,7 +8,7 @@ author: sano
 githuburl: https://github.com/sano-jin/satysfi-footnote-scheme-ext/blob/main/
 assets: /assets/2024-08-16-bussproofs-html/
 extra-classname: frame-image
-image: assets/2024-08-16-bussproofs-html/demo.png
+image: assets/2024-08-16-bussproofs-html/nvim-preview.gif
 ---
 
 HTML で bussproofs スタイルの証明木を描画する JavaScript エンジンを作りました．
