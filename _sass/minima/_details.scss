@@ -123,6 +123,13 @@ a.tag {
   border-radius: 10px;
 }
 
+// proof tree
+p div.bussproofs-html__proof-tree {
+  width: calc(100% - 40px);
+  overflow-x: scroll;
+  padding: 0 10px;
+}
+
 .twitter-tweet {
   margin-left: auto;
   margin-right: auto;
