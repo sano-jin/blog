@@ -10,6 +10,8 @@ extra-classname: frame-image
 image: assets/2024-10-23-logging-in-ocaml/logs.png
 ---
 
+![demo]({{ site.baseurl }}{{ page.assets }}logs.png)
+
 コードを書いているときに，
 ログ出力したくなる場合がある．
 
