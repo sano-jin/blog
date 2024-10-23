@@ -21,7 +21,11 @@ echo -e "$body"
 
 echo -e "$body" >"_drafts/$name"
 
-vi "_drafts/$name"
+echo "assets/$d-$title"
+
+echo "_drafts/$name"
+
+lvim "_drafts/$name"
 
 # ---
 # layout: post
