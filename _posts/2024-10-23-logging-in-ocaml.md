@@ -15,7 +15,7 @@ image: assets/2024-10-23-logging-in-ocaml/logs.png
 
 OCaml の場合のログ出力に使うことのできるライブラリとして，以下などがある．
 
-1. **[Async の Log モジュール](https://ocaml.org/p/async_unix/v0.15.0/doc/Async_unix/Log/index.html)を用いる．**
+1. **[Async の Log モジュール](https://ocaml.org/p/async_unix/v0.15.0/doc/Async_unix/Log/index.html)**
 
    [Async](https://opensource.janestreet.com/async/) は
    Jane Street が開発している並行プログラミング用ライブラリ．
@@ -28,7 +28,7 @@ OCaml の場合のログ出力に使うことのできるライブラリとし�
 
    Async を用いている場合は，これを使う一択だと思われる．
 
-2. **[Logs (dbuenzli/logs)](https://github.com/dbuenzli/logs) を用いる．**
+2. **[Logs (dbuenzli/logs)](https://github.com/dbuenzli/logs)**
 
    Logs はログ出力ためだけのシンプルなライブラリ．
 
