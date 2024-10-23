@@ -7,7 +7,7 @@ tags: ocaml
 category: OCaml
 assets: /assets/2024-10-23-logging-in-ocaml/
 extra-classname: frame-image
-image: assets/2024-10-23-logging-in-ocaml/logs.svg
+image: assets/2024-10-23-logging-in-ocaml/logs.png
 ---
 
 コードを書いているときに，
