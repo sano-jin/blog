@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Logging in OCaml
+title: Logs を用いた OCaml でのログ出力
 author: sano
 excerpt: "How to use dbuenzli/logs: A logging library in OCaml."
 tags: ocaml
