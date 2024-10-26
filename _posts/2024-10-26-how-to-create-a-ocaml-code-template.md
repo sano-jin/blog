@@ -113,7 +113,7 @@ Dune で main.ml を作る[^2]．
 dune init exec main
 ```
 
-[^2]: main である必要はなく，例えば hello_world などでも良い．
+[^2]: `main` である必要はなく，例えば `hello_world` などでも良い．
 
 →
 `_build` ディレクトリと，
@@ -131,8 +131,8 @@ let () = print_endline "Hello, World!"
 
 **Step 3.**
 早いこと実行したいが，
-何故か dune-project ファイルがないとうまく動かない[^3]ので，
-dune-project ファイルを作ってやる．
+何故か `dune-project` ファイルがないとうまく動かない[^3]ので，
+`dune-project` ファイルを作ってやる．
 
 [^3]:
     `dune init exec` を使うに際して，
