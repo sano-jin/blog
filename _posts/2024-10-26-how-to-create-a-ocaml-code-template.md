@@ -30,6 +30,14 @@ dune ファイルの依存関係にインストールしたライブラリを書
 <br/>
 〉[3. ライブラリを追加するには](#3-ライブラリを追加するには)
 
+Dune 自体は OCaml のパッケージマネージャである
+[Opam](https://opam.ocaml.org/) を用いて，
+[以下のように簡単にインストールできる](https://dune.readthedocs.io/en/stable/howto/install-dune.html)．
+
+```bash
+$ opam install dune
+```
+
 # 1. Dune でプロジェクトのテンプレートを作る
 
 **Step 1.**
