@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Dune を使って OCaml コードのテンプレートを作る
+title: Dune を使って OCaml コードのテンプレートを作る方法
 author: sano
-excerpt: How to create a OCaml code template using Dune
+excerpt: How to create a OCaml code template using Dune?
 tags: ocaml
 category: OCaml
 assets: /assets/2024-10-26-how-to-create-a-ocaml-code-template/
