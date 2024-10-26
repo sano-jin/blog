@@ -98,13 +98,13 @@ cd test_dune
 ```
 
 **Step 2.**
-Dune で main.ml を作る[^1]．
+Dune で main.ml を作る[^2]．
 
 ```bash
 dune init exec main
 ```
 
-[^1]: main である必要はなく，例えば hello_world などでも良い．
+[^2]: main である必要はなく，例えば hello_world などでも良い．
 
 →
 `_build` ディレクトリと，
@@ -122,10 +122,10 @@ let () = print_endline "Hello, World!"
 
 **Step 3.**
 早いこと実行したいが，
-何故か dune-project ファイルがないとうまく動かない[^2]ので，
+何故か dune-project ファイルがないとうまく動かない[^3]ので，
 dune-project ファイルを作ってやる．
 
-[^2]:
+[^3]:
     `dune init exec` を使うに際して，
     既存のプロジェクトにファイルを追加するのではなく，
     ゼロから単一のファイルからなるテンプレートを作るということが，
