@@ -2,7 +2,7 @@
 layout: post
 title: "OCaml で画像処理をしてみる：CamlImages の使い方"
 author: sano
-excerpt: "How to use CamlImagesimage for image processing in OCaml?"
+excerpt: "How to use CamlImages for an image processing in OCaml?"
 tags: memo
 category: memo
 assets: /assets/2024-10-27-how-to-use-camlimages/
