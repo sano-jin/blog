@@ -3,8 +3,8 @@ layout: post
 title: "OCaml で画像を扱ってみる：CamlImages の使い方"
 author: sano
 excerpt: "How to use CamlImages for an image processing in OCaml?"
-tags: memo
-category: memo
+tags: ocaml
+category: OCaml
 assets: /assets/2024-10-27-how-to-use-camlimages/
 extra-classname: frame-image
 image: assets/2024-10-27-how-to-use-camlimages/front.png
