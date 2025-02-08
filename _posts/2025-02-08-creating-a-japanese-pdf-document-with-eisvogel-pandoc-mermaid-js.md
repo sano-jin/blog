@@ -22,7 +22,10 @@ Markdown から PDF を生成する方法を模索している．
 `Pandoc` のデフォルトでも十分に使えるが，
 よりデザイン性の高い PDF を作りたい場合には，
 [Eisvogel](https://github.com/Wandmalfarbe/pandoc-latex-template) という LaTeX テンプレートを利用すると良い．
+
 これを使うと，見た目がかなり整った PDF を出力できる．
+[サンプル例が当該ページに沢山ある](https://github.com/Wandmalfarbe/pandoc-latex-template)ので，
+是非見てほしい．
 
 ただし，Eisvogel はデフォルトでは日本語に対応していないため，
 設定を追加しないと文字化けしてしまう．
