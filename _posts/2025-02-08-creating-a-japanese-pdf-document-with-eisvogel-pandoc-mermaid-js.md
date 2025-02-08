@@ -5,9 +5,9 @@ author: sano
 excerpt: Creating a japanese PDF document from markdown with Eisvogel/Pandoc + Mermaid.js
 tags: memo
 category: memo
-assets: /assets/2025-02-08-creating-a-japanese-pdf-document-with-eisvogel-pandoc-+-mermaid.js/
-# extra-classname: frame-image
-# image: assets/2025-02-08-creating-a-japanese-pdf-document-with-eisvogel-pandoc-+-mermaid.js/front.png
+assets: /assets/2025-02-08-creating-a-japanese-pdf-document-with-eisvogel-pandoc-mermaid-js/
+extra-classname: frame-image
+image: assets/2025-02-08-creating-a-japanese-pdf-document-with-eisvogel-pandoc-mermaid-js/front.png
 ---
 
 Markdown から PDF を生成する方法を模索している．
