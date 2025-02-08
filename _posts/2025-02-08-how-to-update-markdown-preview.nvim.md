@@ -103,8 +103,9 @@ wget https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
 リポジトリを fork してそれを使う方法を提示します．
 
 Step 1.
-`markdown-preview.nvim` を Fork する．
-参考までに私が Fork したものは以下にあります：
+[markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
+を Fork する．
+ご参考までに私が Fork したものは以下にあります：
 [https://github.com/sano-jin/markdown-preview.nvim](https://github.com/sano-jin/markdown-preview.nvim)
 
 Step 2.
