@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Eisvogel/Pandoc + Mermaid で日本語の PDF を作る
+title: Eisvogel/Pandoc + Mermaid で markdown から日本語の PDF を作る
 author: sano
-excerpt: Creating a japanese PDF document with Eisvogel/Pandoc + Mermaid.js
+excerpt: Creating a japanese PDF document from markdown with Eisvogel/Pandoc + Mermaid.js
 tags: memo
 category: memo
 assets: /assets/2025-02-08-creating-a-japanese-pdf-document-with-eisvogel-pandoc-+-mermaid.js/
