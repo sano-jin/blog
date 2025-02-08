@@ -23,41 +23,22 @@ concurrency:
 
 jobs:
   # Build job
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-  
-        - name: Setup Ruby
-          uses: ruby/setup-ruby@v1
-          with:
-            ruby-version: '3.1'
-            bundler-cache: true
-  
-        - name: Install Dependencies
-          run: bundle install
-  
-        - name: Build Jekyll site
-          run: bundle exec jekyll build --destination ./_site
-  
-        - name: Upload artifact
-          uses: actions/upload-pages-artifact@v3
-            # build:
-            #   runs-on: ubuntu-latest
-            #   steps:
-            #     - name: Checkout
-            #       uses: actions/checkout@v4
-            #     - name: Setup Pages
-            #       uses: actions/configure-pages@v5
-            #     - name: Build with Jekyll
-            #       uses: actions/jekyll-build-pages@v1
-            #       with:
-            #         source: ./
-            #         destination: ./_site
-            #     - name: Upload artifact
-            #       uses: actions/upload-pages-artifact@v3
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+      - name: Install Dependencies
+        run: bundle install
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --destination ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
   # Deployment job
   deploy:
@@ -70,3 +51,21 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+
+
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v4
+#      - name: Setup Pages
+#        uses: actions/configure-pages@v5
+#      - name: Build with Jekyll
+#        uses: actions/jekyll-build-pages@v1
+#        with:
+#          source: ./
+#          destination: ./_site
+#      - name: Upload artifact
+#        uses: actions/upload-pages-artifact@v3
+#
