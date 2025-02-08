@@ -12,8 +12,9 @@ assets: /assets/2025-02-08-creating-a-japanese-pdf-document-with-eisvogel-pandoc
 
 Markdown から PDF を生成する方法を模索している．
 色々な選択肢があるが，
-[Pandoc](https://pandoc.org/) を使って LaTeX を経由して PDF を生成する方法が
-一般的であり，かつ柔軟性も高いようだ．
+[Pandoc](https://pandoc.org/) を使って
+LaTeX を経由して PDF を生成する方法が一般的であり，
+かつ柔軟性も高いようだ．
 
 本稿では `Pandoc` を用いた私の PDF ドキュメント作成手法の暫定版を紹介する．
 
