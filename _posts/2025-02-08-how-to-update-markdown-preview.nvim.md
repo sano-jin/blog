@@ -12,7 +12,7 @@ assets: /assets/2025-02-08-how-to-update-markdown-preview.nvim/
 ---
 
 (Neo)vim で markdown をプレビューする際に便利なのが，
-[`markdown-preview.nvim`](https://github.com/iamcco/markdown-preview.nvim) です．
+[markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) です．
 リアルタイムで markdown を HTML に変換し，ブラウザでプレビューできるため，
 技術ドキュメントの執筆やブログの下書きなどに重宝します．
 
