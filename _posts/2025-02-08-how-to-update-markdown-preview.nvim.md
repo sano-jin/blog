@@ -43,7 +43,8 @@ assets: /assets/2025-02-08-how-to-update-markdown-preview.nvim/
 
 # 手動ビルドを試みるも失敗
 
-最初に試したのは，公式リポジトリから `Mermaid` のソースコードを取得し，
+`Mermaid` の最新版の JavaScript コードを得るために私が最初に試したのは，
+公式リポジトリから `Mermaid` のソースコードを取得し，
 手動でビルドする方法でした．
 
 ```bash
@@ -53,7 +54,7 @@ npm install .
 npm run build
 ```
 
-しかし，`npm install .` の段階で以下のようなエラーが発生しました．
+しかし，残念なことに `npm install .` の段階で以下のようなエラーが発生しました．
 
 ```bash
 npm error code ERESOLVE
@@ -73,10 +74,10 @@ npm error peer cypress@"^4.5.0" from cypress-image-snapshot@4.0.1
 
 # 解決策：CDN から `mermaid.min.js` を取得する
 
-手動ビルドがうまくいかないので，別の方法として `mermaid` の JavaScript コードを
+手動ビルドがうまくいかないので，別の方法として `Mermaid` の JavaScript コードを
 **CDN から直接ダウンロードする** 方法を選びました．
 
-`mermaid` は[オンラインで CDN を介して使用可能](https://mermaid.js.org/config/usage.html)です．
+`Mermaid` は[オンラインで CDN を介して使用可能](https://mermaid.js.org/config/usage.html)です．
 つまり，最新の `mermaid.min.js` を直接取得できるということです．
 
 以下のコマンドで最新版をダウンロードできます．
@@ -130,7 +131,7 @@ Step 3.
 ```
 
 おっと最後に……，
-(Neo)vim で Lazy を使ってパッケージを管理している場合は，
+(Neo)vim で `Lazy` を使ってパッケージを管理している場合は，
 `:Lazy update` を忘れずに．
 
 ```
