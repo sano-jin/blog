@@ -87,7 +87,7 @@ wget https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
 ```
 
 ダウンロードした `mermaid.min.js` を
-[`app/_static/mermaid.min.js`](https://github.com/iamcco/markdown-preview.nvim/tree/master/app/_static/mermaid.min.js)
+[app/\_static/mermaid.min.js](https://github.com/iamcco/markdown-preview.nvim/tree/master/app/_static/mermaid.min.js)
 に上書きすれば，`markdown-preview.nvim` で最新版の `Mermaid` を利用できるようになります．
 
 恐らくこれが一番手っ取り早いでしょう．
