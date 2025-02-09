@@ -116,7 +116,7 @@ Step 2.
 git clone git@github.com:your-github-username/markdown-preview.nvim.git
 cd markdown-preview.nvim/app/_static/
 wget https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
-git add --all && git commit -m updated & git push
+git add --all && git commit -m updated && git push
 ```
 
 Step 3.
