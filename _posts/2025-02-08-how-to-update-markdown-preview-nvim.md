@@ -7,8 +7,8 @@ excerpt: Updating the mermaid version of markdown-preview.nvim
 tags: memo
 category: memo
 assets: /assets/2025-02-08-how-to-update-markdown-preview-nvim/
-# extra-classname: frame-image
-# image: assets/2025-02-08-how-to-update-markdown-preview-nvim/front.png
+extra-classname: frame-image
+image: assets/2025-02-08-how-to-update-markdown-preview-nvim/front.png
 ---
 
 (Neo)vim で markdown を編集する際に便利なのが，
