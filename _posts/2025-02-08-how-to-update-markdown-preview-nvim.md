@@ -34,11 +34,11 @@ image: assets/2025-02-08-how-to-update-markdown-preview-nvim/front.png
 結論から言うと，
 `markdown-preview.nvim` の
 `Mermaid` の JavaScript コードは
-[`app/_static`](https://github.com/iamcco/markdown-preview.nvim/tree/master/app/_static)
+[app/\_static](https://github.com/iamcco/markdown-preview.nvim/tree/master/app/_static)
 に格納されているようです．
 
 この中に
-[`mermaid.min.js`](https://github.com/iamcco/markdown-preview.nvim/blob/master/app/_static/mermaid.min.js)
+[mermaid.min.js](https://github.com/iamcco/markdown-preview.nvim/blob/master/app/_static/mermaid.min.js)
 があるので，これを最新版に置き換えれば `mermaid@11` が利用可能になります．
 
 # 手動ビルドを試みるも失敗
@@ -109,7 +109,8 @@ Step 1.
 [https://github.com/sano-jin/markdown-preview.nvim](https://github.com/sano-jin/markdown-preview.nvim)
 
 Step 2.
-`app/_static/mermaid.min.js` を最新化する．
+[app/\_static/mermaid.min.js](https://github.com/iamcco/markdown-preview.nvim/tree/master/app/_static/mermaid.min.js)
+を最新化する．
 
 ```bash
 git clone git@github.com:your-github-username/markdown-preview.nvim.git
