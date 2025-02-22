@@ -36,11 +36,12 @@ const addHeadingLinks = () => {
     linkIcon.setAttribute("href", `#${heading.id}`); // 5
     linkIcon.setAttribute("class", "heading-link"); // 5
     linkIcon.innerText = linkContent;
-    // linkIcon.innerHTML = linkContent + heading.innerHTML; // 6
-    // heading.childNodes[0].replaceWith(linkIcon);
     heading.insertBefore(linkIcon, heading.firstChild);
 
-    // heading.appendChild(linkIcon); // 7
+    linkIcon.addEventListener("click", () => {
+      const url = `${location.href}#${heading.id}`;
+      window.navigator.clipboard.writeText(url);
+    });
   }
 };
 

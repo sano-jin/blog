@@ -83,6 +83,29 @@
   }
 }
 
+h2,
+h3 {
+  position: relative;
+  a.heading-link {
+    text-decoration: none;
+    opacity: 0;
+    left: -20px;
+    position: absolute;
+  }
+  @media screen and (max-width: $on-large) {
+    a.heading-link {
+      display: none;
+    }
+  }
+}
+
+h2:hover,
+h3:hover {
+  a.heading-link {
+    opacity: 1;
+  }
+}
+
 .content {
   padding-bottom: $spacing-unit;
   .frame-image {
@@ -111,29 +134,6 @@
     h2,
     h3 {
       border-bottom: 1px solid $border-color-03;
-      position: relative;
-      a.heading-link {
-        text-decoration: none;
-        opacity: 0;
-        left: -20px;
-        position: absolute;
-      }
-    }
-
-    h2:hover,
-    h3:hover {
-      a.heading-link {
-        opacity: 1;
-      }
-    }
-
-    @media screen and (max-width: $on-large) {
-      h2,
-      h3 {
-        a.heading-link {
-          display: none;
-        }
-      }
     }
   }
 
