@@ -52,9 +52,9 @@ image: assets/2025-02-24-towards-adding-highs-support-to-ocaml-lp/front.png
 HiGHS は OSS の MILP ソルバの中ではかなり性能が高いらしい※．
 ※ 本当かどうかは知らない．
 
-現在は PuLP / Python を介して HiGHS を使っているが，
-OCaml から使えるようにするために，
-ocaml-lp に HiGHS を使えるようにするための追加実装を行った．
+現在私は PuLP / Python を介して HiGHS を使っているのだが，
+OCaml から HiGHS を使えるようにするために，
+ocaml-lp に HiGHS のための追加実装を行った．
 
 追加実装したコードはせいぜい 100 行程度で済んだ．
 途中経過はこんな感じ．
