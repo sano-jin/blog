@@ -14,7 +14,7 @@ image: assets/2025-02-24-towards-adding-highs-support-to-ocaml-lp/front.png
 数理最適化ソルバの利用方法はいくつかあるが，
 恐らく一番障壁が低いのは [PuLP](https://coin-or.github.io/pulp/) / Python だろう．
 個人的にとても尊敬している方が作っている [flopt](https://github.com/nariaki3551/flopt)
-というものもおすすめしておく．
+というものも強くおすすめしておく．
 
 ただ，個人的には，できれば（こっそり）OCaml などの言語を使いたい．
 そのために，OCaml からソルバを使うためのフレームワークを探していた．
