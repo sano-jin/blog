@@ -160,7 +160,7 @@ $x = 0, y = 1.2$ で最適になるということが分かった．
 
 # その他のサンプル
 
-現在 [test/glpk](https://github.com/ktahar/ocaml-lp/tree/master/test)
+現在 [test/lp-glpk](https://github.com/ktahar/ocaml-lp/tree/master/test/lp-glpk)
 にかなり良い例題がいくつかあるので，
 参考になるだろう．
 
