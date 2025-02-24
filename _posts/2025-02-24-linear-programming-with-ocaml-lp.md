@@ -119,9 +119,9 @@ ocamlfind ocamlopt -package lp,lp-glpk -linkpkg -o main main.ml
 ./main
 ```
 
-`write ()` は `my_problem.lp` という CPLEX-LP ファイルを作る．
+`write ()` は `my_problem.lp` という CPLEX LP ファイルを作る．
 
-この CPLEX-LP ファイルは以下のようになる：
+この CPLEX LP ファイルは以下のようになる：
 
 ```
 maximize
@@ -135,10 +135,10 @@ end
 ちなみにこの `write ()` か，それに相当する処理を事前に行わないと，
 `solve ()` ができない．．．
 ということは全くない．
-`write ()` を先にしているのは，単に CPLEX-LP ファイル生成の説明のため．
+`write ()` を先にしているのは，単に CPLEX LP ファイル生成の説明のため．
 `write ()` せずに直接 `solve ()` しても全く問題ない．
 
-CPLEX-LP ファイルの生成が終わった後，
+CPLEX LP ファイルの生成が終わった後，
 サンプルプログラムでは `solve ()` で GLPK というソルバを用いてこの最適化問題を解く．
 
 実行結果の標準出力は以下のようになる．
