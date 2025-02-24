@@ -148,7 +148,7 @@ let solve ?highs_path ?(options = []) problem =
 ```
 
 ちなみに [flopt](https://github.com/nariaki3551/flopt)
-作者に助けてもらったのは秘密．
+作者様に助けてもらったのは秘密．
 
 # しかし，テストケースに少々問題があった
 
