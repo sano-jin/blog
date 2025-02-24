@@ -111,7 +111,6 @@ let write_options filepath options =
     |> String.concat "\n"
   in
   Printf.fprintf oc "%s\n" options ;
-  (* write something *)
   close_out oc
 
 (* Run HiGHS and obtain the output solution.
