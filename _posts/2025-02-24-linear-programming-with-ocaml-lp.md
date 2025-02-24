@@ -133,16 +133,22 @@ subject to
 end
 ```
 
-ちなみにこの `write ()` か，それに相当する処理を事前に行わないと，
-`solve ()` ができない．．．
-ということは全くない．
-`write ()` を先にしているのは，単に CPLEX LP ファイル生成の説明のため．
-`write ()` せずに直接 `solve ()` しても全く問題ない．
+ocaml-lp が native サポートしていないソルバも，
+この CPLEX LP ファイルを入力として与えてやることで，
+動かすことができる（ことがある）．
+例えは [HiGHS](https://github.com/ERGO-Code/HiGHS) とか
+（[参考：ocaml-lp の HiGHS 対応に向けて](/blog/2025/02/24/towards-adding-highs-support-to-ocaml-lp.html)）．
 
 CPLEX LP ファイルの生成が終わった後，
 サンプルプログラムでは `solve ()` で
 [GLPK (GNU Linear Programming Kit)](https://www.gnu.org/software/glpk/)
 というソルバを用いてこの最適化問題を解く．
+
+ちなみに前述の `write ()` か，それに相当する処理を事前に行わないと，
+この後に `solve ()` ができない．．．
+ということは全くない．
+`write ()` を先にしているのは，単に CPLEX LP ファイル生成の説明のため．
+`write ()` せずに直接 `solve ()` しても全く問題ない．
 
 実行結果の標準出力は以下のようになる．
 
