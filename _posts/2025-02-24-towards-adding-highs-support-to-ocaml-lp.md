@@ -262,7 +262,7 @@ ocaml-lp では 8-Queens 問題などをテストに使っているが，
    Hans D Mittelmann
    - <https://plato.asu.edu/talks/>
    - 上記スライド等へのリンクが貼ってある．
-   - INFOEMS という会議でほぼ毎年ソルバのベンチマーク結果を講演されているよう．
+   - INFORMS という会議でほぼ毎年ソルバのベンチマーク結果を講演されているよう．
    - しかし 2023, 2024 年などの最新年では GLPK はテスト結果に含まれていない．
 6. A benchmark of optimization solvers for genome-scale metabolic modeling of organisms and communities
    - <https://journals.asm.org/doi/10.1128/msystems.00833-23>
