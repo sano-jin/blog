@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SATySFi で図をページ下部に配置するパッケージを開発した
+title: SATySFi で図をページ下部に配置するパッケージを開発しました
 excerpt: I created a package to allow SATySFi to have floating boxes at the bottom of pages.
 tags: satysfi
 category: SATySFi
