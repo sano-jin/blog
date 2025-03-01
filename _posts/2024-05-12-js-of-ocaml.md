@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 【初心者向け】js_of_ocaml を用いた OCaml コードでの DOM 操作の解説
+title: "OCaml での HTML DOM 操作解説"
 author: sano
 tags: ocaml
 category: OCaml
