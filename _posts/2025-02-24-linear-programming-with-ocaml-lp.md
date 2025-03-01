@@ -67,10 +67,10 @@ export LD_LIBRARY_PATH="/opt/homebrew/lib:$LD_LIBRARY_PATH"
 ocaml-lp を使って，
 
 $$
-\begin{align*}
-x + 1.2y & \leq 5 \\
-2x + y   & \leq 1.2
-\end{align*}
+\begin{gather*}
+x  & + & 1.2y & \leq & 5 \\
+2x & + & y    & \leq & 1.2
+\end{gather*}
 $$
 
 の下で
