@@ -282,3 +282,8 @@ ocaml-lp では 8-Queens 問題などをテストに使っているが，
    - このベンチマークでは，
      ALGLIB, HiGHS, CLP が最速で，
      GLPK はその約 2 倍程度時間がかかるという結果になった．
+8. [Quora] How bad is the performance of GLPK on linear programming?
+   - <https://www.quora.com/How-bad-is-the-performance-of-GLPK-on-linear-programming>
+   - GLPK の性能は一般的に高くはないが，
+     free で多くの場合実用に足るから良く見かけるのでは，
+     と考察している．
