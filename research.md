@@ -6,16 +6,7 @@ layout: page
 I am interested in the design and implementation of programming languages.
 Currently, I am creating a new language named \\(\lambda\_{GT}\\).
 
-Here is a list of topics that I am into.
-
-- Functional language
-- Type system
-- Software verification
-- Graph transformation
-
 # \\(\lambda\_{GT}\\): A purely functional language that can handle graphs as first-class data
-
-![graphs](materials/graphs-image.svg)
 
 Graphs are a generalized concept that encompasses more complex data structures than trees,
 such as difference lists, doubly-linked lists, skip lists, and leaf-linked trees.
