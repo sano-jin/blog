@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HTML 上で bussproofs スタイルの証明木をレンダリングできるツールを作った
+title: HTML 上で bussproofs スタイルの証明木をレンダリングできるツールを実装した
 excerpt: I created a bussproofs style proof tree renderer for HTML.
 tags: math
 category: Math
