@@ -34,10 +34,11 @@ image: assets/2025-02-24-towards-adding-highs-support-to-ocaml-lp/front.png
   - ただし，
     商用ツールとかと比較すると，
     問題によってはちょっと遅い場合もあるかも？という理解※．
-    ※ ベンチマークを見たり，
-    自分でちゃんと測定したわけではないので，
-    正確なことは分からない．
-    せっかくなので，そのうち手元でもプロファイリングしつつ，調べようかな．
+    - ※ ベンチマークを見たり，
+      自分でちゃんと測定したわけではないので，
+      正確なことは分からない．
+      せっかくなので，そのうち手元でもプロファイリングしつつ，調べようかな．
+    - 2025.03.01 追記：[参考：GLPK を含む数理最適化ソルバのベンチマーク](#参考glpk-を含む数理最適化ソルバのベンチマーク)．
 - [Gurobi](https://www.gurobi.com/):
   - なんか凄そうな感じはするし，
     実際凄いらしい．
@@ -233,3 +234,51 @@ ocaml-lp では 8-Queens 問題などをテストに使っているが，
 プログラミング言語やソフトウェア開発の分野ではなく，
 どちらかというと材料系の研究をされているようなので，
 まぁ接点はなさそう．
+
+# 参考：GLPK を含む数理最適化ソルバのベンチマーク
+
+1. GLPK/Reviews and benchmarks, WIKIBOOKS.
+   - <https://en.wikibooks.org/wiki/GLPK/Reviews_and_benchmarks>
+   - GLPK 周辺のベンチマーク等はこのページが参考になりそう．
+2. Benchmarks for Optimization Software
+   By Hans Mittelmann (mittelmann at asu.edu)
+   - <https://plato.asu.edu/bench.html>
+   - かなり充実したベンチマークのようだが，
+     テストしたソルバの中に GLPK がない（ことが多い？）．
+   - GLPK は競合できていないということなのか，
+     あるいは別に事情があるのか，
+     よく分からない．
+3. Visualizations of Mittelmann benchmarks
+   - <https://mattmilten.github.io/mittelmann-plots/>
+   - 上記 Hans Mittelmann のベンチマークを可視化したページのよう．
+4. [スライド] Latest Benchmark Results,
+   INFORMS Annual Conference,
+   24-27 Oct 2021,
+   H. D. Mittelmann
+   - <https://plato.asu.edu/talks/informs2021.pdf>
+   - 上記 Hans Mittlemann 先生の講演のスライド
+   - GLPK もテストされているが，やはり商用のソルバや HiGHS などの方が速い．
+5. Selected talks on interdiscplinary research and our services,
+   Hans D Mittelmann
+   - <https://plato.asu.edu/talks/>
+   - 上記スライド等へのリンクが貼ってある．
+   - INFOEMS という会議でほぼ毎年ソルバのベンチマーク結果を講演されているよう．
+   - しかし 2023, 2024 年などの最新年では GLPK はテスト結果に含まれていない．
+6. A benchmark of optimization solvers for genome-scale metabolic modeling of organisms and communities
+   - <https://journals.asm.org/doi/10.1128/msystems.00833-23>
+   - 2 つの商用ソルバを含む 6 個のソルバのベンチマークをしている．
+   - いくつかグラフをざっと見た感じだと，やはり gurobi が最速で，HiGHS もそれに迫るくらい．
+     GLPK も HiGHS 並な場合もあるけど，
+     HiGHS の方が速いし，その差がかなり大きい場合もある．
+7. Benchmarking ALGLIB and other LP solvers, ALGLIB.
+   - <https://www.alglib.net/linear-programming/benchmark.php>
+   - NETLIB test suite の 90 個の問題を用いて，
+     ALGLIB interior point method (version 4.0.0),
+     HiGHS (version 1.5),
+     CLP solver (COIN-OR LP, version 1.17),
+     GLPK (GNU Linear Programming Kit, version 5.0),
+     lp_solve (version 5.5)
+     を比較．
+   - このベンチマークでは，
+     ALGLIB, HiGHS, CLP が最速で，
+     GLPK はその約 2 倍程度時間がかかるという結果になった．

@@ -42,7 +42,7 @@ opam install lp lp-glpk
 ```
 
 ここで，`opam install lp-glpk` において，
-私の手元では
+私の手元 (M2 MacBook) では
 `fatal error: 'glpk.h' file not found`
 というエラーが出た．
 
