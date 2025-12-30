@@ -30,6 +30,10 @@ about_author: about_author
 kramdown:
   math_engine: katex
 
+gems: [jekyll-mermaid]
+mermaid:
+  src: 'assets/mermaid.js'
+
 exclude:
   - .sass-cache/
   - .jekyll-cache/
