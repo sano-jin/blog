@@ -348,7 +348,7 @@ graph LR
 
 $\lambda_{GT}$ では，例えばこのようなデータ構造を扱うことができる．
 
-![](/assets/2025-12-30-about-the-lambda-gt-language/image0.png)
+![](./assets/2025-12-30-about-the-lambda-gt-language/image0.png)
 
 ---
 

@@ -31,13 +31,7 @@ The λGT Language．
 
 まずは一番簡単なデータ構造の例として，「リスト」について考える．
 
-```mermaid
-graph LR
-  Head[Head] --> N1["1 | next"]
-  N1 --> N2["2 | next"]
-  N2 --> N3["3 | next"]
-  N3 --> Null[Null]
-```
+![diagram](./2025-12-30-about-the-lambda-gt-language2-1.svg)
 
 ---
 
@@ -174,83 +168,15 @@ let rec f xs = match xs with
 
 例えば双方向連結リストとか，かなりよく使われる．
 
-```mermaid
-graph LR
-  Hd[Head]
-  N1["prev | 1 | next"]
-  N2["prev | 2 | next"]
-  N3["prev | 3 | next"]
-  Ed["End"]
-
-  Hd --> N1
-  N1 --> N2
-  N2 --> N3
-  N3 --> Ed
-
-  N1 --> Hd
-  N2 --> N1
-  N3 --> N2
-  Ed --> N3
-```
+![diagram](./2025-12-30-about-the-lambda-gt-language2-2.svg)
 
 他にもスキップリストや
 
-```mermaid
-graph LR
-  Hd[Head]
-  N1["1 | next | next"]
-  N2["2 | next"]
-  N3["3 | next | next"]
-  N4["4 | next"]
-  N5["5 | next"]
-  N6["6 | next"]
-  Ed["End"]
-
-  Hd --> N1
-  N1 --> N2
-  N1 --> N3
-  N2 --> N3
-  N3 --> N4
-  N3 --> N6
-  N4 --> N5
-  N5 --> N6
-  N6 --> Ed
-```
+![diagram](./2025-12-30-about-the-lambda-gt-language2-3.svg)
 
 葉が接続されたツリーなど，
 
-```mermaid
-graph LR
-  Hd[Head]
-  N1["Node1"]
-  N2["Node2"]
-  N3["Node3"]
-  N4["Node4"]
-
-  Hd --> N1
-  N1 --> N2
-  N1 --> N3
-  N3 --> N4
-
-  Left
-  Right
-
-  Left --> L1
-  L1 --> L2
-  L2 --> L3
-  L3 --> L4
-  L4 --> Right
-
-  N2 --> L1
-  N4 --> L2
-  N4 --> L3
-  N3 --> L4
-
-  L1["Leaf | 1"]
-  L2["Leaf | 2"]
-  L3["Leaf | 3"]
-  L4["Leaf | 4"]
-```
+![diagram](./2025-12-30-about-the-lambda-gt-language2-4.svg)
 
 色んなデータ構造があり得る．
 
@@ -283,24 +209,7 @@ typedef struct Node {
 「`prev` が一つ前のノードではなく，自分自身を参照してしまっている」
 などのバグがあっても既存の型チェックでは発見できない．
 
-```mermaid
-graph LR
-  Hd[Head]
-  N1["prev | 1 | next"]
-  N2["prev | 2 | next"]
-  N3["prev | 3 | next"]
-  Ed["End"]
-
-  Hd --> N1
-  N1 --> N2
-  N2 --> N3
-  N3 --> Ed
-
-  N1 --> Hd
-  N2 --> N2
-  N3 --> N2
-  Ed --> N3
-```
+![diagram](./2025-12-30-about-the-lambda-gt-language2-5.svg)
 
 上記のようになっていると，
 「`prev` を辿って先頭の要素まで逆順に取得していこうとした際に無限ループする」
@@ -348,7 +257,7 @@ graph LR
 
 $\lambda_{GT}$ では，例えばこのようなデータ構造を扱うことができる．
 
-![](/assets/2025-12-30-about-the-lambda-gt-language/image0.png)
+![](./assets/2025-12-30-about-the-lambda-gt-language/image0.png)
 
 ---
 
