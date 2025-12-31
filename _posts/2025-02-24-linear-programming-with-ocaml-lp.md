@@ -1,6 +1,7 @@
 ---
 layout: post
-title: ocaml-lp を用いた数理最適化
+title: |
+  ocaml-lp を用いた数理最適化
 author: sano
 excerpt: Linear Programming with ocaml-lp
 tags: memo
