@@ -3,11 +3,11 @@
  */
 .paginate-list {
   margin-top: 0;
-  margin-bottom: $spacing-unit * 2;
+  margin-bottom: calc($spacing-unit * 2);
   display: flex;
   flex-wrap: wrap;
   border-radius: 6px;
-  gap: ($spacing-unit * 1.5) $spacing-unit;
+  gap: calc($spacing-unit * 1.5) $spacing-unit;
 }
 
 .paginate-item {
@@ -18,12 +18,12 @@
   width: 100%;
 
   @media screen and (min-width: $on-large) {
-    width: $content-width / 2 - $spacing-unit * 1.5;
+    width: calc($content-width / 2 - $spacing-unit * 1.5);
   }
 
   @media screen and (min-width: $on-laptop) and (max-width: $on-large) {
     // width: $content-width-on-palm / 2 - $spacing-unit * 1.5;
-    width: $content-width / 2 - $spacing-unit * 1.5;
+    width: calc($content-width / 2 - $spacing-unit * 1.5);
   }
 
   .paginate-item-header {
@@ -39,7 +39,7 @@
       color: $nord5;
       overflow-x: hidden;
       overflow-y: hidden;
-      width: calc(100% - #{$spacing-unit / 4});
+      width: calc(100% - calc($spacing-unit / 4));
       padding: 0;
       margin: 0;
     }
@@ -51,7 +51,7 @@
       font-size: 600%;
       overflow-x: hidden;
       overflow-y: hidden;
-      width: calc(100% - #{$spacing-unit / 2});
+      width: calc(100% - calc($spacing-unit / 2));
 
       // text-transform: capitalize;
       letter-spacing: -10px;
@@ -64,7 +64,7 @@
     border-radius: 6px 6px 0 0;
     height: 100px;
     margin: 0px;
-    padding: $spacing-unit / 2;
+    padding: calc($spacing-unit / 2);
     padding-top: $spacing-unit;
     overflow-y: hidden;
 
@@ -77,8 +77,8 @@
       margin-top: 0;
     }
 
-    padding: $spacing-unit / 2;
-    padding-bottom: $spacing-unit / 1.5;
+    padding: calc($spacing-unit / 2);
+    padding-bottom: calc($spacing-unit / 1.5);
   }
 
   &:hover {

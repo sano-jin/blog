@@ -154,8 +154,8 @@ a.category {
 
 .blogtop-tags-list {
   // padding: 10px 0;
-  margin: ($spacing-unit / 2) 0;
-  padding: ($spacing-unit / 2) 0;
+  margin: calc($spacing-unit / 2) 0;
+  padding: calc($spacing-unit / 2) 0;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;

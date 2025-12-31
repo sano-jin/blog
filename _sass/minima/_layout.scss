@@ -66,10 +66,10 @@
   border-top: 4px solid $brand-color-light-03;
 
   // border-top: 4px solid $brand-color-light-03;
-  margin-bottom: $spacing-unit * 2;
+  margin-bottom: calc($spacing-unit * 2);
 
   > p:first-child {
-    margin-top: $spacing-unit / 2;
+    margin-top: calc($spacing-unit / 2);
   }
 
   > ul:first-child,
@@ -126,8 +126,8 @@ h3:hover {
   h4,
   h5,
   h6 {
-    margin-top: $spacing-unit * 2;
-    margin-bottom: $spacing-unit / 2;
+    margin-top: calc($spacing-unit * 2);
+    margin-bottom: calc($spacing-unit / 2);
   }
 
   .post-content {
@@ -171,7 +171,7 @@ h3:hover {
  */
 @media screen and (min-width: $on-large) {
   .one-half {
-    width: calc(50% - (#{$spacing-unit} / 2));
+    width: calc(50% - calc(#{$spacing-unit} / 2));
   }
 }
 
@@ -181,7 +181,7 @@ h3:hover {
 }
 
 .prev-and-next {
-  padding: ($spacing-unit / 2) 0 0;
+  padding: calc($spacing-unit / 2) 0 0;
   width: 100%;
   display: flex;
   border-top: 1px solid $border-color-01;
@@ -198,8 +198,8 @@ h3:hover {
 
   > div {
     margin: 0 auto;
-    width: calc(49% - (#{$spacing-unit} * 2));
-    padding: 0 ($spacing-unit / 2);
+    width: calc(49% - calc(#{$spacing-unit} * 2));
+    padding: 0 calc($spacing-unit / 2);
 
     @include media-query($on-palm) {
       width: calc(49% - 20px);

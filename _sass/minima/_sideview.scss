@@ -6,11 +6,11 @@
 }
 
 .content .post-header {
-    margin-top: $spacing-unit / 2;
+    margin-top: calc($spacing-unit / 2);
 }
 
 .content .post-title {
-    margin-top: $spacing-unit / 2;
+    margin-top: calc($spacing-unit / 2);
 }
 
 @media screen and (min-width: $on-medium) {
@@ -27,7 +27,7 @@
 
 @media screen and (min-width: $on-large) {
     .content .post-header {
-        margin-top: $spacing-unit * 1.5;
+        margin-top: calc($spacing-unit * 1.5);
     }
 
     .footer-col-1 {
@@ -55,14 +55,14 @@
         flex: 1;
         border-right: 1px solid $border-color-01;
         width: $content-width;
-        padding-right: $spacing-unit * 2;
+        padding-right: calc($spacing-unit * 2);
     }
 
     .posts {
         margin-top: $spacing-unit;
         padding-bottom: $spacing-unit;
         width: $sideview-width;
-        padding-left: $spacing-unit * 2;
+        padding-left: calc($spacing-unit * 2);
     }
 
     .site-sideview {

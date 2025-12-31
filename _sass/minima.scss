@@ -11,7 +11,7 @@ $base-font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI"
 
 $base-font-size: 16px !default;
 $base-font-weight: 400 !default;
-$small-font-size: $base-font-size * 0.875 !default;
+$small-font-size: calc($base-font-size * 0.875) !default;
 $base-line-height: 1.8 !default;
 $spacing-unit: 30px !default;
 
@@ -83,7 +83,7 @@ $on-laptop: 800px !default;
 $on-medium: $on-palm !default;
 
 // $on-large: $on-laptop !default;
-$on-large: $content-width + $sideview-width + $spacing-unit * 5 !default;
+$on-large: calc($content-width + $sideview-width + $spacing-unit * 5) !default;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -99,7 +99,7 @@ $on-large: $content-width + $sideview-width + $spacing-unit * 5 !default;
 }
 
 @mixin relative-font-size($ratio) {
-  font-size: $base-font-size * $ratio;
+  font-size: calc($base-font-size * $ratio);
 }
 
 // source code
