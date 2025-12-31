@@ -4,6 +4,15 @@
 <div class="paginate-list">
   {% for post in paginator.posts %} {% if post.hide != true %}
   <div class="paginate-item">
+    {%- if post.image != nil -%}
+    <div class="paginate-item-header" 
+         style=
+	"background-image: url({{ site.baseurl }}/{{ post.image }});
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-position: center;">
+    </div>
+    {%- else -%}
     <div class="paginate-item-header">
       <!--
       {{ post.categories[0] | split: ", " | replace: "-", " " | capitalize }}
@@ -17,6 +26,7 @@
         {% endfor %}
       </div>
     </div>
+    {%- endif -%}
     <div class="paginate-item-body">
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
 

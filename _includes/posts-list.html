@@ -6,6 +6,15 @@
   {%- for post in site.posts limit:site.pagination.per_page -%} {% if post.hide
   != true then %}
   <div class="paginate-item">
+    {%- if post.image != "" -%}
+    <div class="paginate-item-header" 
+         style=
+	"background-image: url({{ site.baseurl }}/{{ post.image }});
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-position: center;">
+    </div>
+    {%- else -%}
     <div class="paginate-item-header">
       {% assign splitted_category = post.categories[0] | split: " " %}
 
@@ -16,6 +25,7 @@
         {% endfor %}
       </div>
     </div>
+    {%- endif -%}
 
     <div class="paginate-item-body">
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>

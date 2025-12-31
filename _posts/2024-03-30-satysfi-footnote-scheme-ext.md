@@ -181,7 +181,7 @@ top/bottom の指定ができるようにしたい場合は以下のようにす
    ```
 
    こうすることで，
-   `` \figure ?:(`label`) ?:(FloatPosBottom) {This is a caption} <...> ``
+   ``\figure ?:(`label`) ?:(FloatPosBottom) {This is a caption} <...>``
    のようにしてページ下部に図を挿入できるようになる．
 
 7. ユーザに `FloatPosBottom` などのように書かせるのが手間なら，
@@ -203,7 +203,7 @@ top/bottom の指定ができるようにしたい場合は以下のようにす
    ```
 
    こうしてやると，
-   `` \figure ?:(`label`) ?:(b) {This is a caption} <...> ``
+   ``\figure ?:(`label`) ?:(b) {This is a caption} <...>``
    のように `\figure` コマンドを使うことができる．
 
 これらの改造を施した stdjareport.satyh が，
