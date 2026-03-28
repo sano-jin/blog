@@ -12,11 +12,13 @@ image: assets/2026-03-28-what-i-learned-from-my-isabellehol-formalisation/front.
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ダメだマニュアル見ても何もわからん．．． <a href="https://t.co/XD4LwjxgCY">pic.twitter.com/XD4LwjxgCY</a></p>&mdash; sano (@sano_jn) <a href="https://twitter.com/sano_jn/status/1649710023289999360?ref_src=twsrc%5Etfw">April 22, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-3 年越しの答え合わせとして．
+（上記は3年前くらいのもの）
+
+半年くらい藻搔いた結果の答え合わせとして．
 
 新しいことをしようとしている際は，
-多少冗長になるとしてもコアの機能のみを素直に利用して，
-出来るだけ過度な一般化は避け，外部依存は減らした方が，
+出来るだけ過度な一般化は避け，
+多少冗長になるとしてもコアの機能のみを素直に利用して外部依存は減らした方が，
 結果的には近道になる（場合がある）ことがわかった．
 
 ---
