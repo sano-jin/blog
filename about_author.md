@@ -16,7 +16,7 @@ I might not respond that fast, though 🙂.
 
 # Career and Publications
 
-See <https://www.ueda.info.waseda.ac.jp/~sano/>.
+See <https://sano-jin.github.io/sano-jin>.
 
 # Software
 
