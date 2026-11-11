@@ -4,7 +4,7 @@ layout: page
 ---
 
 I am interested in the design and implementation of programming languages.
-Currently, I am creating a new language named \\(\lambda\_{GT}\\).
+Currently, I am creating a new language named \\(\lambda\_{GT}\\) (Lambda-GT).
 
 # \\(\lambda\_{GT}\\): A purely functional language that can handle graphs as first-class data
 
